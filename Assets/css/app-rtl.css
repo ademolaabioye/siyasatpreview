@@ -878,6 +878,9 @@ h2.doha_summary__title {
 .doha_lightbox-caption:empty {
     display: none;
 }
+.doha_citation-mobile {
+    font-size: 14px;
+}
 
 /* ================================
    Responsive Styles
