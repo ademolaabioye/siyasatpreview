@@ -144,7 +144,7 @@ h2.doha_summary__title {
     width: 50%;
 }
 .doha_article-content {
-    padding: 30px;
+    padding: 25px;
     background-color: #f8f8f8;
 }
 .doha_article-body > *:first-child {
@@ -893,7 +893,7 @@ h2.doha_summary__title {
 
     /* Article Content */
     .doha_article-content {
-        padding: 25px;
+        padding: 20px;
     }
 
     /* Article Figure */
