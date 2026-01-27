@@ -473,7 +473,7 @@ h2.doha_summary__title {
 /* Body - hidden by default, jQuery handles animation */
 .doha_previous-issues__body {
     display: none;
-    padding: 0 25px 25px;
+    padding: 20px 25px 25px;
     overflow: hidden;
 }
 
@@ -1074,7 +1074,7 @@ h2.doha_summary__title {
     }
 
     .doha_previous-issues__body {
-        padding: 0 15px 15px;
+        padding: 10px 15px 15px;
     }
 
     .doha_previous-issues__nav {
