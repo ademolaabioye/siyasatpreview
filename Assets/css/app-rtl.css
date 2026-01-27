@@ -954,7 +954,9 @@ h2.doha_summary__title {
    Mobile (max-width: 767px)
    -------------------------------- */
 @media (max-width: 767px) {
-
+.doha_article-date, .doha_article__author, .doha_article__translator {
+    font-size: 14px;
+}
 #receive-date, #accept-date  {
     text-align: center;
 }
