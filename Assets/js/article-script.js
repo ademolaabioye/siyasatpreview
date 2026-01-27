@@ -29,61 +29,49 @@ $(window).on('load', function() {
     var $headings = $('.doha_article-body h2');
     var $sidebar = $('.sidebar');
     var $stopElement = $('.doha_article-bottom');
-    var tocTop, tocWidth, tocLeft, tocHeight, stopPoint;
+    var $parent = $toc.parent();
     
-    function getTocPosition() {
-        $toc.removeClass('is-fixed is-stopped').css({ width: '', left: '', top: '' });
-        tocTop = $toc.offset().top;
+    var tocWidth, tocHeight;
+    var fixedTop = 20;
+    
+    function updateSize() {
+        $toc.removeClass('is-fixed is-stopped').css({ width: '', top: '' });
         tocWidth = $toc.outerWidth();
-        tocLeft = $toc.offset().left;
         tocHeight = $toc.outerHeight();
-        
-        if ($stopElement.length) {
-            stopPoint = $stopElement.offset().top - tocHeight - 20;
-        } else {
-            stopPoint = $(document).height();
-        }
     }
-    
-    setTimeout(function() {
-        getTocPosition();
-        $(window).trigger('scroll');
-    }, 100);
     
     // Generate TOC
     $headings.each(function(index) {
         var $heading = $(this);
         var id = $heading.attr('id') || 'heading-' + index;
         $heading.attr('id', id);
-        
-        $tocList.append(
-            '<li><a href="#' + id + '">' + $heading.text().trim() + '</a></li>'
-        );
+        $tocList.append('<li><a href="#' + id + '">' + $heading.text().trim() + '</a></li>');
     });
     
-    // Scroll handler
     $(window).on('scroll', function() {
         var scrollPos = $(window).scrollTop();
         
+        // Real-time positions
+        var parentTop = $parent.offset().top;
+        var stopPoint = $stopElement.length 
+            ? $stopElement.offset().top - tocHeight - fixedTop 
+            : $(document).height();
+        
         if (scrollPos >= stopPoint) {
-            var stoppedTop = $stopElement.offset().top - tocHeight - $sidebar.offset().top;
+            // Stopped
             $toc.removeClass('is-fixed').addClass('is-stopped').css({ 
-                width: tocWidth, 
-                left: '',
-                top: stoppedTop
+                width: tocWidth,
+                top: stopPoint - parentTop + fixedTop
             });
-        } else if (scrollPos >= tocTop - 20) {
+        } else if (scrollPos >= parentTop - fixedTop) {
+            // Fixed
             $toc.removeClass('is-stopped').addClass('is-fixed').css({ 
-                width: tocWidth, 
-                left: '',
-                top: 20
+                width: tocWidth,
+                top: fixedTop
             });
         } else {
-            $toc.removeClass('is-fixed is-stopped').css({ 
-                width: '', 
-                left: '',
-                top: ''
-            });
+            // Normal
+            $toc.removeClass('is-fixed is-stopped').css({ width: '', top: '' });
         }
         
         // Highlight active
@@ -95,12 +83,20 @@ $(window).on('load', function() {
         });
     });
     
+    var resizeTimer;
     $(window).on('resize', function() {
-        getTocPosition();
-        $(window).trigger('scroll');
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            updateSize();
+            $(window).trigger('scroll');
+        }, 150);
     });
+    
+    setTimeout(function() {
+        updateSize();
+        $(window).trigger('scroll');
+    }, 100);
 });
-
 
 $(document).ready(function() {
     var $authorList = $('.article-authors, .article-translator');

@@ -291,7 +291,7 @@ h2.doha_summary__title {
     position: absolute;
     top: 100%;
     right: 0;
-    z-index: 1000;
+    z-index: 10;
     width: 300px;
     background: #fff;
     border: 1px solid #a79f4d;
@@ -418,7 +418,7 @@ h2.doha_summary__title {
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 999;
+    z-index: 9;
     display: none;
 }
 
@@ -658,7 +658,7 @@ h2.doha_summary__title {
 /* Footnote Dropdown Styles */
 .footnote-dropdown {
   position: fixed;
-  z-index: 9999;
+  z-index: 9;
   max-width: 400px;
   min-width: 280px;
   background: #ffffff;
@@ -799,7 +799,7 @@ h2.doha_summary__title {
 .doha_lightbox {
     position: fixed;
     inset: 0;
-    z-index: 99999;
+    z-index: 9;
     display: none;
     align-items: center;
     justify-content: center;
