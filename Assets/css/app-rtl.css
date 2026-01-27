@@ -652,7 +652,7 @@ h2.doha_summary__title {
     color: #93002D;
 }
 .doha_periodicals__item a:hover .doha_periodicals__text {
-    color: #a79f4d;
+    color: #666;
 }
 
 /* Footnote Dropdown Styles */
