@@ -439,3 +439,68 @@ $(document).ready(function() {
         }
     });
 });
+
+
+$(function () {
+
+    var closeTimer;
+
+    /* -----------------------
+       HOVER BEHAVIOR
+    ----------------------- */
+
+    $('.navbar-nav').on('mouseenter', '.journal-dropdown', function () {
+        clearTimeout(closeTimer);
+
+        // Close others
+        $('.journal-dropdown.open').not(this).removeClass('open');
+
+        $(this).addClass('open');
+    });
+
+    $('.navbar-nav').on('mouseleave', '.journal-dropdown', function () {
+        var $this = $(this);
+
+        closeTimer = setTimeout(function () {
+            $this.removeClass('open');
+        }, 120); // small delay prevents flicker
+    });
+
+    /* -----------------------
+       CLICK TOGGLE
+    ----------------------- */
+
+    $('.navbar-nav').on('click', '.journal-dropdown > a', function (e) {
+        e.preventDefault(); // prevent "#"
+
+        var $parent = $(this).parent('.journal-dropdown');
+
+        if ($parent.hasClass('open')) {
+            $parent.removeClass('open');
+        } else {
+            $('.journal-dropdown.open').removeClass('open');
+            $parent.addClass('open');
+        }
+    });
+
+    /* -----------------------
+       CLICK OUTSIDE CLOSE
+    ----------------------- */
+
+    $(document).on('click', function (e) {
+        if ($(e.target).closest('.journal-dropdown').length === 0) {
+            $('.journal-dropdown.open').removeClass('open');
+        }
+    });
+
+    /* -----------------------
+       ESC KEY CLOSE
+    ----------------------- */
+
+    $(document).on('keydown', function (e) {
+        if (e.key === "Escape" || e.keyCode === 27) {
+            $('.journal-dropdown.open').removeClass('open');
+        }
+    });
+
+});

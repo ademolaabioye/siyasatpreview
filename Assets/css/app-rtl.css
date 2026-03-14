@@ -1208,3 +1208,210 @@ h2.doha_summary__title {
         justify-content: center;
     }
 }
+
+.header__bottom .navbar .navbar-nav .journal-dropdown > a::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #fff;
+    transition: transform 0.1s ease;
+    display: inline-block;
+}
+
+.header__bottom .navbar .navbar-nav .journal-dropdown.open > a::after {
+    transform: rotate(180deg);
+}
+
+.journal-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 160px;
+    background: #7e7e7e;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+    z-index: 10;
+}
+
+.header__bottom .navbar .navbar-nav .journal-dropdown.open > .journal-dropdown-menu {
+    display: block;
+}
+.header__bottom .navbar .navbar-nav .journal-dropdown.open > a {
+    background: #7e7e7e !important;
+}
+.journal-dropdown-menu li {
+    border: none !important;
+}
+
+.journal-dropdown-menu li a {
+    display: block;
+    height: auto !important;
+    line-height: 1.6 !important;
+    padding: 12px 26px !important;
+    border-top: 1px solid #aaa;
+    white-space: nowrap;
+}
+
+.journal-dropdown-menu li a:hover {
+    background: #909090 !important;
+}
+
+@media (max-width: 767px) {
+    .journal-dropdown-menu {
+        position: relative;
+        background: none !important;
+    }
+
+    .journal-dropdown-menu li a {
+        background: none !important;
+        border: none !important;
+        padding: 10px 26px !important;
+        font-family: 'BahijTheSansArabic-Plain' !important;
+    }
+
+.journal-dropdown-menu li a:hover {
+    background: none !important;
+    font-family: 'BahijTheSansArabic-Bold' !important;
+}
+}
+
+
+@font-face{font-family:"BahijTheSansArabic-ExtraLight";font-style:normal;font-weight:normal;src:url("../fonts/BahijTheSansArabic-ExtraLight.eot?#iefix") format("embedded-opentype"),url("../fonts/BahijTheSansArabic-ExtraLight.woff") format("woff"),url("../fonts/BahijTheSansArabic-ExtraLight.ttf") format("truetype"),url("../fonts/BahijTheSansArabic-ExtraLight.svg#BahijTheSansArabic-ExtraLight") format("svg")}
+.journal-contribution-title h1 {
+    font-family: 'BahijTheSansArabic-Bold';
+    font-size: 1.9em;
+    margin: 0 0 30px;
+    line-height: 40px;
+    color: #3C3C3C;
+}
+.journal-contribution-section-title h2 {
+    font-size: 1.5em;
+    margin: 0 0 20px;
+    line-height: 30px;
+    color: #3C3C3C;
+}
+.journal-contribution input:hover, .journal-contribution textarea:hover {
+    border-color: #a79f4d !important;
+}
+.form-group-title {
+    margin-bottom: 5px;
+    display: inline-block;
+    color: #272727;
+}
+.form-group-checkbox td, .custom-control.custom-radio {
+    margin-bottom: 5px;
+    display: flex;
+    gap: 8px;
+}
+.journal-contribution .form input[type='submit'] {
+    height: 44px;
+}
+label.custom-control-label {
+    padding: 0;
+    margin: 0;
+    font-family: 'BahijTheSansArabic-ExtraLight';
+    line-height: 1.4;
+    max-width: calc(100% - 24px);
+}
+.custom-control-input input[type=radio] {
+    accent-color: #a79f4d;
+    appearance: none;
+    -webkit-appearance: none;
+    margin: 0;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    position: relative;
+    top: -1px;
+}
+.custom-control-input input[type=radio]:checked {
+    border-color: #a79f4d;
+}
+.custom-control-input input[type=radio]:checked::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    background: #a79f4d;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+.form-group-checkbox input[type=checkbox] {
+    accent-color: #a79f4d;
+
+    appearance: none;
+    -webkit-appearance: none;
+    margin: 0;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background: #fff;
+    cursor: pointer;
+    position: relative;
+    top: -1px;
+}
+.form-group-checkbox input[type=checkbox]:checked {
+    border-color: #a79f4d;
+    background: #a79f4d;
+}
+.form-group-checkbox input[type=checkbox]:checked::after {
+    content: "";
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 5px;
+    height: 9px;
+    border: 2px solid #fff;
+    border-top: none;
+    border-left: none;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+.submit-success {
+    background: #ceefce;
+    color: #1e611e;
+    padding: 9px;
+    text-align: center;
+    border: 1px solid #1e611e;
+}
+@media (max-width: 991px) {
+    .journal-contribution-title h1 {
+        font-size: 30px;
+        line-height: 1.2;
+        margin-bottom: 30px;
+        font-family: 'BahijTheSansArabic-Bold';
+    }
+    .journal-contribution-section-title h2 {
+        font-size: 1.3em;
+        line-height: 26px;
+        margin-bottom: 18px;
+        font-family: 'BahijTheSansArabic-Bold';
+    }
+}
+@media (max-width: 767px) {
+.journal-contribution .errors {
+    margin-bottom: 20px;
+}
+.journal-contribution .form input[type='submit'] {
+    height: 38px;
+}
+    .journal-contribution-title h1 {
+        font-size: 28px;
+        line-height: 1.2;
+        margin-bottom: 20px;
+    }
+    .journal-contribution-section-title h2 {
+        font-size: 1.2em;
+        line-height: 24px;
+        margin-bottom: 15px;
+    } 
+}

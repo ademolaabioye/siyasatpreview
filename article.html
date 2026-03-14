@@ -423,22 +423,18 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager', 'aspnetForm',
 </div>
                         </div>
                         <div class="collapse navbar-collapse navbar-ex1-collapse">
-                            <ul class="nav navbar-nav">
+                           <ul class="nav navbar-nav"> 
+                            <!-- معايير النشر (Dropdown) --> 
+                            <li class="journal-dropdown"> <a href="#"> معايير النشر </a> 
+                                <ul class="journal-dropdown-menu"> <li> <a href="/ar/PoliticalStudies/Pages/StrategicPapers.aspx"> أوراق استراتيجية </a> </li> <li> <a href="/ar/PoliticalStudies/Pages/StrategicAnalysis.aspx"> تحليلات استراتيجية </a> </li> </ul> 
+                        </li>
+                         <!-- أخلاقيات النشر (Dropdown) --> 
+                          <li class="journal-dropdown"> <a href="#"> أخلاقيات النشر </a>
+                            <ul class="journal-dropdown-menu"> <li> <a href="/ar/Pages/EthicsGuidelines.aspx"> إرشادات أخلاقية </a> </li> <li> <a href="/ar/Pages/PeerReviewPolicy.aspx"> سياسة التحكيم </a> </li> </ul> 
+                        </li> <!-- Other normal links --> 
+                        <li> <a href="https://siyasatarabiya.dohainstitute.org/ar/Pages/SubmitYourWorkPage.aspx"> تقديم مساهمة للنشر </a> </li> <li> <a href="https://siyasatarabiya.dohainstitute.org/ar/Pages/SubscriptionPage.aspx"> الاشتراك </a> </li> <li> <a href="https://siyasatarabiya.dohainstitute.org/ar/Pages/ContactUsPage.aspx"> للتواصل </a> </li> <li> <a href="https://siyasatarabiya.dohainstitute.org/ar/pages/archive.aspx"> الأرشيف </a> </li> 
+                    </ul>
 
-                                
-                                        <li class=''><a href="https://siyasatarabiya.dohainstitute.org/ar/Pages/PublicationStandards.aspx">معايير النشر</a></li>
-                                    
-                                        <li class=''><a href="https://siyasatarabiya.dohainstitute.org/ar/Pages/JournalEthics.aspx">أخلاقيات النشر</a></li>
-                                    
-                                        <li class=''><a href="https://siyasatarabiya.dohainstitute.org/ar/Pages/SubmitYourWorkPage.aspx">تقديم مساهمة للنشر</a></li>
-                                    
-                                        <li class=''><a href="https://siyasatarabiya.dohainstitute.org/ar/Pages/SubscriptionPage.aspx">الاشتراك</a></li>
-                                    
-                                        <li class=''><a href="https://siyasatarabiya.dohainstitute.org/ar/Pages/ContactUsPage.aspx">للتواصل</a></li>
-                                    
-                                        <li class=''><a href="https://siyasatarabiya.dohainstitute.org/ar/pages/archive.aspx">الأرشيف</a></li>
-                                    
-                            </ul>
                             <div id="ctl00_topNavBar_Panel1" onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;ctl00_topNavBar_btnSearch1&#39;)">
 	
                                 <div class="navbar-form">
@@ -835,6 +831,671 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager', 'aspnetForm',
        </div> 
                             </div>
                             </div>
+
+
+
+<div class="row">
+
+    <!-- Content -->
+  <div class="col-md-8">
+    <div class="journal-contribution">
+        <div class="journal-contribution-title">
+        <h1>Reuse, Reprint & Translation Request Form</h1>
+    </div>
+    <div class="row">
+  <div class="col-md-12">
+    <div class="form">
+<!-- Article Information -->
+      <div class="mb-3 journal-contribution-section-title">
+        <h2 class="m-0">Article to be Republished / Translated / Cited</h2>
+      </div>
+      <!-- Article Title -->
+      <div class="form-group">
+        <span id="lblArticleTitle" class="form-group-title">Article Title</span>
+        <input name="txtArticleTitle" type="text" id="txtArticleTitle" class="form-control" />
+        <div class="errors"></div>
+      </div>
+
+      <!-- Article URL -->
+      <div class="form-group">
+        <span id="lblArticleUrl" class="form-group-title">Article URL</span>
+        <input name="txtArticleUrl" type="text" id="txtArticleUrl" class="form-control" />
+        <div class="errors"></div>
+      </div>
+
+      <!-- DOI -->
+      <div class="form-group">
+        <span id="lblDoi" class="form-group-title">DOI</span>
+        <input name="txtDoi" type="text" id="txtDoi" class="form-control" />
+        <div class="errors"></div>
+      </div>
+
+      <!-- (1) Usage Type — 2 cols -->
+      <div class="form-group">
+        <span id="lblUsageType" class="form-group-title">Usage Type</span>
+
+        <div class="row">
+          <div class="col-md-6 mb-2">
+            <div class="custom-control custom-radio">
+              <input type="radio" id="usageCommercial" name="usageType" class="custom-control-input" />
+              <label class="custom-control-label" for="usageCommercial">
+                Commercial (use in a commercial or technical product)
+              </label>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-2">
+            <div class="custom-control custom-radio">
+              <input type="radio" id="usageAcademic" name="usageType" class="custom-control-input" />
+              <label class="custom-control-label" for="usageAcademic">
+                Academic (in a book / translation into another language / inclusion in a university course)
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="errors"></div>
+      </div>
+
+     <div class="form-group">
+<span id="ctl00_ctl43_g_ae5ed5e1_bde9_496b_a8ef_5bb715dbf637_ctl00_lblPurposeOfUse" class="form-group-title">Usage Purpose</span>
+<table id="ctl00_ctl43_g_ae5ed5e1_bde9_496b_a8ef_5bb715dbf637_ctl00_chkPurposeOfUse" class="form-group-checkbox">
+<tbody><tr>
+<td><input id="ctl00_ctl43_g_ae5ed5e1_bde9_496b_a8ef_5bb715dbf637_ctl00_chkPurposeOfUse_0" type="checkbox" name="ctl00$ctl43$g_ae5ed5e1_bde9_496b_a8ef_5bb715dbf637$ctl00$chkPurposeOfUse$0" value="1"><label for="ctl00_ctl43_g_ae5ed5e1_bde9_496b_a8ef_5bb715dbf637_ctl00_chkPurposeOfUse_0">Red</label></td>
+</tr><tr>
+<td><input id="ctl00_ctl43_g_ae5ed5e1_bde9_496b_a8ef_5bb715dbf637_ctl00_chkPurposeOfUse_1" type="checkbox" name="ctl00$ctl43$g_ae5ed5e1_bde9_496b_a8ef_5bb715dbf637$ctl00$chkPurposeOfUse$1" value="2"><label for="ctl00_ctl43_g_ae5ed5e1_bde9_496b_a8ef_5bb715dbf637_ctl00_chkPurposeOfUse_1">Blue</label></td>
+</tr><tr>
+<td><input id="ctl00_ctl43_g_ae5ed5e1_bde9_496b_a8ef_5bb715dbf637_ctl00_chkPurposeOfUse_2" type="checkbox" name="ctl00$ctl43$g_ae5ed5e1_bde9_496b_a8ef_5bb715dbf637$ctl00$chkPurposeOfUse$2" value="3"><label for="ctl00_ctl43_g_ae5ed5e1_bde9_496b_a8ef_5bb715dbf637_ctl00_chkPurposeOfUse_2">Green</label></td>
+</tr><tr>
+<td><input id="ctl00_ctl43_g_ae5ed5e1_bde9_496b_a8ef_5bb715dbf637_ctl00_chkPurposeOfUse_3" type="checkbox" name="ctl00$ctl43$g_ae5ed5e1_bde9_496b_a8ef_5bb715dbf637$ctl00$chkPurposeOfUse$3" value="4"><label for="ctl00_ctl43_g_ae5ed5e1_bde9_496b_a8ef_5bb715dbf637_ctl00_chkPurposeOfUse_3">Yellow</label></td>
+</tr>
+</tbody></table>
+</div>
+ 
+
+      <div class="form-group">
+<span id="ctl00_ctl43_g_ae5ed5e1_bde9_496b_a8ef_5bb715dbf637_ctl00_lblUseWholeMaterial" class="form-group-title">Will you use the material in full?</span>
+<div class="row">
+<div class="col-md-6 mb-2">
+<div class="custom-control custom-radio">
+<span class="custom-control-input" onchange="document.getElementById('divUseWholeMaterialNo').style.display = 'none';"><input id="ctl00_ctl43_g_ae5ed5e1_bde9_496b_a8ef_5bb715dbf637_ctl00_rbtUseWholeMaterialYes" type="radio" name="ctl00$ctl43$g_ae5ed5e1_bde9_496b_a8ef_5bb715dbf637$ctl00$UseWholeMaterial" value="useAllYes" checked="checked"></span><span class="custom-control-label">Yes</span>
+</div>
+</div>
+<div class="col-md-6 mb-2">
+<div class="custom-control custom-radio">
+<span class="custom-control-input" onchange="document.getElementById('divUseWholeMaterialNo').style.display = 'block';"><input id="ctl00_ctl43_g_ae5ed5e1_bde9_496b_a8ef_5bb715dbf637_ctl00_rbtUseWholeMaterialNo" type="radio" name="ctl00$ctl43$g_ae5ed5e1_bde9_496b_a8ef_5bb715dbf637$ctl00$UseWholeMaterial" value="useAllNo"></span><span class="custom-control-label">No</span>
+</div>
+</div>
+</div>
+ 
+                <div id="divUseWholeMaterialNo" style="display: none;">
+<span id="ctl00_ctl43_g_ae5ed5e1_bde9_496b_a8ef_5bb715dbf637_ctl00_lblExcerpt" class="form-group-title">Excerpt (from .. to .. and page numbers)</span>
+<input name="ctl00$ctl43$g_ae5ed5e1_bde9_496b_a8ef_5bb715dbf637$ctl00$txtExcerpt" type="text" id="ctl00_ctl43_g_ae5ed5e1_bde9_496b_a8ef_5bb715dbf637_ctl00_txtExcerpt" class="form-control" placeholder="e.g. from page 5 to page 12">
+<div class="errors">
+<span id="ctl00_ctl43_g_ae5ed5e1_bde9_496b_a8ef_5bb715dbf637_ctl00_RequiredFieldValidatorExcerpt" class="error-item" style="display:none;">Please provide the 'Excerpt', it can not be empty.</span>
+</div>
+</div>
+</div>
+      <!-- New Material Title -->
+      <div class="form-group">
+        <span id="lblNewMaterialTitle" class="form-group-title">Title of New Material / New Book / Website / Course</span>
+        <input name="txtNewMaterialTitle" type="text" id="txtNewMaterialTitle" class="form-control" />
+        <div class="errors"></div>
+      </div>
+
+      <!-- Publisher / Publication Date -->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <span id="lblPublisher" class="form-group-title">Publisher</span>
+            <input name="txtPublisher" type="text" id="txtPublisher" class="form-control" />
+            <div class="errors"></div>
+          </div>
+          <div class="col-md-6">
+            <span id="lblPublishDate" class="form-group-title">Publication Date</span>
+            <input name="txtPublishDate" type="text" id="txtPublishDate" class="form-control" placeholder="dd/mm/yyyy" />
+            <div class="errors"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- (3) Usage Format — 3 cols -->
+      <div class="form-group">
+        <span id="lblFormat" class="form-group-title">Usage Format</span>
+
+        <div class="row">
+          <div class="col-md-4 mb-2">
+            <div class="custom-control custom-radio">
+              <input type="radio" id="formatPrint" name="format" class="custom-control-input" />
+              <label class="custom-control-label" for="formatPrint">Print</label>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-2">
+            <div class="custom-control custom-radio">
+              <input type="radio" id="formatDigital" name="format" class="custom-control-input" />
+              <label class="custom-control-label" for="formatDigital">Digital</label>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-2">
+            <div class="custom-control custom-radio">
+              <input type="radio" id="formatBoth" name="format" class="custom-control-input" />
+              <label class="custom-control-label" for="formatBoth">Print and Digital</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="errors"></div>
+      </div>
+
+      <!-- (4) Will you translate? — 2 cols; "Yes" unfolds languages field -->
+      <div class="form-group">
+        <span id="lblTranslate" class="form-group-title">Will you be translating?</span>
+
+        <div class="row">
+          <div class="col-md-6 mb-2">
+            <div class="custom-control custom-radio">
+              <input type="radio" id="translateYes" name="translate" class="custom-control-input"
+                     onchange="document.getElementById('languagesField').style.display = 'block';" />
+              <label class="custom-control-label" for="translateYes">Yes</label>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-2">
+            <div class="custom-control custom-radio">
+              <input type="radio" id="translateNo" name="translate" class="custom-control-input"
+                     onchange="document.getElementById('languagesField').style.display = 'none';" />
+              <label class="custom-control-label" for="translateNo">No</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unfolds when "Yes" is selected -->
+        <div id="languagesField" style="display:none; margin-top:16px;">
+          <span id="lblLanguages" class="form-group-title">Languages</span>
+          <input name="txtLanguages" type="text" id="txtLanguages" class="form-control" placeholder="e.g. English, French"/>
+        </div>
+
+        <div class="errors"></div>
+      </div>
+
+      <!-- Number of Copies / Sale Price — enforce numbers -->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <span id="lblCopies" class="form-group-title">Number of Copies (if applicable)</span>
+            <input name="txtCopies" type="number" id="txtCopies" class="form-control" min="0" step="1" />
+            <div class="errors"></div>
+          </div>
+          <div class="col-md-6">
+            <span id="lblSalePrice" class="form-group-title">Sale Price (if applicable)</span>
+            <input name="txtSalePrice" type="number" id="txtSalePrice" class="form-control" min="0" step="0.01" />
+            <div class="errors"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Applicant Information -->
+      <div class="mb-3 journal-contribution-section-title">
+        <h2 class="m-0">Applicant Information</h2>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <span id="lblApplicantName" class="form-group-title">Name</span>
+            <input name="txtApplicantName" type="text" id="txtApplicantName" class="form-control" />
+            <div class="errors"></div>
+          </div>
+          <div class="col-md-6">
+            <span id="lblOrg" class="form-group-title">Institution</span>
+            <input name="txtOrg" type="text" id="txtOrg" class="form-control" />
+            <div class="errors"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <span id="lblAddress" class="form-group-title">Address</span>
+            <input name="txtAddress" type="text" id="txtAddress" class="form-control" />
+            <div class="errors"></div>
+          </div>
+          <div class="col-md-6">
+            <span id="lblCity" class="form-group-title">City</span>
+            <input name="txtCity" type="text" id="txtCity" class="form-control" />
+            <div class="errors"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <span id="lblCountry" class="form-group-title">Country</span>
+            <input name="txtCountry" type="text" id="txtCountry" class="form-control" />
+            <div class="errors"></div>
+          </div>
+          <div class="col-md-6">
+            <span id="lblPostal" class="form-group-title">Postal Code</span>
+            <input name="txtPostal" type="text" id="txtPostal" class="form-control" />
+            <div class="errors"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <span id="lblEmail" class="form-group-title">Email Address</span>
+            <input name="txtEmail" type="email" id="txtEmail" class="form-control" dir="ltr"
+                   placeholder="example@domain.com" />
+            <div class="errors"></div>
+          </div>
+          <div class="col-md-6">
+            <span id="lblPhone" class="form-group-title">Phone</span>
+            <input name="txtPhone" type="tel" id="txtPhone" class="form-control"
+                   placeholder="+974 XXXX XXXX"
+                   pattern="^\+[1-9]\d{1,3}[\s\-]?\d{4,14}$"
+                   title="Please enter your phone number with country code, e.g. +974 XXXX XXXX" />
+            <div class="errors"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Attachments -->
+      <div class="form-group attachments"></div>
+      <div class="form-group form-attachment">
+        <div class="row align-items-center">
+          <div class="col-md-5">
+            <span class="form-group-title">Upload File (attachments if any)</span>
+          </div>
+          <div class="col-md-7">
+            <input type="file" name="upload_files" id="upload_files" class="upload-file-input" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Captcha -->
+      <div class="form-group form-recaptcha">
+        <div style="background-color:White;">
+          <img src="CaptchaImage.axd?guid=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" border="0" alt="Captcha" width="200" height="60" />
+        </div>
+
+        <input name="recaptchaText" type="text" id="recaptchaText" class="form-control"
+               placeholder="Please enter the characters shown in the image" style="width:60%;" />
+
+        <div class="errors">
+          <span id="recaptchaTextRequired" class="error-item" style="display:none;">Please enter the characters shown in the image</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <span id="customValidator" style="visibility:hidden;"></span>
+      </div>
+
+      <input type="submit" name="btnSubmit" value="Submit" id="btnSubmit" class="btn btn--green" />
+      <div class="submit-success">
+            Your request has been submitted successfully.
+      </div>
+      <div class="errors"></div>
+    </div>
+    </div>
+</div>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+   <div class="col-md-4">...</div>
+</div>
+   <div class="row">
+
+    <!-- Content -->
+  <div class="col-md-8">
+    <div class="journal-contribution">
+        <div class="journal-contribution-title">
+        <h1>نموذج طلب إعادة الاستخدام والطبع والترجمة</h1>
+    </div>
+    <div class="row">
+  <div class="col-md-12">
+    <div class="form">
+<!-- بيانات المقالة المراد إعادة نشرها/ ترجمتها/ الاقتباس منها -->
+      <div class="mb-3 journal-contribution-section-title">
+        <h2 class="m-0">بيانات المقالة المراد إعادة نشرها/ ترجمتها/ الاقتباس منها</h2>
+      </div>
+      <!-- عنوان المقالة -->
+      <div class="form-group">
+        <span id="lblArticleTitle" class="form-group-title">عنوان المقالة</span>
+        <input name="txtArticleTitle" type="text" id="txtArticleTitle" class="form-control" />
+        <div class="errors"></div>
+      </div>
+
+      <!-- رابط المقالة -->
+      <div class="form-group">
+        <span id="lblArticleUrl" class="form-group-title">رابط المقالة</span>
+        <input name="txtArticleUrl" type="text" id="txtArticleUrl" class="form-control" />
+        <div class="errors"></div>
+      </div>
+
+      <!-- DOI -->
+      <div class="form-group">
+        <span id="lblDoi" class="form-group-title">DOI</span>
+        <input name="txtDoi" type="text" id="txtDoi" class="form-control" />
+        <div class="errors"></div>
+      </div>
+
+      <!-- (1) نوع الاستخدام — 2 cols -->
+      <div class="form-group">
+        <span id="lblUsageType" class="form-group-title">نوع الاستخدام</span>
+
+        <div class="row">
+          <div class="col-md-6 mb-2">
+            <div class="custom-control custom-radio">
+              <input type="radio" id="usageCommercial" name="usageType" class="custom-control-input" />
+              <label class="custom-control-label" for="usageCommercial">
+                تجاري (الاستخدام في منتج تجاري أو تقني)
+              </label>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-2">
+            <div class="custom-control custom-radio">
+              <input type="radio" id="usageAcademic" name="usageType" class="custom-control-input" />
+              <label class="custom-control-label" for="usageAcademic">
+                أكاديمي (في كتاب/ الترجمة إلى لغة أخرى/ الإدراج في مقرر جامعي)
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="errors"></div>
+      </div>
+
+      <!-- غرض الاستخدام — Multi-select checkboxes; "أخرى" unfolds a text field -->
+      <div class="form-group">
+        <span id="lblUsagePurpose" class="form-group-title">غرض الاستخدام</span>
+
+        <div class="custom-control custom-checkbox mb-1">
+          <input type="checkbox" id="purposeBook" name="usagePurpose" value="1" class="custom-control-input" />
+          <label class="custom-control-label" for="purposeBook">إعادة النشر في كتاب</label>
+        </div>
+        <div class="custom-control custom-checkbox mb-1">
+          <input type="checkbox" id="purposeJournal" name="usagePurpose" value="2" class="custom-control-input" />
+          <label class="custom-control-label" for="purposeJournal">إعادة النشر في دورية/ مجلة</label>
+        </div>
+        <div class="custom-control custom-checkbox mb-1">
+          <input type="checkbox" id="purposeDigital" name="usagePurpose" value="3" class="custom-control-input" />
+          <label class="custom-control-label" for="purposeDigital">إعادة الاستخدام رقميًا/ عبر الإنترنت</label>
+        </div>
+        <div class="custom-control custom-checkbox mb-1">
+          <input type="checkbox" id="purposeCourse" name="usagePurpose" value="4" class="custom-control-input" />
+          <label class="custom-control-label" for="purposeCourse">الإدراج في مقرر دراسي</label>
+        </div>
+        <div class="custom-control custom-checkbox mb-1">
+          <input type="checkbox" id="purposeOther" name="usagePurpose" value="5" class="custom-control-input"
+                 onchange="document.getElementById('purposeOtherField').style.display = this.checked ? 'block' : 'none';" />
+          <label class="custom-control-label" for="purposeOther">أخرى (يرجى التحديد)</label>
+        </div>
+
+        <!-- Unfolds when "أخرى" is selected -->
+        <div id="purposeOtherField" style="display:none; margin-top:16px;">
+          <input name="txtPurposeOther" type="text" id="txtPurposeOther" class="form-control"
+                 placeholder="يرجى تحديد الغرض" />
+        </div>
+
+        <div class="errors"></div>
+      </div>
+
+      <!-- (2) هل ستستخدم المادة كاملة؟ — 2 cols; "لا" unfolds a combined excerpt field -->
+      <div class="form-group">
+        <span id="lblUseAll" class="form-group-title">هل ستستخدم المادة كاملةً؟</span>
+
+        <div class="row">
+          <div class="col-md-6 mb-2">
+            <div class="custom-control custom-radio">
+              <input type="radio" id="useAllYes" name="useAll" class="custom-control-input"
+                     onchange="document.getElementById('excerptField').style.display = 'none';" />
+              <label class="custom-control-label" for="useAllYes">نعم</label>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-2">
+            <div class="custom-control custom-radio">
+              <input type="radio" id="useAllNo" name="useAll" class="custom-control-input"
+                     onchange="document.getElementById('excerptField').style.display = 'block';" />
+              <label class="custom-control-label" for="useAllNo">لا</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unfolds when "لا" is selected — single combined field per spec -->
+        <div id="excerptField" style="display:none; margin-top:16px;">
+          <span id="lblExcerpt" class="form-group-title">المقتطف (من .. إلى .. وأرقام الصفحات)</span>
+          <input name="txtExcerpt" type="text" id="txtExcerpt" class="form-control"
+                 placeholder="مثال: من صفحة 5 إلى صفحة 12" />
+        </div>
+
+        <div class="errors"></div>
+      </div>
+
+      <!-- عنوان المادة الجديدة... -->
+      <div class="form-group">
+        <span id="lblNewMaterialTitle" class="form-group-title">عنوان المادة الجديدة/الكتاب الجديد/الموقع الإلكتروني/المقرر الدراسي</span>
+        <input name="txtNewMaterialTitle" type="text" id="txtNewMaterialTitle" class="form-control" />
+        <div class="errors"></div>
+      </div>
+
+      <!-- الناشر / تاريخ النشر -->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <span id="lblPublisher" class="form-group-title">الناشر</span>
+            <input name="txtPublisher" type="text" id="txtPublisher" class="form-control" />
+        <div class="errors"></div>
+          </div>
+          <div class="col-md-6">
+            <span id="lblPublishDate" class="form-group-title">تاريخ النشر</span>
+            <input name="txtPublishDate" type="text" id="txtPublishDate" class="form-control" placeholder="dd/mm/yyyy" />
+        <div class="errors"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- (3) صيغة الاستخدام — 3 cols -->
+      <div class="form-group">
+        <span id="lblFormat" class="form-group-title">صيغة الاستخدام</span>
+
+        <div class="row">
+          <div class="col-md-4 mb-2">
+            <div class="custom-control custom-radio">
+              <input type="radio" id="formatPrint" name="format" class="custom-control-input" />
+              <label class="custom-control-label" for="formatPrint">مطبوع</label>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-2">
+            <div class="custom-control custom-radio">
+              <input type="radio" id="formatDigital" name="format" class="custom-control-input" />
+              <label class="custom-control-label" for="formatDigital">رقمي</label>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-2">
+            <div class="custom-control custom-radio">
+              <input type="radio" id="formatBoth" name="format" class="custom-control-input" />
+              <label class="custom-control-label" for="formatBoth">مطبوع ورقمي معًا</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="errors"></div>
+      </div>
+
+      <!-- (4) هل ستقوم بالترجمة؟ — 2 cols; "نعم" unfolds "اللغات" field -->
+      <div class="form-group">
+        <span id="lblTranslate" class="form-group-title">هل ستقوم بالترجمة؟</span>
+
+        <div class="row">
+          <div class="col-md-6 mb-2">
+            <div class="custom-control custom-radio">
+              <input type="radio" id="translateYes" name="translate" class="custom-control-input"
+                     onchange="document.getElementById('languagesField').style.display = 'block';" />
+              <label class="custom-control-label" for="translateYes">نعم</label>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-2">
+            <div class="custom-control custom-radio">
+              <input type="radio" id="translateNo" name="translate" class="custom-control-input"
+                     onchange="document.getElementById('languagesField').style.display = 'none';" />
+              <label class="custom-control-label" for="translateNo">لا</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unfolds when "نعم" is selected -->
+        <div id="languagesField" style="display:none; margin-top:16px;">
+          <span id="lblLanguages" class="form-group-title">اللغات</span>
+          <input name="txtLanguages" type="text" id="txtLanguages" class="form-control" placeholder="مثال: الإنجليزية، الفرنسية"/>
+        </div>
+
+        <div class="errors"></div>
+      </div>
+
+      <!-- عدد النسخ (إن كان ينطبق) / سعر البيع (إن كان ينطبق) — enforce numbers -->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <span id="lblCopies" class="form-group-title">عدد النسخ (إن كان ينطبق)</span>
+            <input name="txtCopies" type="number" id="txtCopies" class="form-control" min="0" step="1" />
+            <div class="errors"></div>
+          </div>
+          <div class="col-md-6">
+            <span id="lblSalePrice" class="form-group-title">سعر البيع (إن كان ينطبق)</span>
+            <input name="txtSalePrice" type="number" id="txtSalePrice" class="form-control" min="0" step="0.01" />
+            <div class="errors"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- معلومات صاحب الطلب -->
+      <div class="mb-3 journal-contribution-section-title">
+        <h2 class="m-0">معلومات صاحب الطلب</h2>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <span id="lblApplicantName" class="form-group-title">الاسم</span>
+            <input name="txtApplicantName" type="text" id="txtApplicantName" class="form-control" />
+            <div class="errors"></div>
+          </div>
+          <div class="col-md-6">
+            <span id="lblOrg" class="form-group-title">المؤسسة</span>
+            <input name="txtOrg" type="text" id="txtOrg" class="form-control" />
+            <div class="errors"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <span id="lblAddress" class="form-group-title">العنوان</span>
+            <input name="txtAddress" type="text" id="txtAddress" class="form-control" />
+            <div class="errors"></div>
+          </div>
+          <div class="col-md-6">
+            <span id="lblCity" class="form-group-title">المدينة</span>
+            <input name="txtCity" type="text" id="txtCity" class="form-control" />
+            <div class="errors"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <span id="lblCountry" class="form-group-title">الدولة</span>
+            <input name="txtCountry" type="text" id="txtCountry" class="form-control" />
+            <div class="errors"></div>
+          </div>
+          <div class="col-md-6">
+            <span id="lblPostal" class="form-group-title">العنوان البريدي</span>
+            <input name="txtPostal" type="text" id="txtPostal" class="form-control" />
+            <div class="errors"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <!-- enforce email format -->
+          <div class="col-md-6 mb-3 mb-md-0">
+            <span id="lblEmail" class="form-group-title">البريد الإلكتروني</span>
+            <input name="txtEmail" type="email" id="txtEmail" class="form-control" dir="ltr"
+                   placeholder="example@domain.com" />
+            <div class="errors"></div>
+          </div>
+          <!-- enforce phone number with country code format -->
+          <div class="col-md-6">
+            <span id="lblPhone" class="form-group-title">الهاتف</span>
+            <input name="txtPhone" type="tel" id="txtPhone" class="form-control"
+                   placeholder="+974 XXXX XXXX"
+                   pattern="^\+[1-9]\d{1,3}[\s\-]?\d{4,14}$"
+                   title="يرجى إدخال رقم الهاتف مع رمز الدولة، مثال: +974 XXXX XXXX" />
+            <div class="errors"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- attachments (optional, keep same pattern) -->
+      <div class="form-group attachments"></div>
+      <div class="form-group form-attachment">
+        <div class="row align-items-center">
+          <div class="col-md-5">
+            <span class="form-group-title">رفع ملف (مرفقات إن وجدت)</span>
+          </div>
+          <div class="col-md-7">
+            <input type="file" name="upload_files" id="upload_files" class="upload-file-input" />
+          </div>
+        </div>
+      </div>
+
+      <!-- captcha (optional, keep same pattern) -->
+      <div class="form-group form-recaptcha">
+        <div style="background-color:White;">
+          <img src="CaptchaImage.axd?guid=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" border="0" alt="Captcha" width="200" height="60" />
+        </div>
+
+        <input name="recaptchaText" type="text" id="recaptchaText" class="form-control"
+               placeholder="يرجى إدخال الأحرف الظاهرة في الصورة" style="width:60%;" />
+
+        <div class="errors">
+          <span id="recaptchaTextRequired" class="error-item" style="display:none;">يرجى إدخال الأحرف الظاهرة في الصورة</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <span id="customValidator" style="visibility:hidden;"></span>
+      </div>
+
+      <input type="submit" name="btnSubmit" value="إرسال" id="btnSubmit" class="btn btn--green" />
+      <div class="errors"></div>
+
+    </div>
+    </div>
+</div>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+   <div class="col-md-4">...</div>
+</div>
+
+
                             <div class="row">
                                 <div class="col-md-9 doha_float-item">
 
