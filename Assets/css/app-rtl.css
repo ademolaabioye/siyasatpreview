@@ -1415,3 +1415,30 @@ label.custom-control-label {
         margin-bottom: 15px;
     } 
 }
+
+
+
+.pick-date .input-date {
+  position: absolute;
+  top: 30px; 
+  width: 36px;
+    height: 35px;
+    pointer-events: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    background: none;
+}
+.pick-date .input-date .icon {
+    color: #a79f4d;
+}
+
+html[dir="ltr"] .pick-date input.form-control {
+    padding-left: 36px;
+}
+html[dir="rtl"] .pick-date input.form-control {
+    padding-right: 36px;
+}
