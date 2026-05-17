@@ -798,12 +798,6 @@ jQuery(document).ready(function () {
     $("#lblMainTitle").text($("#lblMainTitle").text().replace('/', ''));
 </script>
 <style>
-    body:has(.acrps-page-content--advanced-search) .header {
-        z-index: auto;
-    }
-.acrps-page-content--advanced-search {
-        z-index: 4;
-    }
 .acrps-page-content--advanced-search .doi-search-options--advanced-search {
     padding-top: 20px;
     margin-top: -5px;
@@ -1121,23 +1115,18 @@ linear-gradient(89.77deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 99
 .acrps-select.is-open .acrps-select__toggle b { transform: rotate(180deg); }
 
 .acrps-select__panel {
-    position: absolute;
-    inset-inline-start: 0;
-    inset-inline-end: 0;
+    position: absolute;            /* top/left/width set inline by JS */
     background: #ffffff;
     border: 1px solid #d8d8d8;
     border-radius: 0 0 5px 5px;
     box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
-    z-index: 50;
+    z-index: 9999;                 /* in <body> now — sit above page chrome */
     max-height: 440px;
     overflow-y: auto;
     padding: 10px;
-    top: 100%;
 }
 
-.acrps-select.is-open-up .acrps-select__panel {
-    top: auto;
-    bottom: 100%;
+.acrps-select__panel--up {
     border-radius: 5px 5px 0 0;
     box-shadow: 0 -8px 28px rgba(0, 0, 0, 0.08);
 }
@@ -1465,7 +1454,7 @@ html[dir="ltr"] .acrps-select__chip-remove {
                         <div class="search-results__result">
                             <div class="meta"> 
                                 <div class="meta__source">
-                                    <span class="meta__source-name arab-center"><a href="https://www.dohainstitute.org" title="المركز العربي">المركز العربي</a></span>
+                                    <span class="meta__source-name arab-center" style="background-color: #0894ad;"><a href="https://www.dohainstitute.org" title="المركز العربي">المركز العربي</a></span>
                                 <span class="meta__source-category"><a href="/ar/PoliticalStudies/Pages/PolicyAnalysis.aspx" title="تحليل سياسات">تحليل سياسات</a></span>
                                     </div> 
                                     <div class="meta__info">
@@ -1477,7 +1466,7 @@ html[dir="ltr"] .acrps-select__chip-remove {
                         <div class="search-results__result">
                             <div class="meta"> 
                                 <div class="meta__source">
-                                    <span class="meta__source-name arab-center"><a href="https://www.dohainstitute.org" title="المركز العربي">المركز العربي</a></span>
+                                    <span class="meta__source-name arab-center" style="background-color: #0894ad;"><a href="https://www.dohainstitute.org" title="المركز العربي">المركز العربي</a></span>
                                 <span class="meta__source-category"><a href="/ar/PoliticalStudies/Pages/PolicyAnalysis.aspx" title="تحليل سياسات">تحليل سياسات</a></span>
                                     </div> 
                                     <div class="meta__info">
@@ -1489,7 +1478,7 @@ html[dir="ltr"] .acrps-select__chip-remove {
                         <div class="search-results__result">
                             <div class="meta"> 
                                 <div class="meta__source">
-                                    <span class="meta__source-name siyasatarabiya"><a href="https://siyasatarabiya.dohainstitute.org" title="سياسات عربية">سياسات عربية</a></span>
+                                    <span class="meta__source-name siyasatarabiya" style="background-color: #A79F4D;"><a href="https://siyasatarabiya.dohainstitute.org" title="سياسات عربية">سياسات عربية</a></span>
                                 <span class="meta__source-category"><a href="#" title="تحليل سياسات">تحليل سياسات</a></span>
                                     </div> 
                                     <div class="meta__info">
@@ -1501,9 +1490,8 @@ html[dir="ltr"] .acrps-select__chip-remove {
                         <div class="search-results__result">
                             <div class="meta"> 
                                 <div class="meta__source">
-                                    <span class="meta__source-name arabica"><a href="https://arabica.dohainstitute.org" title="الموسوعة العربية - أرابيكا">الموسوعة العربية - أرابيكا</a></span>
-                                <span class="meta__source-category"><a href="#" title="تحليل سياسات">تحليل سياسات</a></span>
-                                    </div> 
+                                    <span class="meta__source-name arabica" style="background-color: #17375f;"><a href="https://arabica.dohainstitute.org" title="الموسوعة العربية - أرابيكا">الموسوعة العربية - أرابيكا</a></span>
+                                 </div> 
                                     <div class="meta__info">
                                 <span class="meta__author">                    <a href="#">وحدة الدراسات السياسية</a>                </span>                                <span class="meta__date">24 سبتمبر 2023</span> 
                                 </div>
@@ -1513,7 +1501,7 @@ html[dir="ltr"] .acrps-select__chip-remove {
                         <div class="search-results__result">
     <div class="meta">
         <div class="meta__source">
-            <span class="meta__source-name hikama">
+            <span class="meta__source-name hikama" style="background-color: #009548;">
                 <a href="https://hikama.dohainstitute.org" title="حِكامة">حِكامة</a>
             </span>
             <span class="meta__source-category">
@@ -1535,7 +1523,7 @@ html[dir="ltr"] .acrps-select__chip-remove {
 <div class="search-results__result">
     <div class="meta">
         <div class="meta__source">
-            <span class="meta__source-name ostour">
+            <span class="meta__source-name ostour" style="background-color: #744D12;">
                 <a href="https://ostour.dohainstitute.org" title="أسطور">أسطور</a>
             </span>
             <span class="meta__source-category">
@@ -1557,7 +1545,7 @@ html[dir="ltr"] .acrps-select__chip-remove {
 <div class="search-results__result">
     <div class="meta">
         <div class="meta__source">
-            <span class="meta__source-name tabayyun">
+            <span class="meta__source-name tabayyun" style="background-color: #97005E;">
                 <a href="https://tabayyun.dohainstitute.org" title="تبيّن">تبيّن</a>
             </span>
             <span class="meta__source-category">
@@ -1579,7 +1567,7 @@ html[dir="ltr"] .acrps-select__chip-remove {
 <div class="search-results__result">
     <div class="meta">
         <div class="meta__source">
-            <span class="meta__source-name istishraf">
+            <span class="meta__source-name istishraf" style="background-color: #58467F;">
                 <a href="https://istishraf.dohainstitute.org" title="استشراف">استشراف</a>
             </span>
             <span class="meta__source-category">
@@ -1597,29 +1585,6 @@ html[dir="ltr"] .acrps-select__chip-remove {
         <a href="#" title="عنوان تجريبي">عنوان تجريبي لاستشراف</a>
     </div>
 </div>
-<!--
-<div class="search-results__result">
-    <div class="meta">
-        <div class="meta__source">
-            <span class="meta__source-name almuntaqa">
-                <a href="https://almuntaqa.dohainstitute.org" title="Al-Muntaqa">Al-Muntaqa</a>
-            </span>
-            <span class="meta__source-category">
-                <a href="#" title="Journals">Journals</a>
-            </span>
-        </div>
-        <div class="meta__info">
-            <span class="meta__author">
-                <a href="#">Editorial Team</a>
-            </span>
-            <span class="meta__date">24 September 2023</span>
-        </div>
-    </div>
-    <div class="title">
-        <a href="#" title="Demo Title">Demo Title for Al-Muntaqa</a>
-    </div>
-</div>
--->
                 </ul>
                 <div webpartid="bce3a64d-ae1c-48a1-8b29-ee7d63bce3e0" haspers="false" id="WebPartWPQ1" width="100%" class="ms-WPBody noindex " allowdelete="false" style="">
                     <div style="display: none;"></div>
@@ -3150,8 +3115,13 @@ Sys.Application.add_init(function() {
                 $list.append(buildGroupItem(group, groups[group], $options));
             });
 
+            // Append panel to <body> (select2-style) so parent z-index / overflow
+            // can't trap it. We position it absolutely via JS in positionPanel().
             $panel = $('<div class="acrps-select__panel" hidden></div>').append($list);
-            $wrap.append($panel);
+            // Inherit page direction explicitly in case the wrap sits in a
+            // direction context different from <html>.
+            $panel.attr('dir', $wrap.css('direction') === 'rtl' ? 'rtl' : 'ltr');
+            $('body').append($panel);
         }
 
         function buildStandaloneItem(index, text) {
@@ -3302,29 +3272,47 @@ Sys.Application.add_init(function() {
             });
         }
 
-        // ---------- 5. Smart placement (up / down) ----------
+        // ---------- 5. Smart placement (up / down), absolute to <body> ----------
         function positionPanel() {
-            // Reset before measuring so we read the panel's natural height
+            // Reset state classes/inline sizing before measuring natural height
             $wrap.removeClass('is-open-up');
+            $panel.removeClass('acrps-select__panel--up');
             $panel.css('max-height', '');
 
             var rect        = $control[0].getBoundingClientRect();
+            var scrollY     = window.pageYOffset || document.documentElement.scrollTop  || 0;
+            var scrollX     = window.pageXOffset || document.documentElement.scrollLeft || 0;
             var panelHeight = $panel.outerHeight();
             var viewportH   = window.innerHeight;
             var margin      = 8; // breathing room from viewport edges
             var spaceBelow  = viewportH - rect.bottom - margin;
             var spaceAbove  = rect.top - margin;
 
+            var top;
+            var left  = rect.left + scrollX;
+            var width = rect.width;
+
             // Flip up only if below is too tight AND above has more room
             if (spaceBelow < panelHeight && spaceAbove > spaceBelow) {
                 $wrap.addClass('is-open-up');
+                $panel.addClass('acrps-select__panel--up');
+                var usableAbove = Math.min(panelHeight, spaceAbove);
                 if (panelHeight > spaceAbove) {
                     $panel.css('max-height', spaceAbove + 'px');
                 }
-            } else if (panelHeight > spaceBelow) {
-                // Stay down but cap height so it never spills off-screen
-                $panel.css('max-height', spaceBelow + 'px');
+                top = rect.top + scrollY - usableAbove;
+            } else {
+                if (panelHeight > spaceBelow) {
+                    $panel.css('max-height', spaceBelow + 'px');
+                }
+                top = rect.bottom + scrollY;
             }
+
+            $panel.css({
+                top:   top   + 'px',
+                left:  left  + 'px',
+                width: width + 'px'
+            });
         }
 
         // ---------- 6. Open / close ----------
@@ -3338,7 +3326,8 @@ Sys.Application.add_init(function() {
         function close() {
             $panel.prop('hidden', true);
             $wrap.removeClass('is-open is-open-up');
-            $panel.css('max-height', '');
+            $panel.removeClass('acrps-select__panel--up');
+            $panel.css({ 'max-height': '', top: '', left: '', width: '' });
             $control.attr('aria-expanded', 'false');
         }
 
@@ -3355,18 +3344,23 @@ Sys.Application.add_init(function() {
             if (e.key === 'Escape') close();
         });
 
+        // Click outside: panel now lives in <body>, so exempt both wrap and panel
         $(document).on('click', function (e) {
-            if (!$(e.target).closest($wrap).length) close();
+            var $t = $(e.target);
+            if ($t.closest($wrap).length)  return;
+            if ($t.closest($panel).length) return;
+            close();
         });
 
-        // Reposition while the panel is open
+        // Reposition while the panel is open (page scroll / resize)
         $(window).on('resize scroll', function () {
             if (!$panel.prop('hidden')) positionPanel();
         });
 
         // ---------- 7. Init ----------
         buildPanel();
-        $checks = $wrap.find('input[type="checkbox"]');
+        // $checks must be scoped to $panel now, not $wrap
+        $checks = $panel.find('input[type="checkbox"]');
 
         // Reflect any server-rendered selections
         $native.find('option').each(function (i) {
