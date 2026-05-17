@@ -820,9 +820,10 @@ linear-gradient(89.77deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 99
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.35);
     border-radius: 5px 5px 0 0;
 }
-.acrps-search-source label {
+.acrps-search-source label, .acrps-select__panel label {
     line-height: 30px;
     white-space: nowrap;
+    margin: 0;
 }
 .acrps-search-source .input {
     float: none;
@@ -1170,7 +1171,7 @@ linear-gradient(89.77deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 99
 }
 
 /* ---------- Custom checkbox ---------- */
-.acrps-select input[type="checkbox"] {
+.acrps-select__panel input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
     width: 14px;
@@ -1185,14 +1186,14 @@ linear-gradient(89.77deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 99
     margin: 0;
     transition: border-color 0.15s ease;
 }
-.acrps-select input[type="checkbox"]:hover         { border-color: #999999; }
-.acrps-select input[type="checkbox"]:checked::after {
+.acrps-select__panel input[type="checkbox"]:hover         { border-color: #999999; }
+.acrps-select__panel input[type="checkbox"]:checked::after {
     content: "";
     width: 8px; height: 8px;
     background: #8B9950;       /* olive checkmark fill */
     border-radius: 1px;
 }
-.acrps-select input[type="checkbox"]:indeterminate::after {
+.acrps-select__panel input[type="checkbox"]:indeterminate::after {
     content: "";
     width: 10px; height: 2px;
     background: #8B9950;
