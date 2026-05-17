@@ -863,7 +863,6 @@ linear-gradient(89.77deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 99
 .acrps-search .search-options {
     display: flex;
     gap: 16px;
-    justify-content: center;
 }
 .acrps-search .submit {
     width: auto;
@@ -1135,7 +1134,6 @@ linear-gradient(89.77deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 99
     max-height: 440px;
     padding: 10px;
 }
-
 .acrps-select__list,
 .acrps-select__sublist {
     list-style: none;
@@ -1251,24 +1249,31 @@ html[dir="ltr"] .acrps-select__chip-remove {
 <select multiple="multiple"
         name="ctl00$PlaceHolderMain$ddlSection"
         id="ctl00_PlaceHolderMain_ddlSection"
-        class="acrps-select__native source-select"
+        class="acrps-select__native"
         hidden
         aria-hidden="true">
-        <option data-source-key="acrps" value="...">موقع المركز العربي</option>
-
+ 
+    <option value='Path:&quot;https://www.dohainstitute.org/ar&quot;;ContentType:ACRPS-ArticlePageContentType OR ContentType:ACRPS-FilePageContentType OR ContentType:ACRPS-NewsPageContentType OR ContentType:ACRPS-JournalPageContentType OR ContentType:ACRPS-BookPageContentType OR ContentType:ACRPS-UpComingEventContentType OR ContentType:ACRPS-EventDetailPageContentType OR ContentType:ACRPS-PreviousEventListContentType'>موقع المركز العربي</option>
+ 
     <option data-role="parent" data-group="periodicals">دوريات المركز</option>
+ 
+    <option value='Path:&quot; &quot;;ContentType:'
+            data-role="child" data-group="periodicals">دورية عمران</option>
+    <option value='Path:&quot; &quot;;ContentType:'
+            data-role="child" data-group="periodicals">دورية تبيُّن</option>
+    <option value='Path:&quot; &quot;;ContentType:'
+            data-role="child" data-group="periodicals">دورية سياسات عربية</option>
+    <option value='Path:&quot; &quot;;ContentType:'
+            data-role="child" data-group="periodicals">دورية أسطور</option>
+    <option value='Path:&quot; &quot;;ContentType:'
+            data-role="child" data-group="periodicals">دورية استشراف</option>
+    <option value='Path:&quot; &quot;;ContentType:'
+            data-role="child" data-group="periodicals">دورية حكامة</option>
 
-    <option data-source-key="omran"      data-role="child" data-group="periodicals" value="...">دورية عمران</option>
-    <option data-source-key="tabayyun"   data-role="child" data-group="periodicals" value="...">دورية تبيُّن</option>
-    <option data-source-key="siyasat"    data-role="child" data-group="periodicals" value="...">دورية سياسات عربية</option>
-    <option data-source-key="ostour"     data-role="child" data-group="periodicals" value="...">دورية أسطور</option>
-    <option data-source-key="istishraf"  data-role="child" data-group="periodicals" value="...">دورية استشراف</option>
-    <option data-source-key="hikama"     data-role="child" data-group="periodicals" value="...">دورية حكامة</option>
-
-    <option data-source-key="arabica" value="...">الموسوعة العربية - أرابيكا</option>
+    <option value='Path:&quot; &quot;;ContentType:'>الموسوعة العربية - أرابيكا</option>
 </select>
  
-<div class="acrps-select source-select"
+<div class="acrps-select"
      data-target="#ctl00_PlaceHolderMain_ddlSection"
      data-placeholder="الكل"
      dir="rtl">
@@ -1352,45 +1357,46 @@ html[dir="ltr"] .acrps-select__chip-remove {
         class="acrps-select__native"
         hidden
         aria-hidden="true">
-    <option data-type-key="studies-papers"        value="...">دراسات وأوراق تحليليّة</option>
-    <option data-type-key="book-reviews"          value="...">مراجعات وعروض الكتب</option>
-    <option data-type-key="case-assessment"       value="...">تقييم حالة</option>
-    <option data-type-key="policy-papers"         value="...">أوراق سياسات</option>
-    <option data-type-key="reports"               value="...">تقارير</option>
-    <option data-type-key="strategic-analyses"    value="...">تحليلات استراتيجية</option>
-    <option data-type-key="situation-assessment"  value="...">تقدير موقف</option>
-    <option data-type-key="economic-analyses"     value="...">تحليلات اقتصادية</option>
-    <option data-type-key="economic-opinions"     value="...">آراء اقتصادية</option>
-    <option data-type-key="economic-papers"       value="...">أوراق اقتصادية</option>
-    <option data-type-key="discussions-comments"  value="...">مناقشات وتعقيبات</option>
-    <option data-type-key="editorial"             value="...">الافتتاحية</option>
-    <option data-type-key="special-file"          value="...">ملف خاص</option>
-    <option data-type-key="files"                 value="...">ملفات</option>
-    <option data-type-key="docs-testimonies"      value="...">وثائق وشهادات</option>
-    <option data-type-key="future-issues"         value="...">قضايا مستقبلية</option>
-    <option data-type-key="ethical-research"      value="...">بحوث أخلاقية</option>
-    <option data-type-key="translations"          value="...">ترجمات</option>
-    <option data-type-key="arab-index"            value="...">المؤشر العربي</option>
-    <option data-type-key="ostour-seminar"        value="...">ندوة أسطور</option>
-    <option data-type-key="jurisprudence-studies" value="...">دراسات فقهية</option>
-    <option data-type-key="tracks"                value="...">مسارات</option>
-    <option data-type-key="strategic-papers"      value="...">أوراق استراتيجية</option>
-    <option data-type-key="classics"              value="...">كلاسيكيات</option>
-    <option data-type-key="documentation"         value="...">التوثيق</option>
-    <option data-type-key="articles"              value="...">مقالات</option>
-    <option data-type-key="bibliography"          value="...">بيبليوغرافيا</option>
-    <option data-type-key="news"                  value="...">أخبار</option>
-    <option data-type-key="books"                 value="...">الكتب</option>
-    <option data-type-key="periodicals"           value="...">الدوريات</option>
-    <option data-type-key="conference"            value="...">مؤتمر</option>
-    <option data-type-key="annual-conference"     value="...">مؤتمر سنوي</option>
-    <option data-type-key="seminar"               value="...">ندوة</option>
-    <option data-type-key="symposium"            value="...">سيمنار</option>
-    <option data-type-key="lecture"               value="...">محاضرة</option>
-    <option data-type-key="scientific-workshop"   value="...">ورشة علمية</option>
+        	<option value="Path:&quot; &quot;;ContentType:">دراسات وأوراق تحليليّة</option>
+            <option value="Path:&quot; &quot;;ContentType:">مراجعات وعروض الكتب</option>
+            <option value="Path:&quot; &quot;;ContentType:">تقييم حالة</option>
+            <option value="Path:&quot; &quot;;ContentType:">أوراق سياسات</option>
+            <option value="Path:&quot; &quot;;ContentType:">تقارير</option>
+            <option value="Path:&quot; &quot;;ContentType:">تحليلات استراتيجية</option>
+            <option value="Path:&quot; &quot;;ContentType:">تقدير موقف</option>
+            <option value="Path:&quot; &quot;;ContentType:">تحليلات اقتصادية</option>
+            <option value="Path:&quot; &quot;;ContentType:">آراء اقتصادية</option>
+            <option value="Path:&quot; &quot;;ContentType:">أوراق اقتصادية</option>
+            <option value="Path:&quot; &quot;;ContentType:">مناقشات وتعقيبات</option>
+            <option value="Path:&quot; &quot;;ContentType:">الافتتاحية</option>
+            <option value="Path:&quot; &quot;;ContentType:">ملف خاص</option>
+            <option value="Path:&quot; &quot;;ContentType:">ملفات</option>
+            <option value="Path:&quot; &quot;;ContentType:">وثائق وشهادات</option>
+            <option value="Path:&quot; &quot;;ContentType:">قضايا مستقبلية</option>
+            <option value="Path:&quot; &quot;;ContentType:">بحوث أخلاقية</option>
+            <option value="Path:&quot; &quot;;ContentType:">ترجمات</option>
+            <option value="Path:&quot; &quot;;ContentType:">المؤشر العربي</option>
+            <option value="Path:&quot; &quot;;ContentType:">ندوة أسطور</option>
+            <option value="Path:&quot; &quot;;ContentType:">دراسات فقهية</option>
+            <option value="Path:&quot; &quot;;ContentType:">مسارات</option>
+            <option value="Path:&quot; &quot;;ContentType:">أوراق استراتيجية</option>
+            <option value="Path:&quot; &quot;;ContentType:">كلاسيكيات</option>
+            <option value="Path:&quot; &quot;;ContentType:">التوثيق</option>
+            <option value="Path:&quot; &quot;;ContentType:">مقالات</option>
+            <option value="Path:&quot; &quot;;ContentType:">بيبليوغرافيا</option>
+            <option value="Path:&quot; &quot;;ContentType:">أخبار</option>
+            <option value="Path:&quot; &quot;;ContentType:">الكتب</option>
+            <option value="Path:&quot; &quot;;ContentType:">الدوريات</option>
+            <option value="Path:&quot; &quot;;ContentType:">مؤتمر</option>
+            <option value="Path:&quot; &quot;;ContentType:">مؤتمر سنوي</option>
+            <option value="Path:&quot; &quot;;ContentType:">ندوة</option>
+            <option value="Path:&quot; &quot;;ContentType:">سيمنار</option>
+            <option value="Path:&quot; &quot;;ContentType:">محاضرة</option>
+            <option value="Path:&quot; &quot;;ContentType:">ورشة علمية</option>
+            
 </select>
 
-<div class="acrps-select type-select"
+<div class="acrps-select"
      data-target="#ctl01_PlaceHolderMain_ddlSection"
      data-placeholder="الكل"
      dir="rtl">
@@ -3067,529 +3073,321 @@ Sys.Application.add_init(function() {
 (function ($) {
     'use strict';
 
-    // ============================================================
-    // CONFIG — review against images 1 & 2
-    // ============================================================
+    $('.acrps-select').each(function () {
+        var $wrap       = $(this);
+        var $native     = $($wrap.data('target'));
+        var $control    = $wrap.find('.acrps-select__control');
+        var $chips      = $wrap.find('.acrps-select__chips');
+        var placeholder = $wrap.attr('data-placeholder') || '';
+        var $panel, $checks;
+        var built = false;
 
-    // Each source → canonical content-type keys it publishes.
-    // 'arabica' intentionally omitted (no content types).
-    var SOURCE_TYPES = {
-        'acrps': [
-            'situation-assessment', 'case-assessment', 'policy-papers', 'files', 'reports',
-            'strategic-papers', 'strategic-analyses', 'studies-papers', 'book-reviews', 'articles',
-            'economic-analyses', 'economic-opinions', 'economic-papers', 'news', 'books', 'periodicals',
-            'conference', 'annual-conference', 'seminar', 'symposium', 'lecture', 'scientific-workshop'
-        ],
-        'hikama': [
-            'editorial', 'special-file', 'studies-papers',
-            'policy-papers', 'translations', 'reports', 'book-reviews'
-        ],
-        'ostour': [
-            'editorial', 'studies-papers', 'translations',
-            'docs-testimonies', 'ostour-seminar', 'tracks',
-            'book-reviews', 'reports', 'classics'
-        ],
-        'istishraf': [
-            'studies-papers', 'translations', 'book-reviews', 'future-issues'
-        ],
-        'omran': [
-            'special-file', 'studies-papers',
-            'discussions-comments', 'translations', 'reports', 'book-reviews'
-        ],
-        'tabayyun': [
-            'special-file', 'studies-papers', 'discussions-comments',
-            'ethical-research', 'jurisprudence-studies', 'translations',
-            'reports', 'book-reviews', 'bibliography'
-        ],
-        'siyasat': [
-            'studies-papers', 'discussions-comments',
-            'policy-papers',
-            'translations', 'docs-testimonies', 'arab-index',
-            'documentation', 'reports', 'book-reviews'
-        ]
-    };
+        var optionAt = function (i) { return $native.find('option').eq(i); };
+        var isOpen   = function ()  { return $wrap.hasClass('is-open'); };
 
-    // Same-meaning Arabic synonyms per canonical type, for SharePoint OR-search.
-    // 1:1 grey entries fall back to the option's own label via forKey().
-    var TYPE_SYNONYMS = {
-        'studies-papers':       ['دراسات وأوراق تحليليّة', 'دراسات', 'الدراسات'],
-        'book-reviews':         ['مراجعات وعروض الكتب', 'مراجعات', 'مراجعات كتب', 'مراجعات الكتب', 'عروض', 'عروض كتب', 'عروض الكتب', 'من المكتبة'],
-        'translations':         ['ترجمات', 'ترجمة', 'دراسة مترجمة', 'دراسات مترجمة'],
-        'editorial':            ['الافتتاحية', 'افتتاحية'],
-        'special-file':         ['ملف خاص', 'ملف', 'محور العدد'],
-        'docs-testimonies':     ['وثائق ونصوص', 'نصوص وشهادات', 'وثيقة'],
-        'discussions-comments': ['مناقشات', 'تعقيبات', 'سجال'],
-        'policy-papers':        ['تحليل سياسات', 'أوراق سياسات', 'تحليل السياسات']
-    };
+        // ---------- 1. Build panel from <option>s (lazy, runs once) ----------
+        function buildPanel() {
+            if (built) return;
+            built = true;
 
-    // ============================================================
-    // PUBLIC EXPORTS — for the SharePoint submit handler
-    // ============================================================
+            var $list    = $('<div class="acrps-select__panel--inner"><ul class="acrps-select__list" role="listbox" aria-multiselectable="true"></ul></div>');
+            var $options = $native.find('option');
 
-    window.AcrpsTypeSynonyms = {
-        forKey: function (typeKey, fallbackLabel) {
-            return TYPE_SYNONYMS[typeKey] || [fallbackLabel];
-        }
-    };
+            // First pass: collect groups declared by data-group on options
+            var groups = {}; // id -> { parentIndex: number|null, childIndices: number[] }
+            $options.each(function (i) {
+                var $o    = $(this);
+                var group = $o.attr('data-group');
+                if (!group) return;
+                if (!groups[group]) groups[group] = { parentIndex: null, childIndices: [] };
+                var role = $o.attr('data-role');
+                if (role === 'parent') groups[group].parentIndex = i;
+                else                   groups[group].childIndices.push(i);
+            });
 
-    window.buildContentTypeClause = function () {
-        var clauses = $('.acrps-select.type-select')
-            .data('acrpsSelect') ? // ensure the widget exists
-            $($('.acrps-select.type-select').data('target'))
-                .find('option:selected')
-                .map(function () {
-                    var key  = $(this).attr('data-type-key');
-                    var syns = window.AcrpsTypeSynonyms.forKey(key, $(this).text().trim());
-                    return '(' + syns.map(function (s) {
-                        return 'ContentType:"' + s + '"';
-                    }).join(' OR ') + ')';
-                }).get()
-            : [];
-        return clauses.length ? '(' + clauses.join(' OR ') + ')' : '';
-    };
+            // Second pass: emit items in document order; render each group
+            // once (when first encountered), standalones individually.
+            var emitted = {};
+            $options.each(function (i) {
+                var $o    = $(this);
+                var group = $o.attr('data-group');
 
-    // ============================================================
-    // BOOT
-    // ============================================================
-
-    $(function () {
-
-        // -------- 1. Initialise every .acrps-select widget --------
-        $('.acrps-select').each(function () {
-            var $wrap       = $(this);
-            var $native     = $($wrap.data('target'));
-            var $control    = $wrap.find('.acrps-select__control');
-            var $chips      = $wrap.find('.acrps-select__chips');
-            var placeholder = $wrap.attr('data-placeholder') || '';
-            var $panel, $checks;
-            var built = false;
-            var currentFilter = null;
-
-            var optionAt = function (i) { return $native.find('option').eq(i); };
-            var isOpen   = function ()  { return $wrap.hasClass('is-open'); };
-
-            // ---------- Build (lazy, once) ----------
-            function buildPanel() {
-    if (built) return;
-    built = true;
-
-    var $listWrap = $('<div class="acrps-select__panel--inner"></div>');
-    var $list     = $('<ul class="acrps-select__list" role="listbox" aria-multiselectable="true"></ul>')
-                        .appendTo($listWrap);
-    var $options  = $native.find('option');
-
-    var groups = {};
-    $options.each(function (i) {
-        var $o    = $(this);
-        var group = $o.attr('data-group');
-        if (!group) return;
-        if (!groups[group]) groups[group] = { parentIndex: null, childIndices: [] };
-        var role = $o.attr('data-role');
-        if (role === 'parent') groups[group].parentIndex = i;
-        else                   groups[group].childIndices.push(i);
-    });
-
-    var emitted = {};
-    $options.each(function (i) {
-        var $o    = $(this);
-        var group = $o.attr('data-group');
-        if (!group) {
-            $list.append(buildStandaloneItem(i, $o.text()));   // root <ul>
-            return;
-        }
-        if (emitted[group]) return;
-        emitted[group] = true;
-        $list.append(buildGroupItem(group, groups[group], $options));  // root <ul>
-    });
-
-    $panel = $('<div class="acrps-select__panel"></div>').append($listWrap);
-    $panel.attr('dir', $wrap.css('direction') === 'rtl' ? 'rtl' : 'ltr');
-
-    $checks = $panel.find('input[type="checkbox"]');
-
-    $native.find('option').each(function (i) {
-        if (this.selected) {
-            $checks.filter('[data-option-index="' + i + '"]').prop('checked', true);
-        }
-    });
-    var seenGroups = {};
-    $checks.filter('[data-role="child"]').each(function () {
-        seenGroups[$(this).attr('data-group')] = true;
-    });
-    Object.keys(seenGroups).forEach(syncParentState);
-
-    bindEvents();
-    applyFilter();
-    renderChips();
-}
-            function buildStandaloneItem(index, text) {
-                var $li    = $('<li class="acrps-select__item--top"></li>');
-                var $label = $('<label></label>');
-                $('<input type="checkbox" data-role="standalone">')
-                    .attr('data-option-index', index)
-                    .appendTo($label);
-                $('<span></span>').text(text).appendTo($label);
-                return $li.append($label);
-            }
-
-            function buildGroupItem(groupId, group, $options) {
-                var $li = $('<li class="acrps-select__item--top"></li>');
-                var hasParent = group.parentIndex !== null;
-
-                if (hasParent) {
-                    var $label = $('<label></label>');
-                    $('<input type="checkbox" data-role="parent">')
-                        .attr('data-group', groupId)
-                        .attr('data-option-index', group.parentIndex)
-                        .appendTo($label);
-                    $('<span></span>').text($options.eq(group.parentIndex).text()).appendTo($label);
-                    $li.append($label);
-                }
-
-                if (group.childIndices.length) {
-                    var $sub = $('<ul class="acrps-select__sublist"></ul>');
-                    group.childIndices.forEach(function (idx) {
-                        var $row      = $('<li></li>');
-                        var $rowLabel = $('<label></label>');
-                        var $input    = $('<input type="checkbox">')
-                            .attr('data-role', hasParent ? 'child' : 'standalone')
-                            .attr('data-option-index', idx);
-                        if (hasParent) $input.attr('data-group', groupId);
-                        $rowLabel.append($input);
-                        $('<span></span>').text($options.eq(idx).text()).appendTo($rowLabel);
-                        $sub.append($row.append($rowLabel));
-                    });
-                    $li.append($sub);
-                }
-                return $li;
-            }
-
-            // ---------- Chips ----------
-            function labelOf($cb) { return $cb.next('span').text(); }
-
-            function renderChips() {
-                $chips.empty();
-                if (!$checks) {
-                    if (placeholder) $chips.append($('<span class="acrps-select__placeholder"></span>').text(placeholder));
+                if (!group) {
+                    $list.append(buildStandaloneItem(i, $o.text()));
                     return;
                 }
-                var any = false;
-
-                $checks.filter('[data-role="parent"], [data-role="standalone"]').each(function () {
-                    var $cb = $(this);
-                    if (!$cb.prop('checked')) return;
-                    any = true;
-                    addChip(labelOf($cb), function () {
-                        if ($cb.attr('data-role') === 'parent') {
-                            var g = $cb.attr('data-group');
-                            $checks.filter('[data-group="' + g + '"]')
-                                   .prop('checked', false).prop('indeterminate', false);
-                        } else {
-                            $cb.prop('checked', false);
-                        }
-                        syncAll();
-                    });
-                });
-
-                $checks.filter('[data-role="child"]:checked').each(function () {
-                    var $cb     = $(this);
-                    var g       = $cb.attr('data-group');
-                    var $parent = $checks.filter('[data-role="parent"][data-group="' + g + '"]');
-                    if ($parent.prop('checked')) return;
-                    any = true;
-                    addChip(labelOf($cb), function () {
-                        $cb.prop('checked', false);
-                        syncAll();
-                    });
-                });
-
-                if (!any && placeholder) {
-                    $chips.append($('<span class="acrps-select__placeholder"></span>').text(placeholder));
-                }
-            }
-
-            function addChip(text, onRemove) {
-                var $chip = $('<span class="acrps-select__chip"></span>')
-                    .append($('<span/>').text(text));
-                $('<button type="button" class="acrps-select__chip-remove" aria-label="إزالة">&times;</button>')
-                    .on('click', function (e) { e.stopPropagation(); onRemove(); })
-                    .appendTo($chip);
-                $chips.append($chip);
-            }
-
-            // ---------- Parent <-> children ----------
-            function syncParentState(group) {
-                var $kids   = $checks.filter('[data-role="child"][data-group="' + group + '"]');
-                var $parent = $checks.filter('[data-role="parent"][data-group="' + group + '"]');
-                if (!$parent.length) return;
-                var total   = $kids.length;
-                var checked = $kids.filter(':checked').length;
-
-                if (checked === 0)            $parent.prop('checked', false).prop('indeterminate', false);
-                else if (checked === total)   $parent.prop('checked', true).prop('indeterminate', false);
-                else                          $parent.prop('checked', false).prop('indeterminate', true);
-            }
-
-            function syncNative() {
-                $native.find('option').prop('selected', false);
-                $checks.filter(':checked').each(function () {
-                    optionAt(parseInt($(this).attr('data-option-index'), 10)).prop('selected', true);
-                });
-                $native.trigger('change');
-            }
-
-            function syncAll() {
-                var seen = {};
-                $checks.filter('[data-role="child"]').each(function () {
-                    seen[$(this).attr('data-group')] = true;
-                });
-                Object.keys(seen).forEach(syncParentState);
-                renderChips();
-                syncNative();
-            }
-
-            // ---------- Filtering (FIXED: force-uncheck on hide) ----------
-            function applyFilter() {
-                if (!built || !$panel) return;
-
-                var changed = false;
-
-                // Pass 1: walk options, toggle their li, FORCE uncheck any
-                // checkbox whose item is hidden by the filter.
-                $native.find('option').each(function (i) {
-                    var $opt = $(this);
-                    var $cb  = $panel.find('input[data-option-index="' + i + '"]');
-                    if (!$cb.length) return;
-                    if ($cb.attr('data-role') === 'parent') return; // reconciled later
-                    var $li  = $cb.closest('li');
-                    var show = !currentFilter || currentFilter($opt);
-                    $li.toggle(show);
-                    if (!show) {
-                        if ($cb.prop('checked') || $cb.prop('indeterminate')) {
-                            $cb.prop('checked', false).prop('indeterminate', false);
-                            changed = true;
-                        }
-                    }
-                });
-
-                // Pass 2: hide a group's top-li if its children are all gone,
-                // AND uncheck its parent checkbox so nothing leaks to submit.
-                $panel.find('.acrps-select__sublist').each(function () {
-                    var $sub = $(this);
-                    var $top = $sub.closest('.acrps-select__item--top');
-                    var anyVisible = $sub.children('li').filter(function () {
-                        return $(this).css('display') !== 'none';
-                    }).length > 0;
-                    $top.toggle(anyVisible);
-
-                    if (!anyVisible) {
-                        var $parent = $top.children('label').find('input[data-role="parent"]');
-                        if ($parent.length && ($parent.prop('checked') || $parent.prop('indeterminate'))) {
-                            $parent.prop('checked', false).prop('indeterminate', false);
-                            changed = true;
-                        }
-                    }
-                });
-
-                // Reconcile remaining parents from children
-                var groups = {};
-                if ($checks) {
-                    $checks.filter('[data-role="child"]').each(function () {
-                        groups[$(this).attr('data-group')] = true;
-                    });
-                }
-                Object.keys(groups).forEach(syncParentState);
-
-                renderChips();
-                if (changed) syncNative();  // writes selected=false + triggers change
-                if (isOpen()) positionPanel();
-            }
-
-            // ---------- Events ----------
-            function bindEvents() {
-                $checks.filter('[data-role="parent"]').on('change', function () {
-                    var $cb = $(this);
-                    var g   = $cb.attr('data-group');
-                    var on  = $cb.prop('checked');
-                    $checks.filter('[data-role="child"][data-group="' + g + '"]').prop('checked', on);
-                    $cb.prop('indeterminate', false);
-                    renderChips();
-                    syncNative();
-                });
-
-                $checks.filter('[data-role="child"]').on('change', function () {
-                    syncParentState($(this).attr('data-group'));
-                    renderChips();
-                    syncNative();
-                });
-
-                $checks.filter('[data-role="standalone"]').on('change', function () {
-                    renderChips();
-                    syncNative();
-                });
-            }
-
-            // ---------- Placement ----------
-            function positionPanel() {
-                $wrap.removeClass('is-open-up');
-                $panel.removeClass('acrps-select__panel--up');
-                $panel.css('max-height', '');
-
-                var rect        = $control[0].getBoundingClientRect();
-                var scrollY     = window.pageYOffset || document.documentElement.scrollTop  || 0;
-                var scrollX     = window.pageXOffset || document.documentElement.scrollLeft || 0;
-                var panelHeight = $panel.outerHeight();
-                var viewportH   = window.innerHeight;
-                var margin      = 8;
-                var spaceBelow  = viewportH - rect.bottom - margin;
-                var spaceAbove  = rect.top - margin;
-
-                var top;
-                var left  = rect.left + scrollX;
-                var width = rect.width;
-
-                if (spaceBelow < panelHeight && spaceAbove > spaceBelow) {
-                    $wrap.addClass('is-open-up');
-                    $panel.addClass('acrps-select__panel--up');
-                    var usableAbove = Math.min(panelHeight, spaceAbove);
-                    if (panelHeight > spaceAbove) {
-                        $panel.css('max-height', spaceAbove + 'px');
-                    }
-                    top = rect.top + scrollY - usableAbove;
-                } else {
-                    if (panelHeight > spaceBelow) {
-                        $panel.css('max-height', spaceBelow + 'px');
-                    }
-                    top = rect.bottom + scrollY;
-                }
-
-                $panel.css({ top: top + 'px', left: left + 'px', width: width + 'px' });
-            }
-
-            // ---------- Open / Close (mount / detach) ----------
-            function open() {
-                buildPanel();
-                $('body').append($panel);
-                $wrap.addClass('is-open');
-                $control.attr('aria-expanded', 'true');
-                positionPanel();
-            }
-
-            function close() {
-                $wrap.removeClass('is-open is-open-up');
-                $control.attr('aria-expanded', 'false');
-                if ($panel) {
-                    $panel.removeClass('acrps-select__panel--up');
-                    $panel.css({ 'max-height': '', top: '', left: '', width: '' });
-                    $panel.detach();
-                }
-            }
-
-            $control.on('click', function (e) {
-                if ($(e.target).closest('.acrps-select__chip-remove').length) return;
-                isOpen() ? close() : open();
+                if (emitted[group]) return;
+                emitted[group] = true;
+                $list.append(buildGroupItem(group, groups[group], $options));
             });
 
-            $control.on('keydown', function (e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    isOpen() ? close() : open();
-                }
-                if (e.key === 'Escape') close();
-            });
+            // Build the panel but DO NOT attach it to the DOM yet. It will be
+            // appended to <body> on open() and detached again on close().
+            $panel = $('<div class="acrps-select__panel"></div>').append($list);
+            $panel.attr('dir', $wrap.css('direction') === 'rtl' ? 'rtl' : 'ltr');
 
-            $(document).on('click', function (e) {
-                if (!isOpen()) return;
-                var $t = $(e.target);
-                if ($t.closest($wrap).length)  return;
-                if ($panel && $t.closest($panel).length) return;
-                close();
-            });
+            $checks = $panel.find('input[type="checkbox"]');
 
-            $(window).on('resize scroll', function () {
-                if (isOpen()) positionPanel();
-            });
-
-            // ---------- Public API on this instance ----------
-            $wrap.data('acrpsSelect', {
-                setFilter: function (predicate) {
-                    currentFilter = predicate || null;
-                    applyFilter();
-                },
-                clearFilter: function () {
-                    currentFilter = null;
-                    applyFilter();
-                },
-                clearAll: function () {
-                    // Wipe every selection — works whether the panel is built or not
-                    $native.find('option').prop('selected', false);
-                    if (built && $checks) {
-                        $checks.prop('checked', false).prop('indeterminate', false);
-                    }
-                    renderChips();
-                    $native.trigger('change');
+            // Seed checkboxes from any server-rendered <option selected>
+            $native.find('option').each(function (i) {
+                if (this.selected) {
+                    $checks.filter('[data-option-index="' + i + '"]').prop('checked', true);
                 }
             });
+            // Reconcile parent indeterminate/checked after seeding children
+            var seenGroups = {};
+            $checks.filter('[data-role="child"]').each(function () {
+                seenGroups[$(this).attr('data-group')] = true;
+            });
+            Object.keys(seenGroups).forEach(syncParentState);
 
-            // Initial placeholder
-            if (placeholder) {
-                $chips.append($('<span class="acrps-select__placeholder"></span>').text(placeholder));
-            }
-        });
-
-        // -------- 2. Wire source ↔ type --------
-        var $sourceWrap   = $('.acrps-select.source-select');
-        var $typeWrap     = $('.acrps-select.type-select');
-        var $typeSection  = $('.acrps-search-type');
-        if (!$sourceWrap.length || !$typeWrap.length) return;
-
-        var $sourceNative = $($sourceWrap.data('target'));
-        var totalSources  = $sourceNative.find('option[data-source-key]').length;
-
-        function selectedKeys() {
-            return $sourceNative.find('option:selected').map(function () {
-                return $(this).attr('data-source-key');
-            }).get().filter(Boolean);
+            bindEvents();
+            renderChips();
         }
 
-        function computeAllowed(keys) {
-            if (keys.length === 0 || keys.length === totalSources) return null; // all
-            var allowAll = false;
-            var set = {};
-            keys.forEach(function (k) {
-                var types = SOURCE_TYPES[k];
-                if (types === null)            allowAll = true;
-                else if (Array.isArray(types)) types.forEach(function (t) { set[t] = true; });
-                // undefined (arabica) contributes nothing
-            });
-            return allowAll ? null : set;
+        function buildStandaloneItem(index, text) {
+            var $li    = $('<li class="acrps-select__item--top"></li>');
+            var $label = $('<label></label>');
+            $('<input type="checkbox" data-role="standalone">')
+                .attr('data-option-index', index)
+                .appendTo($label);
+            $('<span></span>').text(text).appendTo($label);
+            return $li.append($label);
         }
 
-        function update() {
-            var typeApi = $typeWrap.data('acrpsSelect');
-            if (!typeApi) return;
-            var keys = selectedKeys();
+        function buildGroupItem(groupId, group, $options) {
+            var $li = $('<li class="acrps-select__item--top"></li>');
+            var hasParent = group.parentIndex !== null;
 
-            // Arabica-only → hide field AND wipe any prior type selections
-            if (keys.length === 1 && keys[0] === 'arabica') {
-                typeApi.clearAll();
-                $typeSection.hide();
+            if (hasParent) {
+                var $label = $('<label></label>');
+                $('<input type="checkbox" data-role="parent">')
+                    .attr('data-group', groupId)
+                    .attr('data-option-index', group.parentIndex)
+                    .appendTo($label);
+                $('<span></span>').text($options.eq(group.parentIndex).text()).appendTo($label);
+                $li.append($label);
+            }
+
+            if (group.childIndices.length) {
+                var $sub = $('<ul class="acrps-select__sublist"></ul>');
+                group.childIndices.forEach(function (idx) {
+                    var $row      = $('<li></li>');
+                    var $rowLabel = $('<label></label>');
+                    var $input    = $('<input type="checkbox">')
+                        .attr('data-role', hasParent ? 'child' : 'standalone')
+                        .attr('data-option-index', idx);
+                    if (hasParent) $input.attr('data-group', groupId);
+                    $rowLabel.append($input);
+                    $('<span></span>').text($options.eq(idx).text()).appendTo($rowLabel);
+                    $sub.append($row.append($rowLabel));
+                });
+                $li.append($sub);
+            }
+
+            return $li;
+        }
+
+        // ---------- 2. Chip rendering ----------
+        function labelOf($cb) { return $cb.next('span').text(); }
+
+        function renderChips() {
+            $chips.empty();
+            if (!$checks) {
+                if (placeholder) $chips.append($('<span class="acrps-select__placeholder"></span>').text(placeholder));
                 return;
             }
-            $typeSection.show();
+            var any = false;
 
-            var allowed = computeAllowed(keys);
-            if (allowed === null) {
-                typeApi.clearFilter();
-            } else {
-                typeApi.setFilter(function ($opt) {
-                    return allowed[$opt.attr('data-type-key')] === true;
+            $checks.filter('[data-role="parent"], [data-role="standalone"]').each(function () {
+                var $cb = $(this);
+                if (!$cb.prop('checked')) return;
+                any = true;
+                addChip(labelOf($cb), function () {
+                    if ($cb.attr('data-role') === 'parent') {
+                        var g = $cb.attr('data-group');
+                        $checks.filter('[data-group="' + g + '"]')
+                               .prop('checked', false).prop('indeterminate', false);
+                    } else {
+                        $cb.prop('checked', false);
+                    }
+                    syncAll();
                 });
+            });
+
+            // Individual child chips appear only when their parent isn't fully checked
+            $checks.filter('[data-role="child"]:checked').each(function () {
+                var $cb     = $(this);
+                var g       = $cb.attr('data-group');
+                var $parent = $checks.filter('[data-role="parent"][data-group="' + g + '"]');
+                if ($parent.prop('checked')) return;
+                any = true;
+                addChip(labelOf($cb), function () {
+                    $cb.prop('checked', false);
+                    syncAll();
+                });
+            });
+
+            if (!any && placeholder) {
+                $chips.append($('<span class="acrps-select__placeholder"></span>').text(placeholder));
             }
         }
 
-        $sourceNative.on('change', update);
-        update();
+        function addChip(text, onRemove) {
+            var $chip = $('<span class="acrps-select__chip"></span>')
+                .append($('<span/>').text(text));
+            $('<button type="button" class="acrps-select__chip-remove" aria-label="إزالة">&times;</button>')
+                .on('click', function (e) { e.stopPropagation(); onRemove(); })
+                .appendTo($chip);
+            $chips.append($chip);
+        }
+
+        // ---------- 3. Parent <-> children reconciliation ----------
+        function syncParentState(group) {
+            var $kids   = $checks.filter('[data-role="child"][data-group="' + group + '"]');
+            var $parent = $checks.filter('[data-role="parent"][data-group="' + group + '"]');
+            if (!$parent.length) return;
+            var total   = $kids.length;
+            var checked = $kids.filter(':checked').length;
+
+            if (checked === 0)            $parent.prop('checked', false).prop('indeterminate', false);
+            else if (checked === total)   $parent.prop('checked', true).prop('indeterminate', false);
+            else                          $parent.prop('checked', false).prop('indeterminate', true);
+        }
+
+        function syncNative() {
+            $native.find('option').prop('selected', false);
+            $checks.filter(':checked').each(function () {
+                optionAt(parseInt($(this).attr('data-option-index'), 10)).prop('selected', true);
+            });
+            $native.trigger('change');
+        }
+
+        function syncAll() {
+            var seen = {};
+            $checks.filter('[data-role="child"]').each(function () {
+                seen[$(this).attr('data-group')] = true;
+            });
+            Object.keys(seen).forEach(syncParentState);
+            renderChips();
+            syncNative();
+        }
+
+        // ---------- 4. Events (bound once on first build) ----------
+        function bindEvents() {
+            $checks.filter('[data-role="parent"]').on('change', function () {
+                var $cb = $(this);
+                var g   = $cb.attr('data-group');
+                var on  = $cb.prop('checked');
+                $checks.filter('[data-role="child"][data-group="' + g + '"]').prop('checked', on);
+                $cb.prop('indeterminate', false);
+                renderChips();
+                syncNative();
+            });
+
+            $checks.filter('[data-role="child"]').on('change', function () {
+                syncParentState($(this).attr('data-group'));
+                renderChips();
+                syncNative();
+            });
+
+            $checks.filter('[data-role="standalone"]').on('change', function () {
+                renderChips();
+                syncNative();
+            });
+        }
+
+        // ---------- 5. Smart placement (up / down), absolute to <body> ----------
+        function positionPanel() {
+            $wrap.removeClass('is-open-up');
+            $panel.removeClass('acrps-select__panel--up');
+            $panel.css('max-height', '');
+
+            var rect        = $control[0].getBoundingClientRect();
+            var scrollY     = window.pageYOffset || document.documentElement.scrollTop  || 0;
+            var scrollX     = window.pageXOffset || document.documentElement.scrollLeft || 0;
+            var panelHeight = $panel.outerHeight();
+            var viewportH   = window.innerHeight;
+            var margin      = 8;
+            var spaceBelow  = viewportH - rect.bottom - margin;
+            var spaceAbove  = rect.top - margin;
+
+            var top;
+            var left  = rect.left + scrollX;
+            var width = rect.width;
+
+            if (spaceBelow < panelHeight && spaceAbove > spaceBelow) {
+                $wrap.addClass('is-open-up');
+                $panel.addClass('acrps-select__panel--up');
+                var usableAbove = Math.min(panelHeight, spaceAbove);
+                if (panelHeight > spaceAbove) {
+                    $panel.css('max-height', spaceAbove + 'px');
+                }
+                top = rect.top + scrollY - usableAbove;
+            } else {
+                if (panelHeight > spaceBelow) {
+                    $panel.css('max-height', spaceBelow + 'px');
+                }
+                top = rect.bottom + scrollY;
+            }
+
+            $panel.css({
+                top:   top   + 'px',
+                left:  left  + 'px',
+                width: width + 'px'
+            });
+        }
+
+        // ---------- 6. Open / close (mount / detach) ----------
+        function open() {
+            buildPanel();              // builds once, no-op after that
+            $('body').append($panel);  // mount: panel enters the DOM
+            $wrap.addClass('is-open');
+            $control.attr('aria-expanded', 'true');
+            positionPanel();
+        }
+
+        function close() {
+            $wrap.removeClass('is-open is-open-up');
+            $control.attr('aria-expanded', 'false');
+            if ($panel) {
+                $panel.removeClass('acrps-select__panel--up');
+                $panel.css({ 'max-height': '', top: '', left: '', width: '' });
+                $panel.detach();       // unmount: panel leaves the DOM
+            }
+        }
+
+        $control.on('click', function (e) {
+            if ($(e.target).closest('.acrps-select__chip-remove').length) return;
+            isOpen() ? close() : open();
+        });
+
+        $control.on('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                isOpen() ? close() : open();
+            }
+            if (e.key === 'Escape') close();
+        });
+
+        // Click outside: panel lives in <body> when open, so exempt both
+        $(document).on('click', function (e) {
+            if (!isOpen()) return;
+            var $t = $(e.target);
+            if ($t.closest($wrap).length)  return;
+            if ($panel && $t.closest($panel).length) return;
+            close();
+        });
+
+        $(window).on('resize scroll', function () {
+            if (isOpen()) positionPanel();
+        });
+
+        // No init-time build. The panel is constructed on first open().
+        // Chips render empty initially (placeholder) until something is selected.
+        if (placeholder) {
+            $chips.append($('<span class="acrps-select__placeholder"></span>').text(placeholder));
+        }
     });
 
 })(jQuery);
