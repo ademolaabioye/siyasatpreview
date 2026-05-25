@@ -356,7 +356,13 @@ linear-gradient(89.77deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 99
   user-select: none;         /* Standard */
 
 }
-
+.acrps-select__native {
+    min-height: 30px;
+    background: #ffffff;
+    border: 1px solid #d8d8d8;
+    border-radius: 5px;
+    width: 100%;
+}
 .acrps-select__control {
     display: flex;
     align-items: stretch;
@@ -1258,44 +1264,26 @@ jQuery(document).ready(function () {
 <div id="ctl00_PlaceHolderMain_ContentSearchBox" onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;ctl00_PlaceHolderMain_submit&#39;)">
 
     <div class="acrps-search">
-    <div class="acrps-search-source">
-        <label for="source">Source</label>
 
-        <div class="input">
-            <select multiple="multiple"
-                    name="ctl00$PlaceHolderMain$ddlSection"
-                    id="ctl00_PlaceHolderMain_ddlSection"
-                    class="acrps-select__native"
-                    hidden
-                    aria-hidden="true">
-                <option data-source-key="acrps" value="...">Arab Center Website</option>
+<div class="acrps-search-source">
+                          <label for="category">Source</label>
+                              <div class="input">
+                                 <select name="ctl00$PlaceHolderMain$ddlSites" multiple="multiple"
+        id="ctl00_PlaceHolderMain_ddlSites" class="acrps-select__native" size="1"
+        data-placeholder="All Sources">
+		<option selected="selected" value="http://diqspfs13dev:4040/en/;http://diqspfs13dev:2020/en/;http://diqspfs13dev:2030/en/;http://diqspfs13dev:2040/en/;http://diqspfs13dev:2050/en/;http://diqspfs13dev:2055/en/;http://diqspfs13dev:2060/en/;http://diqspfs13dev:2066/en/" data-source-key="http://diqspfs13dev:4040/en/;http://diqspfs13dev:2020/en/;http://diqspfs13dev:2030/en/;http://diqspfs13dev:2040/en/;http://diqspfs13dev:2050/en/;http://diqspfs13dev:2055/en/;http://diqspfs13dev:2060/en/;http://diqspfs13dev:2066/en/" data-role="" data-group="">All Sources</option>
+		<option value="" data-source-key="" data-role="parent" data-group="periodicals">Center Periodicals</option>
+		<option value="http://diqspfs13dev:2020/en/" data-source-key="http://diqspfs13dev:2020/en/" data-role="child" data-group="periodicals">Siyasat</option>
+		<option value="http://diqspfs13dev:2030/en/" data-source-key="http://diqspfs13dev:2030/en/" data-role="child" data-group="periodicals">Tabayyun</option>
+		<option value="http://diqspfs13dev:2040/en/" data-source-key="http://diqspfs13dev:2040/en/" data-role="child" data-group="periodicals">Omran</option>
+		<option value="http://diqspfs13dev:2050/en/" data-source-key="http://diqspfs13dev:2050/en/" data-role="child" data-group="periodicals">Ostour</option>
+		<option value="http://diqspfs13dev:2055/en/" data-source-key="http://diqspfs13dev:2055/en/" data-role="child" data-group="periodicals">Hikama</option>
+		<option value="http://diqspfs13dev:2060/en/" data-source-key="http://diqspfs13dev:2060/en/" data-role="child" data-group="periodicals">Istishraf</option>
+		<option value="http://diqspfs13dev:2066/en/" data-source-key="http://diqspfs13dev:2066/en/" data-role="child" data-group="periodicals">AlMuntaqa</option>
 
-                <option data-role="parent" data-group="periodicals">Center Periodicals</option>
-
-                <option data-source-key="omran"      data-role="child" data-group="periodicals" value="...">Omran Journal</option>
-                <option data-source-key="tabayyun"   data-role="child" data-group="periodicals" value="...">Tabayyun Journal</option>
-                <option data-source-key="siyasat"    data-role="child" data-group="periodicals" value="...">Siyasat Arabiya Journal</option>
-                <option data-source-key="ostour"     data-role="child" data-group="periodicals" value="...">Ostour Journal</option>
-                <option data-source-key="istishraf"  data-role="child" data-group="periodicals" value="...">Istishraf Journal</option>
-                <option data-source-key="hikama"     data-role="child" data-group="periodicals" value="...">Hikama Journal</option>
-                <option data-source-key="almuntaqa"  data-role="child" data-group="periodicals" value="...">Almuntaqa Journal</option>
-            </select>
-
-            <div class="acrps-select source-select"
-                 data-target="#ctl00_PlaceHolderMain_ddlSection"
-                 data-placeholder="All Sources"
-                 dir="ltr">
-
-                <div class="acrps-select__control" tabindex="0" role="combobox" aria-expanded="false" aria-haspopup="listbox">
-                    <div class="acrps-select__chips"></div>
-                    <button type="button" class="acrps-select__toggle" aria-label="Open menu">
-                        <b role="presentation"></b>
-                    </button>
-                </div>
-            </div>
-
-        </div>
-    </div>
+	</select>
+                              </div>
+                      </div>
 
     <div class="doi-search doi-search--advanced-search clearfix">
         <div class="form-horizontal">
@@ -1368,8 +1356,8 @@ jQuery(document).ready(function () {
                                 name="ctl01$PlaceHolderMain$ddlSection"
                                 id="ctl01_PlaceHolderMain_ddlSection"
                                 class="acrps-select__native"
-                                hidden
-                                aria-hidden="true">
+                                data-placeholder="All Types"
+                                size="1">
                             <option data-type-key="studies-papers"        value="...">Studies and Analytical Papers</option>
                             <option data-type-key="book-reviews"          value="...">Book Reviews</option>
                             <option data-type-key="case-assessment"       value="...">Case Assessment</option>
@@ -1409,18 +1397,6 @@ jQuery(document).ready(function () {
                             <option data-type-key="reflections"           value="...">Reflections</option>
                             <option data-type-key="interviews"            value="...">Interviews</option>
                         </select>
-
-                        <div class="acrps-select type-select"
-                             data-target="#ctl01_PlaceHolderMain_ddlSection"
-                             data-placeholder="All Types"
-                             dir="ltr">
-                            <div class="acrps-select__control" tabindex="0" role="combobox" aria-expanded="false" aria-haspopup="listbox">
-                                <div class="acrps-select__chips"></div>
-                                <button type="button" class="acrps-select__toggle" aria-label="Open menu">
-                                    <b role="presentation"></b>
-                                </button>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -3101,25 +3077,53 @@ Sys.Application.add_init(function() {
 
        
 <script>
-/* =========================================================
-   .acrps-select widget
-   - Builds panel from <option>s
-   - Parent/child cascade + indeterminate state
-   - Chip rendering, native-select sync
-   - Smart up/down panel placement
-   - Public API on each instance via $wrap.data('acrpsSelect'):
-       setFilter(predicate)   filter visible options
-       clearFilter()          remove filter
-       clearAll()             wipe every selection
-   ========================================================= */
 (function ($) {
     'use strict';
 
+    // ---------- Build the wrapper markup for a native <select> ----------
+    function buildWrapper($native) {
+        var placeholder = $native.attr('data-placeholder') || '';
+        var dir         = $native.attr('dir')         || '';
+        var nativeId    = $native.attr('id');
+
+        var $wrap = $('<div class="acrps-select"></div>');
+        if (placeholder) $wrap.attr('data-placeholder', placeholder);
+        if (dir)         $wrap.attr('dir', dir);
+
+        // Derive the wrapper's id from the native select's id so each instance
+        // can be targeted directly, e.g. #<nativeId>-acrps in CSS/JS.
+        // The native select keeps its own id intact (needed for SharePoint postback).
+        if (nativeId) $wrap.attr('id', nativeId + '-acrps');
+
+        var $control = $('<div class="acrps-select__control" tabindex="0" role="combobox" aria-expanded="false" aria-haspopup="listbox"></div>');
+        $('<div class="acrps-select__chips"></div>').appendTo($control);
+
+        var $toggle = $('<button type="button" class="acrps-select__toggle" aria-label="Open menu"></button>');
+        $('<b role="presentation"></b>').appendTo($toggle);
+        $toggle.appendTo($control);
+
+        $control.appendTo($wrap);
+        $native.after($wrap);
+
+        // Hide the native select now that the custom widget is mounted.
+        // It stays in the DOM so its selected <option>s still post back —
+        // display:none does NOT remove a control from form submission
+        // (only the `disabled` attribute does), so SharePoint postback is fine.
+        $native.hide();
+
+        return $wrap;
+    }
+
     $(function () {
 
-        $('.acrps-select').each(function () {
-            var $wrap       = $(this);
-            var $native     = $($wrap.data('target'));
+        $('select.acrps-select__native').each(function () {
+            var $native = $(this);
+
+            // Guard: never double-build (e.g. if the script runs twice).
+            if ($native.data('acrpsBuilt')) return;
+            $native.data('acrpsBuilt', true);
+
+            var $wrap       = buildWrapper($native);
             var $control    = $wrap.find('.acrps-select__control');
             var $chips      = $wrap.find('.acrps-select__chips');
             var placeholder = $wrap.attr('data-placeholder') || '';
@@ -3520,165 +3524,6 @@ Sys.Application.add_init(function() {
 
 })(jQuery);
 </script>
-<script>
-/* =========================================================
-   Source ↔ Content-Type cascade  (depends on .acrps-select widget)
-   - SOURCE_TYPES : which canonical type keys each source publishes
-   - TYPE_SYNONYMS: Arabic synonym set per canonical type
-   - window.AcrpsTypeSynonyms.forKey(key, fallbackLabel)
-   - window.buildContentTypeClause() → SharePoint OR-clause string
-   - On source change: filter / hide the content-type widget
-   Load AFTER the .acrps-select widget script.
-   ========================================================= */
-(function ($) {
-    'use strict';
 
-    // ============================================================
-    // CONFIG — review against images 1 & 2
-    // ============================================================
-
-    // Each source → canonical content-type keys it publishes.
-    // 'arabica' intentionally omitted (no content types).
-    var SOURCE_TYPES = {
-        'acrps': [
-            'situation-assessment', 'case-assessment', 'policy-papers', 'files', 'reports',
-            'strategic-papers', 'strategic-analyses', 'studies-papers', 'book-reviews', 'articles',
-            'economic-analyses', 'economic-opinions', 'economic-papers', 'news', 'books', 'periodicals',
-            'conference', 'annual-conference', 'seminar', 'symposium', 'lecture', 'scientific-workshop'
-        ],
-        'hikama': [
-            'editorial', 'special-file', 'studies-papers',
-            'policy-papers', 'translations', 'reports', 'book-reviews'
-        ],
-        'ostour': [
-            'editorial', 'studies-papers', 'translations',
-            'docs-testimonies', 'ostour-seminar', 'tracks',
-            'book-reviews', 'reports', 'classics'
-        ],
-        'istishraf': [
-            'studies-papers', 'translations', 'book-reviews', 'future-issues'
-        ],
-        'omran': [
-            'special-file', 'studies-papers',
-            'discussions-comments', 'translations', 'reports', 'book-reviews'
-        ],
-        'tabayyun': [
-            'special-file', 'studies-papers', 'discussions-comments',
-            'ethical-research', 'jurisprudence-studies', 'translations',
-            'reports', 'book-reviews', 'bibliography'
-        ],
-        'siyasat': [
-            'studies-papers', 'discussions-comments',
-            'policy-papers',
-            'translations', 'docs-testimonies', 'arab-index',
-            'documentation', 'reports', 'book-reviews'
-        ],
-        'almuntaqa': [
-            'editorial', 'studies-papers', 'reflections',
-            'interviews', 'arab-index', 'book-reviews'
-        ],
-    };
-
-    // Same-meaning Arabic synonyms per canonical type, for SharePoint OR-search.
-    // 1:1 grey entries fall back to the option's own label via forKey().
-    var TYPE_SYNONYMS = {
-    'studies-papers':       ['Studies and Analytical Papers', 'Studies', 'Analytical Papers', 'Research Papers'],
-    'book-reviews':         ['Book Reviews', 'Book Review', 'Reviews', 'From the Library', 'Library'],
-    'translations':         ['Translations', 'Translation', 'Translated Study', 'Translated Studies', 'Translated Paper'],
-    'editorial':            ['Editorial', 'Editorial Note'],
-    'special-file':         ['Special File', 'Special Dossier', 'Dossier', 'File', 'Issue Focus'],
-    'docs-testimonies':     ['Documents and Testimonies', 'Documents and Texts', 'Texts and Testimonies', 'Document', 'Documents'],
-    'discussions-comments': ['Discussions and Comments', 'Discussions', 'Comments', 'Debates', 'Debate'],
-    'policy-papers':        ['Policy Papers', 'Policy Paper', 'Policy Analysis', 'Policy Analyses']
-};
-
-    // ============================================================
-    // PUBLIC EXPORTS — for the SharePoint submit handler
-    // ============================================================
-
-    window.AcrpsTypeSynonyms = {
-        forKey: function (typeKey, fallbackLabel) {
-            return TYPE_SYNONYMS[typeKey] || [fallbackLabel];
-        }
-    };
-
-    window.buildContentTypeClause = function () {
-        var clauses = $('.acrps-select.type-select')
-            .data('acrpsSelect') ? // ensure the widget exists
-            $($('.acrps-select.type-select').data('target'))
-                .find('option:selected')
-                .map(function () {
-                    var key  = $(this).attr('data-type-key');
-                    var syns = window.AcrpsTypeSynonyms.forKey(key, $(this).text().trim());
-                    return '(' + syns.map(function (s) {
-                        return 'ContentType:"' + s + '"';
-                    }).join(' OR ') + ')';
-                }).get()
-            : [];
-        return clauses.length ? '(' + clauses.join(' OR ') + ')' : '';
-    };
-
-    // ============================================================
-    // WIRING
-    // ============================================================
-
-    $(function () {
-
-        var $sourceWrap  = $('.acrps-select.source-select');
-        var $typeWrap    = $('.acrps-select.type-select');
-        var $typeSection = $('.acrps-search-type');
-        if (!$sourceWrap.length || !$typeWrap.length) return;
-
-        var $sourceNative = $($sourceWrap.data('target'));
-        var totalSources  = $sourceNative.find('option[data-source-key]').length;
-
-        function selectedKeys() {
-            return $sourceNative.find('option:selected').map(function () {
-                return $(this).attr('data-source-key');
-            }).get().filter(Boolean);
-        }
-
-        function computeAllowed(keys) {
-            if (keys.length === 0 || keys.length === totalSources) return null; // all
-            var allowAll = false;
-            var set = {};
-            keys.forEach(function (k) {
-                var types = SOURCE_TYPES[k];
-                if (types === null)            allowAll = true;
-                else if (Array.isArray(types)) types.forEach(function (t) { set[t] = true; });
-                // undefined (arabica) contributes nothing
-            });
-            return allowAll ? null : set;
-        }
-
-        function update() {
-            var typeApi = $typeWrap.data('acrpsSelect');
-            if (!typeApi) return;
-            var keys = selectedKeys();
-
-            // Arabica-only → hide field AND wipe any prior type selections
-            if (keys.length === 1 && keys[0] === 'arabica') {
-                typeApi.clearAll();
-                $typeSection.hide();
-                return;
-            }
-            $typeSection.show();
-
-            var allowed = computeAllowed(keys);
-            if (allowed === null) {
-                typeApi.clearFilter();
-            } else {
-                typeApi.setFilter(function ($opt) {
-                    return allowed[$opt.attr('data-type-key')] === true;
-                });
-            }
-        }
-
-        $sourceNative.on('change', update);
-        update();
-    });
-
-})(jQuery);
-</script>
     </body>
 </html>
