@@ -37,7 +37,7 @@
         <link id="CssLink-05cefa4e8f5540e6b93e1eef28397e2e" rel="stylesheet" type="text/css" href="https://www.dohainstitute.org/Style%20Library/en-US/Themable/Core%20Styles/pagelayouts15.css"/>
 <link id="CssLink-67bfe9d041864b9fb227f0f7c9fb12b3" rel="stylesheet" type="text/css" href="https://www.dohainstitute.org/_layouts/15/1033/styles/Themable/corev15.css?rev=UP2nlZLed9gOy%2BMP38oz0A%3D%3DTAG0"/>
 <link id="CssLink-c0f2783cfff040e189b59cce4c3561b5" rel="stylesheet" type="text/css" href="https://www.dohainstitute.org/_layouts/15/1033/styles/Themable/searchv15.css?rev=WCMg7sG%2FBs80Egs3hPhOhw%3D%3DTAG0"/>
-<link id="custom" rel="stylesheet" type="text/css" href="https://www.dohainstitute.org/_catalogs/masterpage/Assets/css/custom.css"/>
+<link id="custom" rel="stylesheet" type="text/css" href="Assets/css/custom.css"/>
         <script type="text/javascript">// <![CDATA[ 
 
 var g_SPOffSwitches={};
@@ -142,466 +142,8 @@ var g_SPOffSwitches={};
 
     <link rel="stylesheet" type="text/css" href="https://www.dohainstitute.org/_catalogs/masterpage/Assets/css/app-ltr.css"></link>
     
-<style>
-.acrps-page-content--advanced-search .doi-search-options--advanced-search {
-    padding-top: 20px;
-    margin-top: -5px;
-}
-.acrps-page-content--advanced-search h1 {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: 24px;
-}
- .acrps-page-content--advanced-search .page-title--no-border {
-        display: contents !important;
-    }
-.acrps-search-source {
-    display: flex;
-    gap: 7px;
-    justify-content: space-between;
-    background: linear-gradient(0deg, #C99700, #C99700),
-linear-gradient(89.77deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 99.96%);
-    padding: 16px;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.35);
-    border-radius: 5px 5px 0 0;
-}
-.acrps-search-source label, .acrps-select__panel label {
-    line-height: 30px;
-    white-space: nowrap;
-    margin: 0;
-}
-.acrps-search-source .input {
-    float: none;
-    width: 100%;
-    margin: 0;
-}
-.acrps-search .doi-search {
-    border-radius: 0 0 5px 5px;
-}
-.acrps-search-criteria {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 16px;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-.acrps-search label {
-    position: relative;
-    margin: 0;
-    white-space: nowrap;
-}
-.acrps-search-keywords, .acrps-search-author, .acrps-search-published-date, .acrps-search-type {
-    display: flex;
-    justify-content: space-between;
-}
-.acrps-search-keywords{flex:3;gap: 7px;}
-.acrps-search-author{flex:2.4;gap: 7px;}
-.acrps-search-published-date{flex:3.6;gap: 7px;}
-.acrps-search-type{gap: 7px; width: 100%;}
-
-.acrps-search-criteria .published-from, .acrps-search-criteria .published-to {
-    padding: 0;
-    float: none;
-    width: 50%;
-    margin-bottom: 0;
-}
-.acrps-search .search-options {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-}
-.acrps-search .submit {
-    width: auto;
-}
-.acrps-search .form-control {
-    height: 30px;
-}
-.acrps-search-type label, .acrps-search-keywords label, .acrps-search-source label {
-    width: 62px;
-    flex-shrink: 0;
-    text-align: right;
-}
-.acrps-search-published-date input::placeholder {
-    color: #ccc;
-}
-.acrps-search-results .search-results__result .meta__author:before {
-    background-color: #ccc;
-    top: 4px;
-    height: 14px;
-}
-.acrps-search-results .search-results__result .meta__author a {
-    color: #c99700;
-}
-.acrps-search-results .search-results__result .meta__author a:hover {
-    color: #00758c;
-}
-.acrps-search-results .search-results__result .meta__date {
-    color: #999;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-}
-.acrps-search-results .search-results__result .meta__date:before {
-    font: normal normal normal 12px / 1 FontAwesome;
-    content: "\f073";
-}
-.meta__source {
-    margin-bottom: 10px;
-    display: inline-flex;
-    border-radius: 4px;
-    overflow: hidden;
-}
-.meta__source-name, .meta__source-category {
-    padding: 2px 8px;
-    color: #fff;
-    font-size: 10px;
-    line-height: 17px;
-    display: inline-block;
-    transition: background 0.3s ease;
-}
-    .meta__source-name.arab-center {
-        background: #0894ad;
-    }
-.meta__source-name.siyasatarabiya {
-    background: #A79F4D;
-}
-.meta__source-name.arabica {
-    background: #17375f;
-}
-.meta__source-name.omran {
-    background: #068698;
-}
-.meta__source-name.hikama {
-    background: #009548;
-}
-.meta__source-name.ostour {
-    background: #744D12;
-}
-.meta__source-name.tabayyun {
-    background: #97005E;
-}
-.meta__source-name.istishraf {
-    background: #58467F;
-}
-.meta__source-name.almuntaqa {
-    background: #93002D;
-}
-.meta__source-name:hover, .meta__source-category:hover {
-    background: #333 !important;
-}
-.meta__source-name a, .meta__source-category a {
-    color: #fff !important;
-}
-.meta__source-category {
-    background: #666666;
-}
-.meta__info {
-    font-size: 14px;
-}
-.acrps-search-results .title {
-    font-size: 16px;
-}
-.acrps-search-results .search-results__result {
-    border-bottom: 1px solid #eee;
-    padding-bottom: 16px;
-    margin-bottom: 16px;
-}
-@media (max-width: 1200px) and (min-width: 992px) {
-   .acrps-search-published-date {
-    flex: none;
-    gap: 7px;
-    width: 100%;
-}
-.acrps-search-published-date label {
-    width: 62px;
-    flex-shrink: 0;
-    text-align: right;
-}
-}
-@media (max-width: 992px) {
-  .acrps-search  .doi-search--advanced-search {
-        margin-bottom: 0;
-    }
-}
-@media (max-width: 768px) {
-   .acrps-search-published-date, .acrps-search-type, .acrps-search-author {
-    flex: none;
-    gap: 7px;
-    width: 100%;
-}
-.acrps-search-published-date label, .acrps-search-author label {
-    width: 62px;
-    flex-shrink: 0;
-    text-align: right;
-}
-.acrps-page-content--advanced-search h1 {
-    margin-top: 16px;
-    margin-bottom: 16px;
-    font-size: 20px;
-}
-}
-@media (max-width: 600px) {
-    .acrps-page-content--advanced-search .doi-search-options--advanced-search {
-    padding-top: 35px;
-}
-}
-
-.acrps-select {
-    position: relative;
-    width: 100%;
-    color: #333;
-  -webkit-user-select: none; /* Safari */
-  -moz-user-select: none;    /* Firefox */
-  -ms-user-select: none;     /* IE/Edge old */
-  user-select: none;         /* Standard */
-
-}
-.acrps-select__native {
-    min-height: 30px;
-    background: #ffffff;
-    border: 1px solid #d8d8d8;
-    border-radius: 5px;
-    width: 100%;
-}
-.acrps-select__control {
-    display: flex;
-    align-items: stretch;
-    gap: 8px;
-    min-height: 30px;
-    background: #ffffff;
-    border: 1px solid #d8d8d8;
-    border-radius: 5px;
-    cursor: pointer;
-    padding: 4px 8px 4px 38px;
-}
-.acrps-select.is-open .acrps-select__control {
-    border-radius: 5px 5px 0 0;
-}
-.acrps-select.is-open-up .acrps-select__control {
-    border-radius: 0 0 5px 5px;
-}
-.acrps-select__chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2px;
-    flex: 1;
-    align-items: center;
-}
-
-.acrps-select__chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 2px 4px 2px 0;
-    background: #f4f4f4;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 12px;
-    line-height: 1;
-    color: #666;
-    white-space: nowrap;
-    height: 20px;
-}
-
-.acrps-select__chip-remove {
-    appearance: none;
-    border: 0;
-    background: transparent !important;
-    color: #6b6b6b;
-    cursor: pointer;
-    font-size: 16px;
-    line-height: 1;
-    padding: 0;
-    width: 20px;
-    height: 20px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-right: 1px solid #ccc !important;
-}
-.acrps-select__chip-remove:hover { color: #b00020; }
-
-.acrps-select__placeholder {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 2px 4px;
-    background: #f4f4f4;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 12px;
-    line-height: 1;
-    color: #666;
-    white-space: nowrap;
-    height: 20px;
-}
-
-.acrps-select__toggle {
-    border: 1px solid #D7D7D7 !important;
-    width: 30px;
-    height: 30px;
-    border-radius: 5px;
-    background: -o-linear-gradient(#f4f4f4 0%, #fff 47%, #ddd 100%);
-    background: -webkit-gradient(linear, left top, left bottom, from(#f4f4f4), color-stop(47%, #fff), to(#ddd));
-    background: linear-gradient(#f4f4f4 0%, #fff 47%, #ddd 100%);
-    top: 0;
-    left: 0 !important;
-    right: auto;
-    position: absolute;
-}
-.acrps-select.is-open .acrps-select__toggle {
-    border-radius: 5px 5px 0 0;
-}
-.acrps-select.is-open-up .acrps-select__toggle {
-    border-radius: 0 0 5px 5px;
-}
-.acrps-select__toggle b {
-    border-color: #C99700 transparent transparent transparent !important;
-    border-width: 6px 5px 0 5px !important;
-    margin-left: -5px !important;
-}
-.acrps-select__toggle b {
-    border-color: #888 transparent transparent transparent;
-    border-style: solid;
-    border-width: 5px 4px 0 4px;
-    height: 0;
-    left: 50%;
-    margin-left: -4px;
-    margin-top: -2px;
-    position: absolute;
-    top: 50%;
-    width: 0;
-}
-.acrps-select.is-open .acrps-select__toggle b { transform: rotate(180deg); }
-
-.acrps-select__panel {
-    position: absolute;            /* top/left/width set inline by JS */
-    background: #ffffff;
-    border: 1px solid #d8d8d8;
-    border-radius: 0 0 5px 5px;
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
-    z-index: 9999;    
-    overflow: hidden;
-}
-
-.acrps-select__panel--up {
-    border-radius: 5px 5px 0 0;
-    box-shadow: 0 -8px 28px rgba(0, 0, 0, 0.08);
-}
-.acrps-select__panel--inner {
-    overflow-y: auto;
-    max-height: 440px;
-    padding: 10px;
-}
-
-.acrps-select__list,
-.acrps-select__sublist {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-
-.acrps-select__item--top > label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 700;
-    font-size: 13px;
-    cursor: pointer;
-}
- ul.acrps-select__list:not(:has(ul.acrps-select__sublist)) .acrps-select__item--top > label {
-    color: #666;
- }
-.acrps-select__sublist {
-    padding-inline-start: 30px;
-}
-.acrps-select__item--top { 
-   list-style: none;
-}
-
-.acrps-select__sublist label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 400;
-    font-size: 14px;
-    color: #666;
-    cursor: pointer;
-}
-
-/* ---------- Custom checkbox ---------- */
-.acrps-select__panel input[type="checkbox"] {
-    appearance: none;
-    -webkit-appearance: none;
-    width: 14px;
-    height: 14px;
-    border: 1.5px solid #c4c4c4;
-    border-radius: 2px;
-    background: #ffffff;
-    cursor: pointer;
-    display: inline-grid;
-    place-content: center;
-    flex-shrink: 0;
-    margin: 0;
-    transition: border-color 0.15s ease;
-}
-.acrps-select__panel input[type="checkbox"]:hover         { border-color: #999999; }
-.acrps-select__panel input[type="checkbox"]:checked::after {
-    content: "";
-    width: 8px; height: 8px;
-    background: #8B9950;       /* olive checkmark fill */
-    border-radius: 1px;
-}
-.acrps-select__panel input[type="checkbox"]:indeterminate::after {
-    content: "";
-    width: 10px; height: 2px;
-    background: #8B9950;
-}
-
-html[dir="ltr"] .acrps-search-type label,
-html[dir="ltr"] .acrps-search-keywords label,
-html[dir="ltr"] .acrps-search-source label {
-    width: 84px;        /* widened to fit longer English labels (e.g. "Publication Date") */
-    text-align: left;
-}
-
-@media (max-width: 1200px) and (min-width: 992px) {
-    html[dir="ltr"] .acrps-search-published-date label {
-        width: 84px;
-        text-align: left;
-    }
-}
-@media (max-width: 768px) {
-    html[dir="ltr"] .acrps-search-published-date label, html[dir="ltr"] .acrps-search-author label {
-        width: 84px;
-        text-align: left;
-    }
-.acrps-select__panel--inner {
-    max-height: 300px;
-}
-
-.acrps-select__sublist {
-    padding-inline-start: 25px;
-}
-}
-
-html[dir="ltr"] .acrps-select__control {
-    padding: 4px 38px 4px 8px;
-}
-html[dir="ltr"] .acrps-select__toggle {
-    left: auto !important;
-    right: 0 !important;
-}
-
-html[dir="ltr"] .acrps-select__chip {
-    padding: 2px 0 2px 4px;
-}
-html[dir="ltr"] .acrps-select__chip-remove {
-    border-right: 0 !important;
-    border-left: 1px solid #ccc !important;
-}
-</style>
+<link id="custom" rel="stylesheet" type="text/css" href="Assets/css/custom.css"/>
+ 
     </head>
     <body style="overflow-x:scroll;" onhashchange="if (typeof(_spBodyOnHashChange) != 'undefined') _spBodyOnHashChange();" class="background visitor">
         <!-- Google Tag Manager (noscript) -->
@@ -1261,16 +803,13 @@ jQuery(document).ready(function () {
 </script>
 
 
-<div id="ctl00_PlaceHolderMain_ContentSearchBox" onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;ctl00_PlaceHolderMain_submit&#39;)">
-
-    <div class="acrps-search">
-
-<div class="acrps-search-source">
+ <div id="ctl00_PlaceHolderMain_ContentSearchBox" onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;ctl00_PlaceHolderMain_submit&#39;)">
+	
+                  <div class="acrps-search">
+                      <div class="acrps-search-source">
                           <label for="category">Source</label>
                               <div class="input">
-                                 <select name="ctl00$PlaceHolderMain$ddlSites" multiple="multiple"
-        id="ctl00_PlaceHolderMain_ddlSites" class="acrps-select__native" size="1"
-        data-placeholder="All Sources">
+                                  <select size="4" name="ctl00$PlaceHolderMain$ddlSites" multiple="multiple" id="ctl00_PlaceHolderMain_ddlSites" class="acrps-select__native">
 		<option selected="selected" value="http://diqspfs13dev:4040/en/;http://diqspfs13dev:2020/en/;http://diqspfs13dev:2030/en/;http://diqspfs13dev:2040/en/;http://diqspfs13dev:2050/en/;http://diqspfs13dev:2055/en/;http://diqspfs13dev:2060/en/;http://diqspfs13dev:2066/en/" data-source-key="http://diqspfs13dev:4040/en/;http://diqspfs13dev:2020/en/;http://diqspfs13dev:2030/en/;http://diqspfs13dev:2040/en/;http://diqspfs13dev:2050/en/;http://diqspfs13dev:2055/en/;http://diqspfs13dev:2060/en/;http://diqspfs13dev:2066/en/" data-role="" data-group="">All Sources</option>
 		<option value="" data-source-key="" data-role="parent" data-group="periodicals">Center Periodicals</option>
 		<option value="http://diqspfs13dev:2020/en/" data-source-key="http://diqspfs13dev:2020/en/" data-role="child" data-group="periodicals">Siyasat</option>
@@ -1284,129 +823,509 @@ jQuery(document).ready(function () {
 	</select>
                               </div>
                       </div>
+                      <div class="doi-search doi-search--advanced-search clearfix">
+                          <div class="form-horizontal">
+                              <div class="criterias">
+                                  <div class="acrps-search-criteria">
+                                      <div class="acrps-search-keywords">
+                                          <label for="keywords">
+                                              Keyword</label>
+                                          <div class="input">
+                                              <input name="ctl00$PlaceHolderMain$keywords" type="text" id="ctl00_PlaceHolderMain_keywords" class="form-control keywordsTextInput" />
+                                          </div>
 
-    <div class="doi-search doi-search--advanced-search clearfix">
-        <div class="form-horizontal">
-            <div class="criterias">
-                <div class="acrps-search-criteria">
+                                      </div>
+                                      <div class="acrps-search-author">
+                                          <label for="author">
+                                              Author</label>
+                                          <div class="input">
+                                              <select name="ctl00$PlaceHolderMain$ddlAuthors" id="ctl00_PlaceHolderMain_ddlAuthors" class="custom-dropdown" style="width: 100%">
+		<option value="123143">أحمد قاسم حسين</option>
+		<option value="125101">Azmi Bishara</option>
+		<option value="122974">Nabil Alsahali</option>
+		<option value="122975">Alaa Bayyoumi</option>
+		<option value="122976">Husam Grais</option>
+		<option value="122977">Mohammed Jamal Barout</option>
+		<option value="122978">Mehdi Rezania</option>
+		<option value="122980">Mahmoud Hamad</option>
+		<option value="122981">Nouri Driss</option>
+		<option value="122982">Abdennour Benantar</option>
+		<option value="122983">Mahmoud Muhareb</option>
+		<option value="122984">Cyrus Ashayeri</option>
+		<option value="122985">Basim Tweissi</option>
+		<option value="122986">Rana Barakat</option>
+		<option value="122987">Adham Saouli</option>
+		<option value="122988">Mbark Bouzzit</option>
+		<option value="122990"> Alison Pargeter </option>
+		<option value="122991">Muammar Khouli</option>
+		<option value="122992">Eleonora Ardemagni </option>
+		<option value="122993">Zahra Karimi</option>
+		<option value="122994">Seyed Ali Alavi</option>
+		<option value="122995">Mohammed Hemchi</option>
+		<option value="122997">Tareq Hammoud</option>
+		<option value="122998">Waleed Serhan </option>
+		<option value="122999"> Sardar Aziz</option>
+		<option value="123000"> Ibrahim Rabaia</option>
+		<option value="123002">Abdelwahab El-Affendi </option>
+		<option value="123003">Yara Nassar</option>
+		<option value="123004">حسين نوشروان سعيد </option>
+		<option value="123005">Rajae Ankoud</option>
+		<option value="123006">Hassan Marzouqi</option>
+		<option value="123007">Hovig Demirjian </option>
+		<option value="123009">حمزة المصطفى</option>
+		<option value="123012">Marwan Kabalan</option>
+		<option value="123015">Mohamed Abdelah Abu Mattar</option>
+		<option value="123018">Ali Husain Bakir</option>
+		<option value="123020">Abdel Nasser Jaby</option>
+		<option value="123023">Ahmed Abdelmawgoud Elshenawy</option>
+		<option value="123024">Emad Y. Kaddorah</option>
+		<option value="123025">Saif Alislam Eid</option>
+		<option value="123026">Fahad Ahmad Bishara</option>
+		<option value="123027"> Faozi Al-Goidi</option>
+		<option value="123028">Akeel Abbas</option>
+		<option value="123029">Eltigani Abdelgadir Hamid</option>
+		<option value="123055">Tariq Dana</option>
+		<option value="123056">Omar Shaban</option>
+		<option value="123057">Yassine Haggan</option>
+		<option value="123058">Mouldi Lahmar</option>
+		<option value="123059">Sena Khateeb</option>
+		<option value="123060">Ahmed Idrees</option>
+		<option value="123061">Hikmat Al-Abdulrahman</option>
+		<option value="123062">Khaled Alkhaldi</option>
+		<option value="123064">Tarek Mitri</option>
+		<option value="123065">Mamdouh Salameh </option>
+		<option value="123066">Jad Chaaban | Karin Seyfert</option>
+		<option value="123069">Baqer Alnajar</option>
+		<option value="123070">Hajer Harrathi</option>
+		<option value="123072">Harith Hasan</option>
+		<option value="123074">Adeeb Ziadeh</option>
+		<option value="123077">Yasmine Hasnaoui </option>
+		<option value="123078">Alex Winder</option>
+		<option value="123084">Ali Abd Al Qader</option>
+		<option value="123090">Zoheir Hamedi</option>
+		<option value="123091">Adel Maalel</option>
+		<option value="123092">Haytham Ahmad Mouzahem</option>
+		<option value="123093">Yasmeen Qadan</option>
+		<option value="123094">Malik Wanous</option>
+		<option value="123095">Abdallah S. Abolouz</option>
+		<option value="123098">Fares Braizat</option>
+		<option value="123100">Aqil Mahfoudh</option>
+		<option value="123102">Yassir Al-Khudayri</option>
+		<option value="123103">Ross Harrison</option>
+		<option value="123104">Fahad Al-Marri</option>
+		<option value="123105">Allan Hassaniyan</option>
+		<option value="123106">Ayat Hamdan</option>
+		<option value="123107">Mohamed Naimi</option>
+		<option value="123108">Suhad Daher-Nashif</option>
+		<option value="123108">Areen Hawari</option>
+		<option value="123109">Hayat Amamou</option>
+		<option value="123110">Ayah Randall</option>
+		<option value="123111">Muhannad Salah Azzeh</option>
+		<option value="123134">Mohamed Ourya</option>
+		<option value="123134">Hicham Ra&#239;q</option>
+		<option value="123135">Hichem Karoui</option>
+		<option value="123137">Mohammad Almasri</option>
+		<option value="123138">Raja Al-Khalidi</option>
+		<option value="123138">Qais Iwidat</option>
+		<option value="123139">Bayram Sinkaya</option>
+		<option value="123142">Dina Khoury</option>
+		<option value="123144">Majd Abuamer</option>
+		<option value="123145">Abdel Rahman Yajioui</option>
+		<option value="123147">Hazim Rahahleh</option>
+		<option value="123149">Abd Al-Wahhab Al-Waqi’ Mohammad Al-Jaali </option>
+		<option value="123150">Ravi Kanbur</option>
+		<option value="123152">Bilal Mohammed Shalash</option>
+		<option value="123153">Sardar Sharif and Khalid Said Towfiq </option>
+		<option value="123155">Ahmed Al-Ismaili</option>
+		<option value="123156">Zoltan Barany</option>
+		<option value="123159">Ayyad Al-Batneegi</option>
+		<option value="123160">Rachid Yalouh</option>
+		<option value="123161">Khalil Arnous Suliman</option>
+		<option value="123162">Farah Z. Aridi</option>
+		<option value="123163">Alejandra Galindo Marines </option>
+		<option value="123164">Chiheb Yahyaoui</option>
+		<option value="123165">Nahid Rahimipour Anaraki</option>
+		<option value="123166">Ibrahim Onour </option>
+		<option value="123169">Philip Leech</option>
+		<option value="123170">Azzam Al Kassir</option>
+		<option value="123171">Anwar Mhajne</option>
+		<option value="123172">Sofia Hnezla</option>
+		<option value="123177">Maxim Suchkov </option>
+		<option value="123180">Moataz El Fegiery</option>
+		<option value="123182">Raymond Hinnebusch</option>
+		<option value="123183">John Keane</option>
+		<option value="123185">Amna Abdulla Sadiq</option>
+		<option value="123186">Ihab Maharmeh</option>
+		<option value="123187">Ahmed Qasem Hussein</option>
+		<option value="123188">Mehran Kamrava</option>
+		<option value="123189">Suhaib Mahmoud</option>
+		<option value="123190">Marwan Bechara</option>
+		<option value="123193">Maryam Al Kuwari</option>
+		<option value="123194">Dana El Kurd</option>
+		<option value="123196">Fadi Farisin, Cihat Battaloglu and Adam Atauallah Bensaid </option>
+		<option value="123198">Shireen Hunter </option>
+		<option value="123199">Jeremy Sarkin</option>
+		<option value="123216">Abdulfateh Naoum</option>
+		<option value="123217">Seevan Saeed </option>
+		<option value="123218">Hassan Elhag Ali Ahmad</option>
+		<option value="123219">Yahia Jadd</option>
+		<option value="123220">Lotfi A&#239;ssa</option>
+		<option value="123221">Mohamed Abdelrahman Hassan</option>
+		<option value="123222">Hamideh Dorzadeh</option>
+		<option value="123223">Public Opinion Polling Unit</option>
+		<option value="123224">Fatemeh Salari</option>
+		<option value="123224">Munya Thaher</option>
+		<option value="123225">Hichem Charfi</option>
+		<option value="123227">Rachid Touhtou</option>
+		<option value="123228">Asem Khalil</option>
+		<option value="123228">Ashraf Othman Bader</option>
+		<option value="123235">Khaled Walid Mahmoud</option>
+		<option value="123236">Afyare A. Elmi </option>
+		<option value="123239">Haider Saeed</option>
+		<option value="123240">Nahar Muhammed Nuri</option>
+		<option value="123241">Firas Mekkiya</option>
+		<option value="123242">Andreas Krieg</option>
+		<option value="123243">Mohammad Mazhari</option>
+		<option value="123244">M&#39;hamed Djabroun</option>
+		<option value="123245">Lorenzo Veracini</option>
+		<option value="123247">Said Saddiki </option>
+		<option value="123250">Wajd Beshara</option>
+		<option value="123252">Souhail Hbaieb</option>
+		<option value="123253">Rachid Moqtader</option>
+		<option value="123254">Alan Aloskan</option>
+		<option value="123254">Ammar Shamaileh</option>
+		<option value="123254">Mohammed Zahr</option>
+		<option value="123255">Hani Awad</option>
+		<option value="123259">Abdulkhaleq Abdullah </option>
+		<option value="123260">Mohammad Basek Manar</option>
+		<option value="123262">Fouad Bu Ali</option>
+		<option value="123264">Mohanad Mustafa</option>
+		<option value="123265">Khalid Rashid A. Alkhater </option>
+		<option value="123266">Khalil Al Anani </option>
+		<option value="123267">Wajih Kawtharani</option>
+		<option value="123269">Mohammad Najib Boutaleb</option>
+		<option value="123270">Khader Abbas Radwan</option>
+		<option value="123271">Lena Jayyusi</option>
+		<option value="123275">Afyare Elmi and Said Mohammed</option>
+		<option value="123276">Richard Murphy</option>
+		<option value="123278">Paul Stevens</option>
+		<option value="123279">Abdulaziz Alhies</option>
+		<option value="123280">Ahmed Ezz Eldin </option>
+		<option value="123281">Aicha Elbasri</option>
+		<option value="123283">Bernd Kaussler </option>
+		<option value="123284">Martin Hvidt</option>
+		<option value="123287">Hani Mousa</option>
+		<option value="123289">Arabi Sadiqi</option>
+		<option value="123312">Abu Alaa Mansour (Mohammad Yousef)</option>
+		<option value="123313">Mohammed Lachkar</option>
+		<option value="123314">Tarek Shamma</option>
+		<option value="123314">Myriam Salama-Carr</option>
+		<option value="123315">Multiple Authors</option>
+		<option value="123316">Abdessalam al–Mseddi</option>
+		<option value="123318">Yasir Suleiman-Malley </option>
+		<option value="123321">Mustafa Abbasi </option>
+		<option value="123323">مراد دياني</option>
+		<option value="123324">Pierre Conesa</option>
+		<option value="123328">Taissier Khalaf</option>
+		<option value="123330">Abdelkader Mellouk</option>
+		<option value="123331">Rawda Ghanaim</option>
+		<option value="123336">Ghassan Al-Kahlout</option>
+		<option value="123338">Basel Ghattas</option>
+		<option value="123340">Mohammad Al-Bakali</option>
+		<option value="123341">Nader Srage</option>
+		<option value="123346">Dergham Shtayyeh</option>
+		<option value="123348">Mokhtar Zouaoui </option>
+		<option value="123351">Ibrahim Abdul-Aziz Abdul-Ghani</option>
+		<option value="123353">Elnour Hamad</option>
+		<option value="123353">Abdel Wahab Al-Tayeb Bashir</option>
+		<option value="123355">Aisha Al-Saad</option>
+		<option value="123356">Aref al-Aref</option>
+		<option value="123358">Basileus Zeno</option>
+		<option value="123359">Cynthia Fleury </option>
+		<option value="123362">Adnan Falahi </option>
+		<option value="123363">Houcine Soudani</option>
+		<option value="123364">al-Arabi al-Arabi</option>
+		<option value="123369">Rachid Ould Boussafa</option>
+		<option value="123370">Mustafa Umar al-Tair </option>
+		<option value="123371">Salem Ouakari </option>
+		<option value="123375">Ammar Ali al-Samar</option>
+		<option value="123378">Mohammed Adnan Ali Zeber </option>
+		<option value="123379">Wissal Elech</option>
+		<option value="123380">Sari Hanafi</option>
+		<option value="123381">Abdullah Hanna </option>
+		<option value="123385">Abderrahim Benhadda </option>
+		<option value="123386">Nader Sarraj </option>
+		<option value="123387">Mohamed Diab</option>
+		<option value="123388">يوسف كرباج</option>
+		<option value="123388">Hala Naufal</option>
+		<option value="123389">Ahmed Ibrahim Abushouk  </option>
+		<option value="123389">El Fatih Abdullahi Abdelsalam</option>
+		<option value="123390">Judith Butler</option>
+		<option value="123391">Khaled Abdel Raouf Aljabr</option>
+		<option value="123392">Abdel-Fattah Mady</option>
+		<option value="123393">Mustapha Khouas</option>
+		<option value="123394">Fatima Al Smadi</option>
+		<option value="123395">Samir Sassi</option>
+		<option value="123402">Esmail Nashif</option>
+		<option value="123403">Ramzi Mounir Baalbaki </option>
+		<option value="123410">Anas Khaled Alnassar </option>
+		<option value="123411">Khamis Daham Muslih al-Sabhany</option>
+		<option value="123412">Asma Malkawi </option>
+		<option value="123414">Albert Dagher </option>
+		<option value="123415">Haggag Ali</option>
+		<option value="123416">Abderazzak Al-Mesbahi </option>
+		<option value="123417">Atef Attieh</option>
+		<option value="123421">Rashad Twam</option>
+		<option value="123423">Karim Maslouh</option>
+		<option value="123426">Mahmoud Bakir</option>
+		<option value="123428">Asaad Dagher</option>
+		<option value="123429">Abdessalam Jalloud</option>
+		<option value="123431">Paul Tabar </option>
+		<option value="123431">Wahib Maalouf </option>
+		<option value="123432">Maati Munjib </option>
+		<option value="123432">Abdul Latif Hamamouche</option>
+		<option value="123434">Khaled Ziadeh</option>
+		<option value="123436">Rachid Benbih</option>
+		<option value="123439">Saud bin Abdullah Al-Zadjali</option>
+		<option value="123441">عبد اللطيف الهرماسي</option>
+		<option value="123445">Abdulbaset Sieda </option>
+		<option value="123447">Muhammad Daoud Al-Ali </option>
+		<option value="123448">Adi Weld Adab</option>
+		<option value="123449">Nizar al-Khazraji</option>
+		<option value="123450">Vittorio Arrigoni</option>
+		<option value="123458">رجا بهلول</option>
+		<option value="123461">Dalal Al-Bizri</option>
+		<option value="123463">Zuhair al-Mokh</option>
+		<option value="123465">Judeh Mohammed Ibrahim Abu Khass </option>
+		<option value="123469">Nabil Ali Shaath</option>
+		<option value="123481">Khalil Osman</option>
+		<option value="123482">Mohamed Helmy Abdel Wahab</option>
+		<option value="123483">Jurji Zaydan </option>
+		<option value="123484">Amartya Sen </option>
+		<option value="123485">Abdelmonaaim Chouqari</option>
+		<option value="123486">Moncef Marzouki </option>
+		<option value="123489">Saadoun Hammadi </option>
+		<option value="123491">Farouk Al Sharaa</option>
+		<option value="123492">Mohammad Abu Maizar</option>
+		<option value="123493">Nasser bin Saif Al Saadi</option>
+		<option value="123496">Mohammad Othman Mahmoud</option>
+		<option value="123497">Shafiq al-Ghabra</option>
+		<option value="123498">Mohamed Abdelaaty</option>
+		<option value="123499">Aymen Boughanmi </option>
+		<option value="123501">Hisham Bin Jiddo</option>
+		<option value="123502">Abdulkarim Ganem</option>
+		<option value="123503">Haitham Farhan Saleh</option>
+		<option value="123506">Mohamed Bouazza</option>
+		<option value="123508">Mueen Al-Taher </option>
+		<option value="123512">Youssef Hussain Omar </option>
+		<option value="124321">Inderjeet Parmar</option>
+		<option value="124322">Shehadeh Youssef Musa</option>
+		<option value="124323">The Unit for Political Studies</option>
+		<option value="124324">Rashid Khashana</option>
+		<option value="124326">Elena Melkumyan </option>
+		<option value="124327">Mohammad Abas Naji</option>
+		<option value="124328">Aisha Al-Tayeb</option>
+		<option value="124332">Hassan Shahraki</option>
+		<option value="124337">Hani Albasoos </option>
+		<option value="124350">Abdulkarim Ekzayez</option>
+		<option value="124355">Eman Ragab</option>
+		<option value="124362">Ibrahim Yasine</option>
+		<option value="124364">Mahsa Safi </option>
+		<option value="124369">Curtis R. Ryan</option>
+		<option value="124370">Mark Ledwidge </option>
+		<option value="124376">Hawre Hasan Hama </option>
+		<option value="124376">Megan Connelly </option>
+		<option value="124393">Tony Lawrence</option>
+		<option value="124394">Tomasz Smura</option>
+		<option value="124396">Lana Ravandi-Fadai </option>
+		<option value="124397">Alain Gresh</option>
+		<option value="124399">Omayma Abdel-Latif</option>
+		<option value="124410">Frederic Wehrey</option>
+		<option value="124416">Abdullah Omar</option>
+		<option value="124426">Amani Al Tawil</option>
+		<option value="124429">Omar Ashour</option>
+		<option value="124433">Drisse Jandari </option>
+		<option value="124435">Abd al-Ali Hami ad-Din</option>
+		<option value="124439">Thabet Abu Ras</option>
+		<option value="124452">Wadee Alarabeed</option>
+		<option value="124463">Nader Habibi</option>
+		<option value="124475">Claudia Yaghoobi</option>
+		<option value="124476">Mostafa El-Sayed Hussin</option>
+		<option value="124490">Gregory Aftandilian</option>
+		<option value="124491">Karim Mezran</option>
+		<option value="124491">Emadeddin Badi</option>
+		<option value="124493">Radwan Ziadeh</option>
+		<option value="124494">Massaab Al-Aloosy </option>
+		<option value="124508">Fadel Abdulghany</option>
+		<option value="124511">Aleksandar Mitreski </option>
+		<option value="124515">Ahmad Abed Rabbo</option>
+		<option value="124517">Hesham Shafick</option>
+		<option value="124525">Ahmed Abdalla Elsheikh</option>
+		<option value="124527">Saja Torman</option>
+		<option value="124536">Zahra Tizro</option>
+		<option value="124537">Negar S. Razavi</option>
+		<option value="124539">Osama Mahmoud Hamdan</option>
+		<option value="124540">Bamo Nouri </option>
+		<option value="124541">Taras Tarasiuk</option>
+		<option value="124541">Petro Burkovskiy</option>
+		<option value="124541">Olexiy Haran</option>
+		<option value="124543">Masoumeh Mirsafa</option>
+		<option value="124546">Nabeel Khoury</option>
+		<option value="124563">Saleh al-Naami</option>
+		<option value="124567">Mahjoob Zweiri</option>
+		<option value="124569">Zahra Kamali Dehghan</option>
+		<option value="124570">Ali Shakoori</option>
+		<option value="124571">Rod Thornton</option>
+		<option value="124572">Atef Moatamed Abdel-Hamid</option>
+		<option value="124578">Hasan Selim &#214;zertem</option>
+		<option value="124579">Sergei Strokan</option>
+		<option value="124588">Faris Abo Hilal</option>
+		<option value="124596">Mazen Hasan</option>
+		<option value="124606">Osama Abu Irshaid</option>
+		<option value="124610">Rostm Mahmod</option>
+		<option value="124621">Imad K. Harb</option>
+		<option value="124623">Mostafa Pakdel Majd </option>
+		<option value="124624">Ladan Rahbari</option>
+		<option value="124634">Beverley Milton-Edwards</option>
+		<option value="124639">Ismail Numan Telci </option>
+		<option value="124655">Fawzi Hassan Hussain</option>
+		<option value="124656">Amir Mahdavi</option>
+		<option value="124669">Sayyar Al-Jamil</option>
+		<option value="124677">The Unit for Iranian Studies</option>
+		<option value="124680">Mohamed Jamih</option>
+		<option value="124681">Wagdy Abdel Fattah Sawahel</option>
+		<option value="124683">Marcus Montgomery </option>
+		<option value="124690">Mohammad Hossein Badamchi</option>
+		<option value="124693">Charles Harb</option>
+		<option value="124697">Atul Bhardwaj</option>
+		<option value="124704">​Zaha Hassan </option>
+		<option value="124708">Nerouz Satik</option>
+		<option value="124713">Muhanad Seloom</option>
+		<option value="124717">Laurent A Lambert</option>
+		<option value="124719">Mustafa Hamarneh</option>
+		<option value="124725">Deepika Saraswat </option>
+		<option value="124726">Ahmet Furkan Ozyakar</option>
+		<option value="124729">Yahya Alkubaisi</option>
+		<option value="124747">Jonathan Kuttab</option>
+		<option value="124755">Bulent Aras</option>
+		<option value="124755">Emirhan Yorulmazlar</option>
+		<option value="124772">Gloria Shkurti &#214;zdemir</option>
+		<option value="124774">Nizar&#160;Ayoub</option>
+		<option value="124778">Kristian Coates Ulrichsen</option>
+		<option value="124792">Bashir Abdulfattah</option>
+		<option value="124801">Chamseddin Alkilani</option>
+		<option value="124808">Yousef Munayyer</option>
+		<option value="124810">Mahmoud Althawadi</option>
+		<option value="124812">Fouad Al-Salahi</option>
+		<option value="124834">David Darchiashvili</option>
+		<option value="124839">Joe Macaron </option>
+		<option value="124844">Kumar Ramakrishna</option>
+		<option value="124845">Rana Barout</option>
+		<option value="124900">Hosam Mohammed Matar</option>
+		<option value="124901">Imad ‘Alu</option>
+		<option value="124902">Mohammad Ali Ahdash</option>
+		<option value="124906">Abdelhakim Khusro Jozel</option>
+		<option value="124907">Yara M. Asi</option>
+		<option value="124919">Roxanne Perugino </option>
+		<option value="124927">Ethan Mayer-Rich</option>
+		<option value="124938">Unit for Contemporary Syrian Studies</option>
+		<option value="124941">Amr Uthman </option>
+		<option value="124954">​Melinda Cohoon</option>
+		<option value="124956">Gordan Akrap</option>
+		<option value="124964">Hamid Dabashi </option>
+		<option value="124965">Amin Saikal</option>
+		<option value="124966">Daniel Brumberg</option>
+		<option value="124967">Pooya Alaedini </option>
+		<option value="124970">Banafsheh Keynoush</option>
+		<option value="125018">Salah Hassan</option>
+		<option value="125043">Mohammed Masbah</option>
+		<option value="125060">Fadel Al Ruby’i</option>
+		<option value="125066">Aya Nassar</option>
+		<option value="125067">Khaled Walid Mahmoud | Adnan Abou Amer </option>
+		<option value="125073">Mohammed Nooreldeen Afaya</option>
+		<option value="125075">David Kimwele</option>
+		<option value="125076">Charles W. Dunne</option>
+		<option value="125078">Murshed al-Qubbi</option>
+		<option value="125118">Ahmet Uysal </option>
+		<option value="163841">Meriem Heni</option>
+		<option value="163841">Laura Sayah</option>
+		<option value="163842">The Economic Studies Unit</option>
+		<option value="163846">Sara Cherqaoui </option>
 
-                    <div class="acrps-search-keywords">
-                        <label for="keywords">Keyword</label>
-                        <div class="input">
-                            <input name="ctl00$PlaceHolderMain$keywords" type="text" id="ctl00_PlaceHolderMain_keywords" class="form-control keywordsTextInput" />
-                        </div>
-                    </div>
+	</select>
+                                          </div>
+                                      </div>
+                                      <div class="acrps-search-published-date">
+                                          <label for="publish-from">
+                                              Date From</label>
+                                          <div class="published-from">
+                                              <div class="input-group date pick-date">
+                                                  <input name="ctl00$PlaceHolderMain$txtpublishfrom" type="text" id="ctl00_PlaceHolderMain_txtpublishfrom" class="form-control" placeholder="Date From" />
+                                                  <div class="input-group-addon input-date">
+                                                      <span class="icon">
+                                                          <i class="fa fa-calendar"></i>
+                                                      </span>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="published-to">
 
-                    <div class="acrps-search-author">
-                        <label for="author">Author</label>
-                        <div class="input">
-                            <select name="ctl00$PlaceHolderMain$ddlSection" id="ctl00_PlaceHolderMain_ddlSection" class="custom-dropdown" style="width: 100%">
-                                <option value=''>All</option>
-                                <option value=''>Ahmed Mohammed Al-Ali</option>
-                                <option value=''>Fatima Al-Zahra Hassan</option>
-                                <option value=''>Mohammed Abdullah Al-Salem</option>
-                                <option value=''>Nour Al-Din Al-Ibrahimi</option>
-                                <option value=''>Sara Khalid Al-Mansour</option>
-                                <option value=''>Omar Youssef Al-Hammadi</option>
-                                <option value=''>Layla Abdulrahman Qasim</option>
-                                <option value=''>Khalid Ibrahim Al-Fahd</option>
-                                <option value=''>Maryam Saeed Al-Kuwari</option>
-                                <option value=''>Youssef Ahmed Al-Sharif</option>
-                                <option value=''>Huda Mahmoud Al-Khatib</option>
-                                <option value=''>Abdulaziz Al-Rashed</option>
-                                <option value=''>Zainab Mohammed Al-Qasim</option>
-                                <option value=''>Tariq Ibrahim Al-Bakr</option>
-                                <option value=''>Amina Abdulqader Al-Siddiqi</option>
-                            </select>
-                        </div>
-                    </div>
+                                              <div class="input-group date pick-date">
+                                                  <input name="ctl00$PlaceHolderMain$txtpublishto" type="text" id="ctl00_PlaceHolderMain_txtpublishto" class="form-control" placeholder="To" />
 
-                    <div class="acrps-search-published-date">
-                        <label for="date-published">Publication Date</label>
-                        <div class="published-from">
-                            <div class="input-group date pick-date">
-                                <input name="ctl00$PlaceHolderMain$txtpublishfrom" type="text" id="ctl00_PlaceHolderMain_txtpublishfrom" class="form-control" placeholder="From"/>
-                                <div class="input-group-addon input-date">
-                                    <span class="icon">
-                                        <i class="fa fa-calendar"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="published-to">
-                            <div class="input-group date pick-date">
-                                <input name="ctl00$PlaceHolderMain$txtpublishto" type="text" id="ctl00_PlaceHolderMain_txtpublishto" class="form-control" placeholder="To"/>
-                                <div class="input-group-addon input-date">
-                                    <span class="icon">
-                                        <i class="fa fa-calendar"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                                  <div class="input-group-addon input-date">
+                                                      <span class="icon">
+                                                          <i class="fa fa-calendar"></i>
+                                                      </span>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
 
-                </div>
-            </div>
+                                  </div>
+                              </div>
 
-            <div class="search-options">
-                <div class="acrps-search-type">
-                    <label for="type">Content Type</label>
-                    <div class="input">
-                        <select multiple="multiple"
-                                name="ctl01$PlaceHolderMain$ddlSection"
-                                id="ctl01_PlaceHolderMain_ddlSection"
-                                class="acrps-select__native"
-                                data-placeholder="All Types"
-                                size="1">
-                            <option data-type-key="studies-papers"        value="...">Studies and Analytical Papers</option>
-                            <option data-type-key="book-reviews"          value="...">Book Reviews</option>
-                            <option data-type-key="case-assessment"       value="...">Case Assessment</option>
-                            <option data-type-key="policy-papers"         value="...">Policy Papers</option>
-                            <option data-type-key="reports"               value="...">Reports</option>
-                            <option data-type-key="strategic-analyses"    value="...">Strategic Analyses</option>
-                            <option data-type-key="situation-assessment"  value="...">Situation Assessment</option>
-                            <option data-type-key="economic-analyses"     value="...">Economic Analyses</option>
-                            <option data-type-key="economic-opinions"     value="...">Economic Opinions</option>
-                            <option data-type-key="economic-papers"       value="...">Economic Papers</option>
-                            <option data-type-key="discussions-comments"  value="...">Discussions and Comments</option>
-                            <option data-type-key="editorial"             value="...">Editorial</option>
-                            <option data-type-key="special-file"          value="...">Special File</option>
-                            <option data-type-key="files"                 value="...">Files</option>
-                            <option data-type-key="docs-testimonies"      value="...">Documents and Testimonies</option>
-                            <option data-type-key="future-issues"         value="...">Future Issues</option>
-                            <option data-type-key="ethical-research"      value="...">Ethical Research</option>
-                            <option data-type-key="translations"          value="...">Translations</option>
-                            <option data-type-key="arab-index"            value="...">Arab Opinion Index</option>
-                            <option data-type-key="ostour-seminar"        value="...">Ostour Seminar</option>
-                            <option data-type-key="jurisprudence-studies" value="...">Jurisprudence Studies</option>
-                            <option data-type-key="tracks"                value="...">Tracks</option>
-                            <option data-type-key="strategic-papers"      value="...">Strategic Papers</option>
-                            <option data-type-key="classics"              value="...">Classics</option>
-                            <option data-type-key="documentation"         value="...">Documentation</option>
-                            <option data-type-key="articles"              value="...">Articles</option>
-                            <option data-type-key="bibliography"          value="...">Bibliography</option>
-                            <option data-type-key="news"                  value="...">News</option>
-                            <option data-type-key="books"                 value="...">Books</option>
-                            <option data-type-key="periodicals"           value="...">Periodicals</option>
-                            <option data-type-key="conference"            value="...">Conference</option>
-                            <option data-type-key="annual-conference"     value="...">Annual Conference</option>
-                            <option data-type-key="seminar"               value="...">Seminar</option>
-                            <option data-type-key="symposium"             value="...">Symposium</option>
-                            <option data-type-key="lecture"               value="...">Lecture</option>
-                            <option data-type-key="scientific-workshop"   value="...">Scientific Workshop</option>
-                            <option data-type-key="reflections"           value="...">Reflections</option>
-                            <option data-type-key="interviews"            value="...">Interviews</option>
-                        </select>
-                    </div>
-                </div>
+                              <div class="search-options">
 
-                <div class="submit">
-                    <input type="submit" name="ctl00$PlaceHolderMain$submit" value="Search" onclick="btnSubmitChageUrl();return false;WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$PlaceHolderMain$submit&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ctl00_PlaceHolderMain_submit" />
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
+                                  <div class="acrps-search-type">
+                                      <label for="category">
+                                          Section</label>
+                                      <div class="input">
+                                          <select size="4" name="ctl00$PlaceHolderMain$ddlSection" multiple="multiple" id="ctl00_PlaceHolderMain_ddlSection" class="acrps-select__native">
+		<option selected="selected" value="Path:&quot;http://diqspfs13dev:4040/en&quot;;ContentType:ACRPS-ArticlePageContentType OR ContentType:ACRPS-FilePageContentType OR ContentType:ACRPS-NewsPageContentType OR ContentType:ACRPS-JournalPageContentType OR ContentType:ACRPS-BookPageContentType OR ContentType:ACRPS-UpComingEventContentType OR ContentType:ACRPS-EventDetailPageContentType OR ContentType:ACRPS-PreviousEventListContentType OR ContentType:ACRPS-ArticleContentType OR ContentType:EncContentType" data-source-key="Path:&quot;http://diqspfs13dev:4040/en&quot;;ContentType:ACRPS-ArticlePageContentType OR ContentType:ACRPS-FilePageContentType OR ContentType:ACRPS-NewsPageContentType OR ContentType:ACRPS-JournalPageContentType OR ContentType:ACRPS-BookPageContentType OR ContentType:ACRPS-UpComingEventContentType OR ContentType:ACRPS-EventDetailPageContentType OR ContentType:ACRPS-PreviousEventListContentType OR ContentType:ACRPS-ArticleContentType OR ContentType:EncContentType">All</option>
+		<option value="Path:&quot;http://diqspfs13dev:4040/en/ResearchAndStudies&quot;;ContentType:ACRPS-ArticlePageContentType OR ContentType:ACRPS-FilePageContentType" data-source-key="Path:&quot;http://diqspfs13dev:4040/en/ResearchAndStudies&quot;;ContentType:ACRPS-ArticlePageContentType OR ContentType:ACRPS-FilePageContentType">Research Papers</option>
+		<option value="Path:&quot;http://diqspfs13dev:4040/en/ResearchAndStudies&quot;;ACRPSSection:&quot;Studies&quot;;ContentType:ACRPS-ArticlePageContentType OR ContentType:ACRPS-FilePageContentType" data-source-key="Path:&quot;http://diqspfs13dev:4040/en/ResearchAndStudies&quot;;ACRPSSection:&quot;Studies&quot;;ContentType:ACRPS-ArticlePageContentType OR ContentType:ACRPS-FilePageContentType">Studies</option>
+		<option value="Path:&quot;http://diqspfs13dev:4040/en/ResearchAndStudies&quot;;ACRPSSection:&quot;Reviews&quot;;ContentType:ACRPS-ArticlePageContentType OR ContentType:ACRPS-FilePageContentType" data-source-key="Path:&quot;http://diqspfs13dev:4040/en/ResearchAndStudies&quot;;ACRPSSection:&quot;Reviews&quot;;ContentType:ACRPS-ArticlePageContentType OR ContentType:ACRPS-FilePageContentType">Reviews</option>
+		<option value="Path:&quot;http://diqspfs13dev:4040/en/PoliticalStudies&quot;;ContentType:ACRPS-ArticlePageContentType OR ContentType:ACRPS-FilePageContentType" data-source-key="Path:&quot;http://diqspfs13dev:4040/en/PoliticalStudies&quot;;ContentType:ACRPS-ArticlePageContentType OR ContentType:ACRPS-FilePageContentType">Political studies</option>
+		<option value="Path:&quot;http://diqspfs13dev:4040/en/PoliticalStudies&quot;;ACRPSSection:&quot;Case Analysis&quot;;ContentType:ACRPS-ArticlePageContentType" data-source-key="Path:&quot;http://diqspfs13dev:4040/en/PoliticalStudies&quot;;ACRPSSection:&quot;Case Analysis&quot;;ContentType:ACRPS-ArticlePageContentType">Case Analysis</option>
+		<option value="Path:&quot;http://diqspfs13dev:4040/en/PoliticalStudies&quot;;ACRPSSection:&quot;Situation Assessment&quot;;ContentType:ACRPS-ArticlePageContentType" data-source-key="Path:&quot;http://diqspfs13dev:4040/en/PoliticalStudies&quot;;ACRPSSection:&quot;Situation Assessment&quot;;ContentType:ACRPS-ArticlePageContentType">Situation Assessment</option>
+		<option value="Path:&quot;http://diqspfs13dev:4040/en/PoliticalStudies&quot;;ACRPSSection:&quot;Policy Analysis&quot;;ContentType:ACRPS-ArticlePageContentType" data-source-key="Path:&quot;http://diqspfs13dev:4040/en/PoliticalStudies&quot;;ACRPSSection:&quot;Policy Analysis&quot;;ContentType:ACRPS-ArticlePageContentType">Policy Analysis</option>
+		<option value="Path:&quot;http://diqspfs13dev:4040/en/PoliticalStudies&quot;;ACRPSSection:&quot;Dossiers&quot;;ContentType:ACRPS-FilePageContentType" data-source-key="Path:&quot;http://diqspfs13dev:4040/en/PoliticalStudies&quot;;ACRPSSection:&quot;Dossiers&quot;;ContentType:ACRPS-FilePageContentType">Dossiers</option>
+		<option value="Path:&quot;http://diqspfs13dev:4040/en/PoliticalStudies&quot;;ACRPSSection:&quot;Reports&quot;;ContentType:ACRPS-ArticlePageContentType" data-source-key="Path:&quot;http://diqspfs13dev:4040/en/PoliticalStudies&quot;;ACRPSSection:&quot;Reports&quot;;ContentType:ACRPS-ArticlePageContentType">Reports</option>
+		<option value="Path:&quot;http://diqspfs13dev:4040/en/PoliticalStudies&quot;;ACRPSSection:&quot;Editorials&quot;;ContentType:ACRPS-ArticlePageContentType" data-source-key="Path:&quot;http://diqspfs13dev:4040/en/PoliticalStudies&quot;;ACRPSSection:&quot;Editorials&quot;;ContentType:ACRPS-ArticlePageContentType">Editorials</option>
+		<option value="Path:&quot;http://diqspfs13dev:4040/en/Events&quot;;ContentType:ACRPS-EventDetailPageContentType OR ContentType:ACRPS-UpComingEventContentType OR ContentType:ACRPS-PreviousEventListContentType" data-source-key="Path:&quot;http://diqspfs13dev:4040/en/Events&quot;;ContentType:ACRPS-EventDetailPageContentType OR ContentType:ACRPS-UpComingEventContentType OR ContentType:ACRPS-PreviousEventListContentType">Events</option>
+		<option value="Path:&quot;http://diqspfs13dev:4040/en/Events&quot;;ACRPSSection:&quot;Seminar&quot;;ContentType:ACRPS-EventDetailPageContentType" data-source-key="Path:&quot;http://diqspfs13dev:4040/en/Events&quot;;ACRPSSection:&quot;Seminar&quot;;ContentType:ACRPS-EventDetailPageContentType">Seminar/Lecture</option>
+		<option value="Path:&quot;http://diqspfs13dev:4040/en/Events&quot;;ACRPSSection:&quot;Conference&quot;;ContentType:ACRPS-PreviousEventListContentType" data-source-key="Path:&quot;http://diqspfs13dev:4040/en/Events&quot;;ACRPSSection:&quot;Conference&quot;;ContentType:ACRPS-PreviousEventListContentType">Conference/Symposia</option>
+		<option value="Path:&quot;http://diqspfs13dev:4040/en/Events&quot;;ACRPSSection:&quot;Annual Conference&quot;;ContentType:ACRPS-PreviousEventListContentType" data-source-key="Path:&quot;http://diqspfs13dev:4040/en/Events&quot;;ACRPSSection:&quot;Annual Conference&quot;;ContentType:ACRPS-PreviousEventListContentType">Annual Conference</option>
+		<option value="Path:&quot;http://diqspfs13dev:4040/en/Events&quot;;ContentType:ACRPS-UpComingEventContentType" data-source-key="Path:&quot;http://diqspfs13dev:4040/en/Events&quot;;ContentType:ACRPS-UpComingEventContentType">Upcoming Event</option>
+		<option value="Path:&quot;http://diqspfs13dev:4040/en/News&quot;;ContentType:ACRPS-NewsPageContentType" data-source-key="Path:&quot;http://diqspfs13dev:4040/en/News&quot;;ContentType:ACRPS-NewsPageContentType">News</option>
+		<option value="Path:&quot;http://diqspfs13dev:4040/en/BooksAndJournals&quot;;ACRPSSection:&quot;Books&quot;;ContentType:ACRPS-BookPageContentType" data-source-key="Path:&quot;http://diqspfs13dev:4040/en/BooksAndJournals&quot;;ACRPSSection:&quot;Books&quot;;ContentType:ACRPS-BookPageContentType">Books</option>
+		<option value="Path:&quot;http://diqspfs13dev:4040/en/programsAndProjects&quot;;ContentType:ACRPS-Website Program And Project ContentType" data-source-key="Path:&quot;http://diqspfs13dev:4040/en/programsAndProjects&quot;;ContentType:ACRPS-Website Program And Project ContentType">Programs and Projects</option>
+
+	</select>
+                                      </div>
+                                  </div>
+
+
+                                  <div class="submit">
+                                      <input type="submit" name="ctl00$PlaceHolderMain$submit" value="Submit" onclick="btnSubmitChageUrl();return false;WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$PlaceHolderMain$submit&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ctl00_PlaceHolderMain_submit" />
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                 </div>
+               
 </div>
 
 <div class="doi-search-options doi-search-options--advanced-search clearfix" style="display: block;">
