@@ -134,7 +134,7 @@ var g_SPOffSwitches={};
 
     <link rel="stylesheet" type="text/css" href="Assets/css/app-ltr.css"></link>
     
-  <style>
+    <style>
     /* Wrapper */
     .event-annual-papers {
         font-size: 14px;
@@ -153,6 +153,7 @@ var g_SPOffSwitches={};
     -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.35);
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.35);
     background-color: #F6F6F6;
+        flex-direction: column;
 }
 
 /* Language badge — top-start corner */
@@ -169,28 +170,70 @@ var g_SPOffSwitches={};
 /* Author column */
 .event-annual-papers .paper__author-card {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    text-align: center;
     gap: 5px;
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 10px;
-    justify-content: center;
-    height: 100%;
 }
-.event-annual-papers .paper__author {
+.event-annual-papers .paper__author-card .paper__author-info {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 10px;
-    flex: 0 0 150px;
+    gap: 5px;
+}
+.event-annual-papers .paper__author-card .paper__author-info * {
+    display: block;
+}
+.paper__author-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
 }
 
+/* default card */
+.paper__author-card {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* 1 item → full width */
+.paper__author-list:has(> .paper__author-card:only-child) {
+  grid-template-columns: 1fr;
+}
+
+.paper__author-list > .paper__author-card:only-child {
+  grid-column: 1 / -1;
+}
+
+/* 2 items → 50:50 */
+.paper__author-list:has(> .paper__author-card:nth-child(2):last-child) {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* 4 items → 3 on first row, 1 full-width on second row */
+.paper__author-list > .paper__author-card:nth-child(4):last-child {
+  grid-column: 1 / -1;
+}
+
+/* 5 items → 3 on first row, 2 on second row (50:50) */
+.paper__author-list:has(> .paper__author-card:nth-child(5):last-child) {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.paper__author-list:has(> .paper__author-card:nth-child(5):last-child)
+  > .paper__author-card:nth-child(-n + 3) {
+  grid-column: span 2;
+}
+
+.paper__author-list:has(> .paper__author-card:nth-child(5):last-child)
+  > .paper__author-card:nth-child(n + 4) {
+  grid-column: span 3;
+}
 .event-annual-papers .paper__author-photo {
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
+    min-width: 55px;
     border-radius: 50%;
     object-fit: cover;
     border: 1px solid #ddd;
@@ -214,11 +257,11 @@ var g_SPOffSwitches={};
 }
 
 /* Download button */
-.event-annual-papers .links {
+.event-annual-papers .paper__author .links {
     width: 100%;
 }
 
-.event-annual-papers .links .btn-download {
+.event-annual-papers .paper__author .links .btn-download {
     display: block;
     color: #666;
     height: 30px;
@@ -226,12 +269,12 @@ var g_SPOffSwitches={};
     line-height: 30px;
     font-size: 12px;
 }
-.event-annual-papers .links .btn-download::after {
+.event-annual-papers .paper__author .links .btn-download::after {
     height: 30px;
     width: 36px;
     background-repeat: round;
 }
-.event-annual-papers .links .btn-download:hover {
+.event-annual-papers .paper__author .links .btn-download:hover {
     color: #CA9A00;
 }
 
@@ -293,24 +336,59 @@ html[dir="rtl"] .event-annual-papers .paper__title {
     margin: 0;
 }
 
+.links.mobile-links {
+    display: none;
+}
 /* Responsive */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .paper__author-list {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+   .paper__author-list > .paper__author-card {
+    grid-column: auto !important;
+  }
+  /* 1 item */
+  .paper__author-list > .paper__author-card:only-child {
+    grid-column: 1 / -1 !important;
+  }
+
+  /* 3, 5, 7, 9... items → last item full width */
+  .paper__author-list > .paper__author-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1 !important;
+  }
+}
 @media (max-width: 640px) {
+    .links.desktop-links {
+    display: none;
+}
+.links.mobile-links {
+    display: block;
+    margin-top: 8px;
+}
+  .paper__author-list {
+    grid-template-columns: 1fr !important;
+    gap: 8px;
+  }
+
+  .paper__author-card {
+    grid-column: 1 / -1 !important;
+  }
     .event-annual-papers {
         margin-bottom: 0;
         }
 
-.event-annual-papers .links .btn-download {
+.event-annual-papers .paper__author .links .btn-download {
     height: 34px;
     background-position: 0 34px;
     line-height: 34px;
     font-size: 13px;
 }
-.event-annual-papers .links .btn-download::after {
+.event-annual-papers .paper__author .links .btn-download::after {
     height: 34px;
     width: 40px;
 }
     .event-annual-papers .paper {
-        flex-direction: column;
         padding: 12px;
         gap: 12px;
     }
@@ -326,33 +404,11 @@ html[dir="rtl"] .event-annual-papers .paper__title {
         gap: 8px;
     }
 
-    /* Author card: photo on side, name + role stacked next to it */
-    .event-annual-papers .paper__author-card {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        column-gap: 12px;
-        row-gap: 2px;
-        align-items: center;
-        text-align: start;
-        padding: 10px 12px;
-        width: 100%;
-        box-sizing: border-box;
-    }
 
     .event-annual-papers .paper__author-photo {
-        grid-row: 1 / span 2;
         width: 48px;
         height: 48px;
-        margin: 0;
-    }
-
-    .event-annual-papers .paper__author-name {
-        align-self: end;
-    }
-
-    .event-annual-papers .paper__author-role {
-        align-self: start;
-        line-height: 1.3;
+        min-width: 48px;
     }
 
     /* Tighten excerpt line-height for mobile */
@@ -1413,67 +1469,160 @@ catch(err)
    <div class="event-annual-papers">
     <div class="papers-list">
 
-        <article class="paper">
-
-
-
-            <div class="paper__content">
-            <span class="paper__language-badge" style="background-color: #00758c;">Paper in Arabic</span>
-                <span class="paper__prev-title">Previous Title</span>
-                <h2 class="paper__title">
-                    <a href="#">Intelligence and Hybrid Threats: Interdependence and Intertwining</a>
-                </h2>
-                <h3 class="paper__subtitle">SubTitle</h3>
-                <div class="paper__excerpt">
-                    <p>This paper analyses the sustainability of the Rumsfeld matrix (RM) of knowledge in the emergence of (dis)information, its effects on the (a) creation of useful and necessary knowledge; (b) the creation of useful intelligence; (c) the acquisition of wisdom for the decision-making process. This paper analyses the sustainability of the Rumsfeld matrix (RM) of knowledge in the emergence of (dis)information, its effects on the (a) creation of useful and necessary knowledge; (b) the creation of useful intelligence; (c) the acquisition of wisdom for the decision-making process.</p>
-                </div>
+    <article class="paper">
+        <div class="paper__content">
+        <span class="paper__language-badge" style="background-color: #00758c;">Paper in English</span>
+            <span class="paper__prev-title">Previous title</span>
+             <div style="
+display: flex;
+justify-content: space-between;
+">  
+            <h2 class="paper__title">
+                <a href="#">Why was Turkey's bloodiest coup also its most failed?</a>
+            </h2>
+             <div class="links desktop-links">
+        <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+</div>
+</div>
+            <h3 class="paper__subtitle">Subtitle</h3>
+            <div class="paper__excerpt">
+                <p>Despite the presence of many factors favoring the coup's success — such as the element of surprise, at least in terms of timing, the weak international reactions, and the rebels' possession of significant firepower including the aircraft and tanks that rolled into the streets of Istanbul and Ankara, given the involvement of various branches of the armed forces and senior officers in the Turkish military — the coup attempt failed. The most prominent reason for its failure was the consensus among the political class, intellectual elites, the media, and broad segments of the Turkish people in rejecting the coup.</p>
             </div>
+        </div>
 
-            <aside class="paper__author">
-                <div class="paper__author-card">
-                <img class="paper__author-photo"
-                     src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female"
-                     alt="Hamza Ibrahim Muhays">
-                <a class="paper__author-name" href="#" title="Hamza Ibrahim Muhays">Hamza Ibrahim Muhays</a>
-                <span class="paper__author-role">Researcher in the Israeli-Palestinian Conflict</span>
-</div>
-                <div class="links">
-            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="Download Paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download Paper</a>
-</div>
-            </aside>
-
-        </article>
-        <article class="paper">
-
-
-
-            <div class="paper__content">
-            <span class="paper__language-badge" style="background-color: #CA9A00;">Paper in English</span>
-                <h2 class="paper__title">
-                    Intelligence and Hybrid Threats: Interdependence and Intertwining
-                </h2>
-                <h3 class="paper__subtitle">SubTitle</h3>
-                <div class="paper__excerpt">
-                    <p>This paper analyses the sustainability of the Rumsfeld matrix (RM) of knowledge in the emergence of (dis)information, its effects on the (a) creation of useful and necessary knowledge; (b) the creation of useful intelligence; (c) the acquisition of wisdom for the decision-making process.</p>
-                </div>
+        <aside class="paper__author">
+            <div class="paper__author-list">
+            <div class="paper__author-card">
+            <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+                 <div class="paper__author-info">
+            <a class="paper__author-name" href="#" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</a>
+            <div class="paper__author-role">
+                <span>Researcher in the Israeli-Palestinian conflict.</span>
             </div>
-
-            <aside class="paper__author">
-                <div class="paper__author-card">
-                <img class="paper__author-photo"
-                     src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female"
-                     alt="Hamza Ibrahim Muhays">
-                <a class="paper__author-name" href="#" title="Hamza Ibrahim Muhays">Hamza Ibrahim Muhays</a>
-                <span class="paper__author-role">Researcher in the Israeli-Palestinian Conflict</span>
+            </div>
 </div>
-                <div class="links">
-            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="Download Paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download Paper</a>
+<div class="paper__author-card">
+            <img class="paper__author-photo"
+                 src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female"
+                 alt="Hamza Ibrahim Muhaisen">
+                 <div class="paper__author-info">
+            <a class="paper__author-name" href="#" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</a>
+            <div class="paper__author-role">
+                <span>Researcher in the Israeli-Palestinian conflict.</span>
+            <span>An optional extra line.</span>
+            </div>
+            </div>
 </div>
-            </aside>
+</div>
+             <div class="links mobile-links">
+        <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+</div>
+        </aside>
 
-        </article>
+    </article>
 
-    </div>
+    <article class="paper">
+        <div class="paper__content">
+        <span class="paper__language-badge" style="background-color: #CA9A00;">Paper in English</span>
+          <div style="
+display: flex;
+justify-content: space-between;">  <h2 class="paper__title">
+                Why was Turkey's bloodiest coup also its most failed?
+            </h2>
+             <div class="links desktop-links">
+        <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+</div>
+</div>
+            <h3 class="paper__subtitle">Subtitle</h3>
+            <div class="paper__excerpt">
+                <p>Despite the presence of many factors favoring the coup's success — such as the element of surprise, at least in terms of timing, the weak international reactions, and the rebels' possession of significant firepower including the aircraft and tanks that rolled into the streets of Istanbul and Ankara, given the involvement of various branches of the armed forces and senior officers in the Turkish military — the coup attempt failed. The most prominent reason for its failure was the consensus among the political class, intellectual elites, the media, and broad segments of the Turkish people in rejecting the coup.</p>
+            </div>
+        </div>
+
+        <aside class="paper__author">
+            <div class="paper__author-list">
+            <div class="paper__author-card">
+            <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+                 <div class="paper__author-info">
+            <a class="paper__author-name" href="#" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</a>
+            <div class="paper__author-role">
+                <span>Researcher in the Israeli-Palestinian conflict.</span>
+            </div>
+            </div>
+</div>
+</div>
+             <div class="links mobile-links">
+        <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+</div>
+        </aside>
+
+    </article>
+
+     <article class="paper">
+        <div class="paper__content">
+        <span class="paper__language-badge" style="background-color: #CA9A00;">Paper in English</span>
+          <div style="
+display: flex;
+justify-content: space-between;">  <h2 class="paper__title">
+                Why was Turkey's bloodiest coup also its most failed?
+            </h2>
+             <div class="links desktop-links">
+        <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+</div>
+</div>
+            <h3 class="paper__subtitle">Subtitle</h3>
+            <div class="paper__excerpt">
+                <p>Despite the presence of many factors favoring the coup's success — such as the element of surprise, at least in terms of timing, the weak international reactions, and the rebels' possession of significant firepower including the aircraft and tanks that rolled into the streets of Istanbul and Ankara, given the involvement of various branches of the armed forces and senior officers in the Turkish military — the coup attempt failed. The most prominent reason for its failure was the consensus among the political class, intellectual elites, the media, and broad segments of the Turkish people in rejecting the coup.</p>
+            </div>
+        </div>
+
+        <aside class="paper__author">
+            <div class="paper__author-list">
+            <div class="paper__author-card">
+            <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+                 <div class="paper__author-info">
+            <a class="paper__author-name" href="#" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</a>
+            <div class="paper__author-role">
+                <span>Researcher in the Israeli-Palestinian conflict.</span>
+            </div>
+            </div>
+</div>
+<div class="paper__author-card">
+            <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+                 <div class="paper__author-info">
+            <a class="paper__author-name" href="#" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</a>
+            <div class="paper__author-role">
+                <span>Researcher in the Israeli-Palestinian conflict.</span>
+            </div>
+            </div>
+</div>
+<div class="paper__author-card">
+            <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+                 <div class="paper__author-info">
+            <a class="paper__author-name" href="#" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</a>
+            <div class="paper__author-role">
+                <span>Researcher in the Israeli-Palestinian conflict.</span>
+            </div>
+            </div>
+</div>
+<div class="paper__author-card">
+            <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+                 <div class="paper__author-info">
+            <a class="paper__author-name" href="#" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</a>
+            <div class="paper__author-role">
+                <span>Researcher in the Israeli-Palestinian conflict.</span>
+            </div>
+            </div>
+</div>
+</div>
+             <div class="links mobile-links">
+        <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+</div>
+        </aside>
+
+    </article>
+
+</div>
     <div class="pagination clearfix"><div class="more"><a href="#" id="ctl00_ctl51_g_fade5e38_30e7_4ef0_892a_458228fd5435_csr52_Results_showmore"><i class="fa fa-plus"></i></a></div><div class="pages"> 104 / 4</div></div>
 
 </div>
@@ -1533,6 +1682,7 @@ catch(err)
                                 <li><a Style="Display:" href="https://www.dohainstitute.org/en/Events/annual-palestine-forum/2nd-round/Pages/PhotoGalleryPage.aspx" title='Photo Gallery'>
                                     Photo Gallery</a></li>
                                 <li><a Style="Display:none" href="https://www.dohainstitute.org/en/Events/annual-palestine-forum/2nd-round/Pages/VideoGalleryPage.aspx" title='Video Gallery'>Video Gallery</a></li>
+                                <li><a style="Display:" href="annual-events-en.html" title="Conference Papers" target="_self">Conference Papers</a></li>
                             </ul>
                         </div>
                     </div>
