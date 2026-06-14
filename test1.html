@@ -1,0 +1,1600 @@
+<%@ Page Language="C#" Inherits="ACRPS_Website.CodeBehinds.AdvanceSearchPageLayout,$SharePoint.Project.AssemblyFullName$" %>
+
+<%@ Register TagPrefix="SharePointWebControls" Namespace="Microsoft.SharePoint.WebControls"
+    Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages"
+    Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Register TagPrefix="PublishingWebControls" Namespace="Microsoft.SharePoint.Publishing.WebControls"
+    Assembly="Microsoft.SharePoint.Publishing, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Register TagPrefix="PublishingNavigation" Namespace="Microsoft.SharePoint.Publishing.Navigation"
+    Assembly="Microsoft.SharePoint.Publishing, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Register TagPrefix="BannerUC" TagName="BannerAndBreadCrumb" Src="/_controltemplates/15/ACRPS-Website/BannerAndBreadCrumbUserControl.ascx" %>
+<%@ Register TagPrefix="TitleUC" TagName="PageTitle" Src="/_controltemplates/15/ACRPS-Website/TitleControl.ascx" %>
+
+
+<asp:Content contentplaceholderid="PlaceHolderAdditionalPageHead" runat="server">
+   
+	<SharePointWebControls:CssRegistration name="<% $SPUrl:~sitecollection/Style Library/~language/Themable/Core Styles/pagelayouts15.css %>" runat="server"/>
+	<PublishingWebControls:EditModePanel runat="server">
+		<SharePointWebControls:CssRegistration name="<% $SPUrl:~sitecollection/Style Library/~language/Themable/Core Styles/editmode15.css %>"
+			After="<% $SPUrl:~sitecollection/Style Library/~language/Themable/Core Styles/pagelayouts15.css %>" runat="server"/>
+	</PublishingWebControls:EditModePanel>
+</asp:Content>
+<asp:Content contentplaceholderid="PlaceHolderPageTitle" runat="server">
+    
+ </asp:Content>
+
+<asp:Content contentplaceholderid="PlaceHolderMain" runat="server"> 
+    <div  class="pre-load"> </div>
+   <input type="hidden" ID="changeQueryStatus" value="false">
+    <asp:HiddenField ID="hdnqueryText" runat="server" ClientIDMode="Static" />
+    <asp:HiddenField ID="hdnSelectedAuthors" runat="server" ClientIDMode="Static" />
+    <asp:HiddenField ID="hdnSelectedSources" runat="server"  />
+    <asp:HiddenField ID="hdnSelectedSections" runat="server"  />
+    <%--Banner Control with BreadCrumb--%>
+    <BannerUC:BannerAndBreadCrumb ID="Banner" runat="server" />
+      
+ <div class="container site-container site-container">
+     <div class="row">
+        <div class="col-md-9">
+          <div class="page-content page-content--advanced-search">
+              <asp:HiddenField ID="hdnAuthorCount" runat="server"/>
+              <asp:HiddenField ID="hdnColorCodes" runat="server"/>
+               <TitleUC:PageTitle runat="server" ID="PageTitle" />
+              <asp:Panel ID="ContentSearchBox" runat="server" DefaultButton="submit">
+                  <div class="acrps-search">
+                      <div class="acrps-search-source">
+                          <label for="category"><asp:Literal runat="server" text="<%$Resources:ACRPS-Web, ACRPS-AdvanceSearchSource%>"></asp:Literal></label>
+                              <div class="input">
+                                  <asp:ListBox ID="ddlSites" SelectionMode="Multiple" runat="server" CssClass="acrps-select__native" EnableViewState="true">
+                                  </asp:ListBox>
+                              </div>
+                      </div>
+                      <div class="doi-search doi-search--advanced-search clearfix">
+                          <div class="form-horizontal">
+                              <div class="criterias">
+                                  <div class="acrps-search-criteria">
+                                      <div class="acrps-search-keywords">
+                                          <label for="keywords">
+                                              <asp:Literal runat="server" Text="<%$Resources:ACRPS-Web, ACRPS-AdvanceSearchKeyword%>"></asp:Literal></label>
+                                          <div class="input">
+                                              <asp:TextBox runat="server" ID="keywords" CssClass="form-control keywordsTextInput"></asp:TextBox>
+                                          </div>
+
+                                      </div>
+                                      <div class="acrps-search-author">
+                                          <label for="author">
+                                              <asp:Literal runat="server" Text="<%$Resources:ACRPS-Web, ACRPS-Author%>"></asp:Literal></label>
+                                          <div class="input">
+                                              <asp:DropDownList ID="ddlAuthors" runat="server" CssClass="custom-dropdown" Style="width: 100%">
+                                              </asp:DropDownList>
+                                          </div>
+                                      </div>
+                                      <div class="acrps-search-published-date">
+                                          <label for="publish-from">
+                                              <asp:Literal runat="server" Text="<%$Resources:ACRPS-Web, ACRPS-AdvanceSearchPublished%>"></asp:Literal></label>
+                                          <div class="published-from">
+                                              <div class="input-group date pick-date">
+                                                  <asp:TextBox runat="server" CssClass="form-control" ID="txtpublishfrom" placeholder="<%$Resources:ACRPS-Web, ACRPS-AdvanceSearchPublishedFrom%>"></asp:TextBox>
+                                                  <div class="input-group-addon input-date">
+                                                      <span class="icon">
+                                                          <i class="fa fa-calendar"></i>
+                                                      </span>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="published-to">
+
+                                              <div class="input-group date pick-date">
+                                                  <asp:TextBox runat="server" CssClass="form-control" ID="txtpublishto" placeholder="<%$Resources:ACRPS-Web, ACRPS-AdvanceSearchPublishedTo%>"></asp:TextBox>
+
+                                                  <div class="input-group-addon input-date">
+                                                      <span class="icon">
+                                                          <i class="fa fa-calendar"></i>
+                                                      </span>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+
+                                  </div>
+                              </div>
+
+                              <div class="search-options">
+
+
+                                  <div class="acrps-search-type">
+                                      <label for="category">
+                                          <asp:Literal runat="server" Text="<%$Resources:ACRPS-Web, ACRPS-AdvanceSearchSection%>"></asp:Literal></label>
+                                      <div class="input">
+                                          <asp:ListBox ID="ddlSection" SelectionMode="Multiple" runat="server" CssClass="acrps-select__native" EnableViewState="true"></asp:ListBox>
+                                      </div>
+                                  </div>
+
+
+                                  <div class="submit">
+                                      <asp:Button ID="submit" OnClientClick="saveSelections();return false;" text="<%$Resources:ACRPS-Web, ACRPS-PoliticalStudiesSubmit%>" runat="server"></asp:Button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                 </div>
+               </asp:Panel>
+               <div class="doi-search-options doi-search-options--advanced-search search-no-results clearfix"  style="display:none">
+                    <div class="results">
+                        <span><div id="resultcount"><asp:Literal runat="server" Text="<%$Resources:ACRPS-Web, ACRPS-AdvanceSearchResultString%>"></asp:Literal></div></span>
+                    </div>
+                    <div class="sort">
+                        <label for="sortby"><asp:Literal runat="server" Text="<%$Resources:ACRPS-Web, ACRPS-AdvanceSearchSortBy%>"></asp:Literal></label>
+                        <div class="input">
+                            <asp:DropDownList ID="sortby" runat="server" CssClass="custom-dropdown-no-filter" Style="width: 100%" onchange="DDLSortby(this)" >
+                                    <Items>
+                                        <asp:ListItem Text="<%$Resources:ACRPS-Web, ACRPS-AdvanceSearchSelectDropdownValue%>" Value="0" />
+                                        <asp:ListItem Text="<%$Resources:ACRPS-Web, ACRPS-AdvanceSearchSortByDropdownValue1%>" Value="1" />
+                                        <asp:ListItem Text="<%$Resources:ACRPS-Web, ACRPS-AdvanceSearchSortByDropdownValue2%>" Value="2"  selected="True"/>
+                                        <asp:ListItem Text="<%$Resources:ACRPS-Web, ACRPS-AdvanceSearchSortByDropdownValue3%>" Value="3" />
+                                    </Items>
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+                    <div class="show">
+                        <label for="show"><asp:Literal runat="server" Text="<%$Resources:ACRPS-Web, ACRPS-AdvanceSearchShow%>"></asp:Literal></label>
+                        <div class="input">
+                            <asp:DropDownList ID="show" runat="server" CssClass="custom-dropdown-no-filter" Style="width: 100%" onchange="DDLSetItemsPerPage(this)">
+                                    <Items>
+                                        <asp:ListItem Text="<%$Resources:ACRPS-Web, ACRPS-AdvanceSearchSelectDropdownValue%>" Value="0" />
+                                        <asp:ListItem Text="<%$Resources:ACRPS-Web, ACRPS-AdvanceSearchShowDropdownValue1%>" Value="1" />
+                                        <asp:ListItem Text="<%$Resources:ACRPS-Web, ACRPS-AdvanceSearchShowDropdownValue2%>" Value="2" />
+                                        <asp:ListItem Text="<%$Resources:ACRPS-Web, ACRPS-AdvanceSearchShowDropdownValue3%>" Value="3" />
+                                      
+
+                                    </Items>                                        
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+               </div>
+               <div class="search-authors" ID="SearchAuthor" runat="server" visible="false">               
+                    <asp:Repeater ID="rptSearchedAuthor" runat="server">
+                        <ItemTemplate> 
+							<div class="search-author" >
+								<div class="search-author__image">
+								  <img src='<%# Eval("ImageLink") %>' alt="Author Search" title="Author Search">  
+								</div>
+								<div class="search-author__title">
+									<h2><a href="<%# Eval("SearchAuthorLink") %>" title="<%# Eval("UserName") %>"><%# Eval("UserName") %></a></h2>
+								</div>
+								<div class="search-author__text"><asp:Literal runat="server" Text='<%# Eval("Description") %>' /></div>
+							</div>
+                        </ItemTemplate>
+                    </asp:Repeater>               
+			   </div>
+              <div class="search-results">
+               <WebPartPages:WebPartZone runat="server" Title="AdvanceSearchResult" ID="AdvanceSearchResultWP">				
+			   </WebPartPages:WebPartZone>
+                 </div>
+               <div id="back2top">
+                    <a href="#"><i class="fa fa-chevron-up"></i></a>
+               </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+            <br />
+             <WebPartPages:WebPartZone runat="server" Title="WidgetsWPNewlyReleased" ID="WidgetsWPNewlyReleased">				
+			   </WebPartPages:WebPartZone>
+             <WebPartPages:WebPartZone runat="server" Title="WidgetsWPNewsLetter1" ID="WidgetsWPNewsLetter1">				
+			   </WebPartPages:WebPartZone>
+             <WebPartPages:WebPartZone runat="server" Title="WidgetsWPNewsLetter2" ID="WidgetsWPNewsLetter2">				
+			   </WebPartPages:WebPartZone>
+        </div>
+      </div>
+ </div>
+</asp:Content>
+<asp:Content contentplaceholderid="PlaceHolderUtilityContent" runat="server">
+    <script type="text/javascript" src="/_catalogs/masterpage/Assets/js/IERedirectBackButton.js" > </script>
+    <script type="text/javascript">
+        ///code added for refresh search results when f5 is pressed on mozilla
+       var enterhit = false;
+       $(document).on("keydown", function (event) {
+           if (event.keyCode == 116) {
+
+               $("#changeQueryStatus").val("");
+           }
+           if (event.keyCode == 13) {
+               enterhit = true;
+               btnSubmitChageUrl();
+           }
+       });
+       function DDLSortby(ddlsort) {
+           var selected = ddlsort.selectedIndex;
+           var option = "option" + selected;
+           $("#" + option).click();
+       }
+
+       function DDLSetItemsPerPage(ddlItems) {
+           var selected = ddlItems.selectedIndex;
+           var option = "size" + selected;
+           $("#" + option).click();
+       }
+       var queryUrl = "";
+       $(document).ready(function () {
+           //apply this class for the title on adavance search page
+           $(".page-title").addClass("page-title--no-border");
+           if (pageDir == 'rtl') {
+               var lang = "ar";
+           } else {
+               var lang = "en";
+           }
+             expandCollapsedMultiSelect("[id*=ddlSites]");
+
+           // Per-instance placeholder. Each native select carries its own static
+           // data-placeholder in the markup ("All Sources", "All", ...). Trust that
+           // rather than deriving it from the selection — deriving concatenates option
+           // texts as soon as more than one is selected. Fallback to the first option's
+           // label only if the markup omitted the attribute.
+           $(".acrps-select__native").each(function () {
+               var $n = $(this);
+               if (!$n.attr('data-placeholder')) {
+                   $n.attr('data-placeholder', ($n.find('option:first').text() || '').trim());
+               }
+               $n.attr('size', '1').removeAttr('style');
+           });
+
+           //----------  Search Results script code ------
+           /* ------------------------------------------------------------------ */
+           /*  State / config                                                    */
+           /* ------------------------------------------------------------------ */
+           var SearchState = {
+               pageLength: 10,   // rows fetched per "show more" click
+               shown: 0,         // how many rows are currently on the page
+               totalRows: 0,
+               loading: false
+           };
+
+           var keyword = new URLSearchParams(window.location.search).get("ACRPSAll");
+           if (keyword) {
+               $("[id *=keyword]").val(keyword);
+               loadMore();
+           }
+
+           
+
+           /* ------------------------------------------------------------------ */
+           /*  Request builder                                                   */
+           /* ------------------------------------------------------------------ */
+           function buildRequest() {
+               var selectedValue = $("#ctl00_PlaceHolderMain_ddlSites").val();
+               var selectedKeyword = $("#ctl00_PlaceHolderMain_keywords").val();
+               var selectedFromDate = $("#ctl00_PlaceHolderMain_txtpublishfrom").val();
+               var selectedToDate = $("#ctl00_PlaceHolderMain_txtpublishto").val();
+               /* var selectedAuthor = $("#ctl00_PlaceHolderMain_ddlAuthors").val();*/
+               var selectedAuthor = $("#ctl00_PlaceHolderMain_ddlAuthors option:selected").text();
+
+               if (selectedValue && selectedValue.length === 1) {
+                   selectedValue = selectedValue[0].split(';');
+               }
+
+               return {
+                   Keyword: selectedKeyword,
+                   Authors: (selectedAuthor && selectedAuthor !== "All" && selectedAuthor !== "الكل") ? [selectedAuthor] : [],
+                   contentSources: ["ACRPS_DohaInstitute_org_AR", "Journals"],
+                   paths: selectedValue,
+                   sections: [],
+                   contentType: [],
+                   fromDate: selectedFromDate,
+                   toDate: selectedToDate,
+                   pageLength: SearchState.pageLength,
+
+                   // >>> PAGING PARAM <
+                   // 0-based offset of the first row for this batch.
+                   // If your .ashx expects a different key (e.g. "StartRow", "PageNumber",
+                   // or "start"), change ONLY this line.
+                   pageNumber: SearchState.shown
+               };
+           }
+
+           /* ------------------------------------------------------------------ */
+           /*  Load the next batch and APPEND it                                 */
+           /* ------------------------------------------------------------------ */
+           function loadMore() {
+               if (SearchState.loading) return;
+               SearchState.loading = true;
+
+               var oDataUrl = _spPageContextInfo.webAbsoluteUrl + "/_layouts/15/ACRPS-Website/SearchPagedDataHandler.ashx";
+
+               $.ajax({
+                   url: oDataUrl,
+                   type: "POST",
+                   contentType: "application/json; charset=utf-8",
+                   timeout: 10000,
+                   dataType: "json",
+                   data: JSON.stringify(buildRequest()),
+                   headers: { "accept": "application/json;odata=verbose" },
+                   success: function (data) {
+                       var parsed = normalizeResponse(data);
+                       var relevant = parsed.d.query.PrimaryQueryResult.RelevantResults;
+                       var rows = relevant.Table.Rows.results;
+
+                       SearchState.totalRows = relevant.TotalRows;
+
+                       var html = "";
+                       rows.map(mapToSearchItem).forEach(function (item) {
+                           html += buildResultHtml(item);
+                       });
+
+                       $("#Show-Items").append(html);     // APPEND, don't replace
+                       SearchState.shown += rows.length;
+
+                       renderPaginationBar();             // ensures the bar exists
+                       updatePagination();                // sets " total / shown " + disabled state
+
+                       SearchState.loading = false;
+                   },
+                   error: function (xhr) {
+                       SearchState.loading = false;
+                       $("#pagination .more i").removeClass("fa-spinner fa-pulse");
+                       console.log(xhr.responseText);
+                   }
+               });
+           }
+
+           // handler may return a JSON string or an already-parsed object
+           function normalizeResponse(data) {
+               return typeof data === "string" ? JSON.parse(data) : data;
+           }
+
+           /* ------------------------------------------------------------------ */
+           /*  Pagination bar — exact original markup                            */
+           /*  <div class="pagination clearfix">                                 */
+           /*    <div class="more"><a href="#" id="showmore"><i class="fa fa-plus"></i></a></div> */
+           /*    <div class="pages"> total / shown </div>                        */
+           /*  </div>                                                            */
+           /* ------------------------------------------------------------------ */
+           function renderPaginationBar() {
+               if ($("#pagination").length) return;   // already rendered once
+               $("#Show-Items").after(
+                   '<div id="pagination" class="pagination clearfix">' +
+                   '<div class="more"><a href="#" id="showmore"><i class="fa fa-plus"></i></a></div>' +
+                   '<div class="pages"></div>' +
+                   '</div>'
+               );
+           }
+
+           function updatePagination() {
+               var total = SearchState.totalRows;
+               var shown = Math.min(SearchState.shown, total);
+
+               $("#pagination .pages").html(' ' + total + ' / ' + shown);
+
+               var $a = $("#pagination .more > a");
+               $("#pagination .more i").removeClass("fa-spinner fa-pulse");
+
+               if (shown >= total) {
+                   $a.attr('disabled', 'true').addClass('disabled').css('cursor', 'not-allowed');
+               } else {
+                   $a.removeAttr('disabled').removeClass('disabled').css('cursor', '');
+               }
+           }
+
+           // delegated click on the "+" button
+           $(document).on("click", "#pagination .more > a", function (e) {
+               e.preventDefault();
+               if ($(this).hasClass('disabled') || SearchState.loading) return;
+               if (SearchState.shown >= SearchState.totalRows) return;
+
+               $("#pagination .more i").addClass("fa-spinner fa-pulse");
+               loadMore();
+           });
+
+           /* ------------------------------------------------------------------ */
+           /*  Result mapping / rendering                                        */
+           /* ------------------------------------------------------------------ */
+           function mapToSearchItem(row) {
+               var props = {};
+               row.Cells.results.forEach(function (cell) {
+                   props[cell.Key] = cell.Value;
+               });
+
+               return {
+                   Title: props.Title || "",
+                   Path: props.Path || "",
+                   Author: (props.ACRPSAuthor && props.ACRPSAuthor.trim())
+                       ? props.ACRPSAuthor
+                       : (props.ArticleAuthor || ""),
+                   Section: (props.ACRPSSection || "").trim() || (props.ArticleCategory || "").trim(),
+                   Keywords: props.ACRPSKeywords || "",
+                   StartDate: props.ACRPSArticleStartDate || "",
+                   Content: props.ACRPSPageContent || "",
+                   Rank: parseFloat(props.Rank || 0),
+                   Id: parseInt(props.Id || 0)
+               };
+           }
+
+           var isArabic = _spPageContextInfo.currentLanguage === 1025;
+
+           var sourceMappings = [
+               { path: ":4040/", source: isArabic ? "المركز العربي" : "Arab Center", color: "#0994ae" },
+               { path: ":2020/", source: isArabic ? "سياسات عربية" : "Siyasat", color: "#a79f4d" },
+               { path: ":2030/", source: isArabic ? "تبيّن" : "Tabayyun", color: "#97005e" },
+               { path: ":2040/", source: isArabic ? "عمران" : "Omran", color: "#068698" },
+               { path: ":2050/", source: isArabic ? "أسطور" : "Ostour", color: "#dba510" },
+               { path: ":2055/", source: isArabic ? "حِكامة" : "Hikama", color: "#009548" },
+               { path: ":2060/", source: isArabic ? "استشراف" : "Istishraf", color: "#58467f" },
+               { path: ":2066/", source: isArabic ? "المنتقى" : "AlMuntaqa", color: "#93002d" },
+               { path: ":8010/", source: isArabic ? "ارابيكا" : "Arabica", color: "#83A950" },
+           ];
+
+           function getSourceInfo(url) {
+               for (var i = 0; i < sourceMappings.length; i++) {
+                   if (url.indexOf(sourceMappings[i].path) > -1) {
+                       return sourceMappings[i];
+                   }
+               }
+               return { source: "Unknown", color: "#666666" };
+           }
+
+           function formatDate(dateString) {
+               if (!dateString) return "";
+               var date = new Date(dateString);
+               return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+           }
+
+           function buildResultHtml(item) {
+               var sourceInfo = getSourceInfo(item.Path);
+
+               var authorHtml = "";
+               if (item.Author && item.Author.trim() !== "") {
+                   authorHtml =
+                       '<span class="meta__author">' +
+                       '<a href="SearchPage.aspx?ACRPSAuthor=' + encodeURIComponent(item.Author) + '">' +
+                       item.Author +
+                       '</a>' +
+                       '</span>';
+               }
+
+               return '' +
+                   '<div class="search-results__result">' +
+                   '<div class="meta">' +
+                   '<div class="meta__source">' +
+                   '<span class="meta__source-name arab-center" style="background-color: ' + sourceInfo.color + ';">' +
+                   '<a href="#" title="' + sourceInfo.source + '">' + sourceInfo.source + '</a>' +
+                   '</span>' +
+                   '<span class="meta__source-category">' +
+                   '<a href="#" title="' + item.Section + '">' + item.Section + '</a>' +
+                   '</span>' +
+                   '</div>' +
+                   '<div class="meta__info">' +
+                   authorHtml +
+                   '<span class="meta__date">' + formatDate(item.StartDate) + '</span>' +
+                   '</div>' +
+                   '</div>' +
+                   '<div class="title">' +
+                   '<a href="' + item.Path + '" title="' + item.Title + '">' + item.Title + '</a>' +
+                   '</div>' +
+                   '</div>';
+           }
+
+
+           //---------- End Search Results script Code -----
+           
+
+           // Search Changes
+
+           (function ($) {
+               'use strict';
+
+               // ---------- Build the wrapper markup for a native <select> ----------
+               function buildWrapper($native) {
+                   var placeholder = $native.attr('data-placeholder') || '';
+                   var dir = $native.attr('dir') || '';
+                   var nativeId = $native.attr('id');
+
+                   var $wrap = $('<div class="acrps-select"></div>');
+                   if (placeholder) $wrap.attr('data-placeholder', placeholder);
+                   if (dir) $wrap.attr('dir', dir);
+
+                   // Derive the wrapper's id from the native select's id so each instance
+                   // can be targeted directly, e.g. #<nativeId>-acrps in CSS/JS.
+                   // The native select keeps its own id intact (needed for SharePoint postback).
+                   if (nativeId) $wrap.attr('id', nativeId + '-acrps');
+
+                   var $control = $('<div class="acrps-select__control" tabindex="0" role="combobox" aria-expanded="false" aria-haspopup="listbox"></div>');
+                   $('<div class="acrps-select__chips"></div>').appendTo($control);
+
+                   var $toggle = $('<button type="button" class="acrps-select__toggle" aria-label="Open menu"></button>');
+                   $('<b role="presentation"></b>').appendTo($toggle);
+                   $toggle.appendTo($control);
+
+                   $control.appendTo($wrap);
+                   $native.after($wrap);
+
+                   // Hide the native select now that the custom widget is mounted.
+                   // It stays in the DOM so its selected <option>s still post back —
+                   // display:none does NOT remove a control from form submission
+                   // (only the `disabled` attribute does), so SharePoint postback is fine.
+                   $native.hide();
+
+                   return $wrap;
+               }
+
+               $(function () {
+
+                   $('select.acrps-select__native').each(function () {
+                       var $native = $(this);
+
+                       // Guard: never double-build (e.g. if the script runs twice).
+                       if ($native.data('acrpsBuilt')) return;
+                       $native.data('acrpsBuilt', true);
+
+                       var $wrap = buildWrapper($native);
+                       var $control = $wrap.find('.acrps-select__control');
+                       var $chips = $wrap.find('.acrps-select__chips');
+                       var placeholder = $wrap.attr('data-placeholder') || '';
+                       var $panel, $checks;
+                       var built = false;
+                       var currentFilter = null;
+
+                       var optionAt = function (i) { return $native.find('option').eq(i); };
+                       var isOpen = function () { return $wrap.hasClass('is-open'); };
+
+                       // ---------- Build (lazy, once) ----------
+                       function buildPanel() {
+                           if (built) return;
+                           built = true;
+
+                           var $listWrap = $('<div class="acrps-select__panel--inner"></div>');
+                           var $list = $('<ul class="acrps-select__list" role="listbox" aria-multiselectable="true"></ul>')
+                               .appendTo($listWrap);
+                           var $options = $native.find('option');
+
+                           var groups = {};
+                           $options.each(function (i) {
+                               var $o = $(this);
+                               var group = $o.attr('data-group');
+                               if (!group) return;
+                               if (!groups[group]) groups[group] = { parentIndex: null, childIndices: [] };
+                               var role = $o.attr('data-role');
+                               if (role === 'parent') groups[group].parentIndex = i;
+                               else groups[group].childIndices.push(i);
+                           });
+
+                           var emitted = {};
+                           $options.each(function (i) {
+                               var $o = $(this);
+                               var group = $o.attr('data-group');
+                               if (!group) {
+                                   $list.append(buildStandaloneItem(i, $o.text()));
+                                   return;
+                               }
+                               if (emitted[group]) return;
+                               emitted[group] = true;
+                               $list.append(buildGroupItem(group, groups[group], $options));
+                           });
+
+                           $panel = $('<div class="acrps-select__panel"></div>').append($listWrap);
+                           $panel.attr('dir', $wrap.css('direction') === 'rtl' ? 'rtl' : 'ltr');
+
+                           $checks = $panel.find('input[type="checkbox"]');
+
+                           $native.find('option').each(function (i) {
+                               if (this.selected) {
+                                   $checks.filter('[data-option-index="' + i + '"]').prop('checked', true);
+                               }
+                           });
+                           var seenGroups = {};
+                           $checks.filter('[data-role="child"]').each(function () {
+                               seenGroups[$(this).attr('data-group')] = true;
+                           });
+                           Object.keys(seenGroups).forEach(syncParentState);
+
+                           bindEvents();
+                           applyFilter();
+                           renderChips();
+                       }
+
+                       function buildStandaloneItem(index, text) {
+                           var $li = $('<li class="acrps-select__item--top"></li>');
+                           var $label = $('<label></label>');
+                           $('<input type="checkbox" data-role="standalone">')
+                               .attr('data-option-index', index)
+                               .appendTo($label);
+                           $('<span></span>').text(text).appendTo($label);
+                           return $li.append($label);
+                       }
+
+                       function buildGroupItem(groupId, group, $options) {
+                           var $li = $('<li class="acrps-select__item--top"></li>');
+                           var hasParent = group.parentIndex !== null;
+
+                           if (hasParent) {
+                               var $label = $('<label></label>');
+                               $('<input type="checkbox" data-role="parent">')
+                                   .attr('data-group', groupId)
+                                   .attr('data-option-index', group.parentIndex)
+                                   .appendTo($label);
+                               $('<span></span>').text($options.eq(group.parentIndex).text()).appendTo($label);
+                               $li.append($label);
+                           }
+
+                           if (group.childIndices.length) {
+                               var $sub = $('<ul class="acrps-select__sublist"></ul>');
+                               group.childIndices.forEach(function (idx) {
+                                   var $row = $('<li></li>');
+                                   var $rowLabel = $('<label></label>');
+                                   var $input = $('<input type="checkbox">')
+                                       .attr('data-role', hasParent ? 'child' : 'standalone')
+                                       .attr('data-option-index', idx);
+                                   if (hasParent) $input.attr('data-group', groupId);
+                                   $rowLabel.append($input);
+                                   $('<span></span>').text($options.eq(idx).text()).appendTo($rowLabel);
+                                   $sub.append($row.append($rowLabel));
+                               });
+                               $li.append($sub);
+                           }
+                           return $li;
+                       }
+
+                       // ---------- Chips ----------
+                       function labelOf($cb) { return $cb.next('span').text(); }
+
+                       function renderChips() {
+                           $chips.empty();
+                           if (!$checks) {
+                               if (placeholder) $chips.append($('<span class="acrps-select__placeholder"></span>').text(placeholder));
+                               return;
+                           }
+
+                           // FIX 1: "all selected" → same neutral display as "none selected".
+                           // Use visible checks so this still triggers correctly when a filter
+                           // has narrowed the set (e.g. type-select after a source is chosen).
+                           var $visible = $checks.filter(function () {
+                               return $(this).closest('li').css('display') !== 'none';
+                           });
+                           if (placeholder
+                               && $visible.length > 0
+                               && $visible.length === $visible.filter(':checked').length) {
+                               $chips.append($('<span class="acrps-select__placeholder"></span>').text(placeholder));
+                               return;
+                           }
+
+                           var any = false;
+
+                           $checks.filter('[data-role="parent"], [data-role="standalone"]').each(function () {
+                               var $cb = $(this);
+                               if (!$cb.prop('checked')) return;
+                               any = true;
+                               addChip(labelOf($cb), function () {
+                                   if ($cb.attr('data-role') === 'parent') {
+                                       var g = $cb.attr('data-group');
+                                       $checks.filter('[data-group="' + g + '"]')
+                                           .prop('checked', false).prop('indeterminate', false);
+                                   } else {
+                                       $cb.prop('checked', false);
+                                   }
+                                   syncAll();
+                               });
+                           });
+
+                           $checks.filter('[data-role="child"]:checked').each(function () {
+                               var $cb = $(this);
+                               var g = $cb.attr('data-group');
+                               var $parent = $checks.filter('[data-role="parent"][data-group="' + g + '"]');
+                               if ($parent.prop('checked')) return;
+                               any = true;
+                               addChip(labelOf($cb), function () {
+                                   $cb.prop('checked', false);
+                                   syncAll();
+                               });
+                           });
+
+                           if (!any && placeholder) {
+                               $chips.append($('<span class="acrps-select__placeholder"></span>').text(placeholder));
+                           }
+                       }
+
+                       function addChip(text, onRemove) {
+                           var $chip = $('<span class="acrps-select__chip"></span>')
+                               .append($('<span/>').text(text));
+                           $('<button type="button" class="acrps-select__chip-remove" aria-label="إزالة">&times;</button>')
+                               .on('click', function (e) { e.stopPropagation(); onRemove(); })
+                               .appendTo($chip);
+                           $chips.append($chip);
+                       }
+
+                       // ---------- Parent <-> children ----------
+                       function syncParentState(group) {
+                           var $kids = $checks.filter('[data-role="child"][data-group="' + group + '"]');
+                           var $parent = $checks.filter('[data-role="parent"][data-group="' + group + '"]');
+                           if (!$parent.length) return;
+                           var total = $kids.length;
+                           var checked = $kids.filter(':checked').length;
+
+                           if (checked === 0) $parent.prop('checked', false).prop('indeterminate', false);
+                           else if (checked === total) $parent.prop('checked', true).prop('indeterminate', false);
+                           else $parent.prop('checked', false).prop('indeterminate', true);
+                       }
+
+                       function syncNative() {
+                           $native.find('option').prop('selected', false);
+                           $checks.filter(':checked').each(function () {
+                               optionAt(parseInt($(this).attr('data-option-index'), 10)).prop('selected', true);
+                           });
+                           $native.trigger('change');
+                       }
+
+                       function syncAll() {
+                           var seen = {};
+                           $checks.filter('[data-role="child"]').each(function () {
+                               seen[$(this).attr('data-group')] = true;
+                           });
+                           Object.keys(seen).forEach(syncParentState);
+                           renderChips();
+                           syncNative();
+                       }
+
+                       // ---------- Filtering (force-uncheck on hide) ----------
+                       function applyFilter() {
+                           if (!built || !$panel) return;
+
+                           var changed = false;
+
+                           $native.find('option').each(function (i) {
+                               var $opt = $(this);
+                               var $cb = $panel.find('input[data-option-index="' + i + '"]');
+                               if (!$cb.length) return;
+                               if ($cb.attr('data-role') === 'parent') return;
+                               var $li = $cb.closest('li');
+                               var show = !currentFilter || currentFilter($opt);
+                               $li.toggle(show);
+                               if (!show) {
+                                   if ($cb.prop('checked') || $cb.prop('indeterminate')) {
+                                       $cb.prop('checked', false).prop('indeterminate', false);
+                                       changed = true;
+                                   }
+                               }
+                           });
+
+                           $panel.find('.acrps-select__sublist').each(function () {
+                               var $sub = $(this);
+                               var $top = $sub.closest('.acrps-select__item--top');
+                               var anyVisible = $sub.children('li').filter(function () {
+                                   return $(this).css('display') !== 'none';
+                               }).length > 0;
+                               $top.toggle(anyVisible);
+
+                               if (!anyVisible) {
+                                   var $parent = $top.children('label').find('input[data-role="parent"]');
+                                   if ($parent.length && ($parent.prop('checked') || $parent.prop('indeterminate'))) {
+                                       $parent.prop('checked', false).prop('indeterminate', false);
+                                       changed = true;
+                                   }
+                               }
+                           });
+
+                           var groups = {};
+                           if ($checks) {
+                               $checks.filter('[data-role="child"]').each(function () {
+                                   groups[$(this).attr('data-group')] = true;
+                               });
+                           }
+                           Object.keys(groups).forEach(syncParentState);
+
+                           renderChips();
+                           if (changed) syncNative();
+                           if (isOpen()) positionPanel();
+                       }
+
+                       // ---------- Events ----------
+                       function bindEvents() {
+                           $checks.filter('[data-role="parent"]').on('change', function () {
+                               var $cb = $(this);
+                               var g = $cb.attr('data-group');
+                               var on = $cb.prop('checked');
+                               $checks.filter('[data-role="child"][data-group="' + g + '"]').prop('checked', on);
+                               $cb.prop('indeterminate', false);
+                               renderChips();
+                               syncNative();
+                           });
+
+                           $checks.filter('[data-role="child"]').on('change', function () {
+                               syncParentState($(this).attr('data-group'));
+                               renderChips();
+                               syncNative();
+                           });
+
+                           $checks.filter('[data-role="standalone"]').on('change', function () {
+                               renderChips();
+                               syncNative();
+                           });
+                       }
+
+                       // ---------- Placement ----------
+                       function positionPanel() {
+                           $wrap.removeClass('is-open-up');
+                           $panel.removeClass('acrps-select__panel--up');
+                           $panel.css('max-height', '');
+
+                           var rect = $control[0].getBoundingClientRect();
+                           var scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+                           var scrollX = window.pageXOffset || document.documentElement.scrollLeft || 0;
+                           var panelHeight = $panel.outerHeight();
+                           var viewportH = window.innerHeight;
+                           var margin = 8;
+                           var spaceBelow = viewportH - rect.bottom - margin;
+                           var spaceAbove = rect.top - margin;
+
+                           var top;
+                           var left = rect.left + scrollX;
+                           var width = rect.width;
+
+                           if (spaceBelow < panelHeight && spaceAbove > spaceBelow) {
+                               $wrap.addClass('is-open-up');
+                               $panel.addClass('acrps-select__panel--up');
+                               var usableAbove = Math.min(panelHeight, spaceAbove);
+                               if (panelHeight > spaceAbove) {
+                                   $panel.css('max-height', spaceAbove + 'px');
+                               }
+                               top = rect.top + scrollY - usableAbove;
+                           } else {
+                               if (panelHeight > spaceBelow) {
+                                   $panel.css('max-height', spaceBelow + 'px');
+                               }
+                               top = rect.bottom + scrollY;
+                           }
+
+                           $panel.css({ top: top + 'px', left: left + 'px', width: width + 'px' });
+                       }
+
+                       // ---------- Open / Close (mount / detach) ----------
+                       function open() {
+                           buildPanel();
+                           $('body').append($panel);
+                           $wrap.addClass('is-open');
+                           $control.attr('aria-expanded', 'true');
+                           positionPanel();
+                       }
+
+                       function close() {
+                           $wrap.removeClass('is-open is-open-up');
+                           $control.attr('aria-expanded', 'false');
+                           if ($panel) {
+                               $panel.removeClass('acrps-select__panel--up');
+                               $panel.css({ 'max-height': '', top: '', left: '', width: '' });
+                               $panel.detach();
+                           }
+                       }
+
+                       $control.on('click', function (e) {
+                           if ($(e.target).closest('.acrps-select__chip-remove').length) return;
+                           // FIX 2: prevent this click from bubbling to the document-level
+                           // outside-click handler. On the FIRST click, buildPanel() runs
+                           // renderChips() → $chips.empty(), which detaches the placeholder
+                           // (the original click target). The document handler then can't
+                           // match it against $wrap and treats it as an "outside" click,
+                           // closing the panel we just opened. Inside-the-widget clicks
+                           // have no business reaching the outside-click handler anyway.
+                           e.stopPropagation();
+                           isOpen() ? close() : open();
+                       });
+
+                       $control.on('keydown', function (e) {
+                           if (e.key === 'Enter' || e.key === ' ') {
+                               e.preventDefault();
+                               isOpen() ? close() : open();
+                           }
+                           if (e.key === 'Escape') close();
+                       });
+
+                       $(document).on('click', function (e) {
+                           if (!isOpen()) return;
+                           var $t = $(e.target);
+                           if ($t.closest($wrap).length) return;
+                           if ($panel && $t.closest($panel).length) return;
+                           close();
+                       });
+
+                       $(window).on('resize scroll', function () {
+                           if (isOpen()) positionPanel();
+                       });
+
+                       // ---------- Public API on this instance ----------
+                       $wrap.data('acrpsSelect', {
+                           setFilter: function (predicate) {
+                               currentFilter = predicate || null;
+                               applyFilter();
+                           },
+                           clearFilter: function () {
+                               currentFilter = null;
+                               applyFilter();
+                           },
+                           clearAll: function () {
+                               $native.find('option').prop('selected', false);
+                               if (built && $checks) {
+                                   $checks.prop('checked', false).prop('indeterminate', false);
+                               }
+                               renderChips();
+                               $native.trigger('change');
+                           }
+                       });
+
+                       // Build eagerly so pre-selected options render as chips on load,
+                       // not only after the panel is first opened. buildPanel() runs
+                       // renderChips(), which already handles placeholder-vs-chips itself.
+                       buildPanel();
+                   });
+
+               });
+
+           })(jQuery);
+           //Search Changes End
+
+           
+
+           var authorCount = parseInt($("[id*=hdnAuthorCount]").val())
+           if (authorCount > 0) {
+               var newresultString = authorCount;
+               $(".ms-srch-result-noResults").css('display', 'block');
+               $(".search-no-results").css('display', 'block');
+               $("#back2top").css('display', 'block');
+               $(".pagination").addClass("hide");
+               var itemexist = "";
+               var thereare = "";
+               if (document.getElementById("resultcount").innerHTML != null) {
+                   if (pageDir == 'rtl') {
+                       itemexist = "مقالات تطابق طلب البحث";
+                       document.getElementById("resultcount").innerHTML = newresultString + " " + itemexist;
+                   }
+                   else {
+                       itemexist = "articles match your query.";                       
+                       document.getElementById("resultcount").innerHTML = newresultString + " " + itemexist;
+                   }
+               }
+           }
+
+           <%--if (localStorage.getItem("NoOfSearch") == null) {
+               queryUrl = window.location.href;
+               if (queryUrl.indexOf("?") > 0) {
+                   $('html, body').animate({ 'scrollTop': $(".doi-search--advanced-search").offset().top }, 1000);
+                   var keyValue = queryUrl.split("?")[1];
+                   var totalSearchCriteriaCount = null;
+                   if (keyValue) {
+                       $(".ms-srch-result-noResults").css('display', 'block');
+                       $(".search-no-results").css('display', 'block');
+                       $("#back2top").css('display', 'block')
+                       keyValue = keyValue.split("&");
+                       var getPath = findValue("Path", keyValue);
+                       var pathIndex = keyValue.indexOf(getPath);
+                       var critekeyValue = keyValue.splice(0, pathIndex);
+                       totalSearchCriteriaCount = critekeyValue.length;
+                       localStorage.setItem("NoOfSearch", totalSearchCriteriaCount);
+                   }
+                   else {
+                       localStorage.setItem("countForBackButton", 0);
+                       $(".search-no-results").css('display', 'none');
+                       $(".ms-srch-result-noResults").css('display', 'none');
+                       $("#back2top").css('display', 'none');
+                   }
+               }
+               else {
+                   localStorage.setItem("countForBackButton", 0);
+                   $(".search-no-results").css('display', 'none');
+                   $(".ms-srch-result-noResults").css('display', 'none');
+                   $("#back2top").css('display', 'none')
+               }
+           }
+           var t = $(".criterias").find(".search-criteria");
+           for (var i = 0; i < localStorage.getItem("NoOfSearch") - 1; i++) {
+               var e = t.clone();
+               e.find(".search-criteria__add").addClass("search-criteria__remove").removeClass("search-criteria__add").find("i").addClass("fa-minus");
+               t.before(e);
+           }
+           localStorage.removeItem("NoOfSearch");
+           setSearchValues();
+           $('.custom-dropdown').select2({
+               dropdownCssClass: "search-dropdown",
+               language: lang
+           }).focus(function () {
+               $(this).select2('open');
+           });
+
+           $('.input').each(function () {
+               $(this).find('.select2').eq(1).remove();
+           });
+           if (localStorage.getItem("countForBackButton") > 0) {
+               btnSubmitChageUrl();
+           }
+
+           $('body').on('click', 'li > a', function (event) {
+               event.stopPropagation();
+               event.stopImmediatePropagation();
+               if (event.target.href && event.target.href != "") {
+                   if (event.target.href.indexOf("<%= ACRPS_Website.Constants.Ms_SearchPage_Name %>") < 0) {
+	             localStorage.setItem("countForBackButton", 1);
+	         }
+	     }
+	     else {
+	         if (!event.target.href && event.target.className == "menu-item-text" && event.target.parentElement.parentElement.href) {
+	             if (event.target.parentElement.parentElement.href.indexOf("<%= ACRPS_Website.Constants.Ms_SearchPage_Name %>") < 0) {
+			           localStorage.setItem("countForBackButton", 1);
+			       };
+			   }
+           }
+	   });
+
+	    $(document).click(function (e) {
+	        if (e.target.href && e.target.href != "") {
+	            if (e.target.href.indexOf("<%= ACRPS_Website.Constants.Ms_SearchPage_Name %>") < 0) {
+                  localStorage.setItem("countForBackButton", 1);
+              }
+          }
+		})--%>
+	});
+
+        var dropdownValues = ["ACRPSAll", "Title", "ACRPSKeywords", "ACRPSPageContent", "ACRPSAuthor"];
+        var dropdownValuesSearch = ["SearchWord", "SearchPhrase"];
+
+  function findValue(key, array) {
+      var results = undefined;
+      for (var index = 0; index < array.length; index++) {
+          if (array[index].startsWith(key)) {
+              results = array[index];
+          }
+      }
+      return results;
+  }
+  function expandCollapsedMultiSelect(selectSelector) {
+    var $select = $(selectSelector);
+    if (!$select.length) return;
+
+    // value -> option element, single-value options only
+    var byValue = {};
+    $select.find('option').each(function () {
+        var v = this.value || '';
+        if (v && v.indexOf(';') === -1) byValue[v] = this;
+    });
+
+    $select.find('option:selected').each(function () {
+        var combo = this;
+        var val = combo.value || '';
+        if (val.indexOf(';') === -1) return;            // genuine single option
+
+        var parts = val.split(';').filter(Boolean);
+        var matched = [];
+        for (var i = 0; i < parts.length; i++) {
+            var opt = byValue[parts[i]];
+            if (!opt) return;                            // unresolved part -> leave alone
+            matched.push(opt);                           //   (protects "All Sources")
+        }
+
+        // Only the server-merged option has text === concat of the matched labels.
+        var concat = matched.map(function (o) { return o.text; }).join('');
+        var norm = function (s) { return (s || '').replace(/\s+/g, ''); };
+        if (norm(combo.text) !== norm(concat)) return;   // skip friendly labels
+
+        combo.selected = false;
+        matched.forEach(function (o) { o.selected = true; });
+        combo.parentNode.removeChild(combo);             // drop the injected merged option
+    });
+}
+        function btnSubmitChageUrl() {
+
+            localStorage.setItem("countForBackButton", 0);
+            queryUrl = "";
+            var newurl = "";
+            var str = "";
+
+            saveSelections();
+            // --- Defaults used when the form has no searchin / searchphrase (Form 2) ---
+            var DEFAULT_SEARCHIN = "0"; // 0=Any(ACRPSAll) 1=Title 2=Keywords 3=Content 4=Author
+            var DEFAULT_PHRASE = "1"; // 0=Any word (OR expansion)  |  1=Exact sentence
+            // ---------------------------------------------------------------------------
+
+            // Multi-select (multiple="multiple") returns an array/null -> coerce to string.
+            function selVal(selector) {
+                var v = $(selector).val();
+                if (v === null || v === undefined) return "";
+                return $.isArray(v) ? v.join(";") : v;
+            }
+
+            var SearchArray = selVal("select[id*=ddlSection]").split(";").filter(Boolean);
+            var ddlSection = $("select[id*=ddlSection] option:selected").text();
+            var SectionURL = findValue('ACRPSSection', SearchArray);
+            var ContentType = findValue('ContentType', SearchArray);
+            pathUrl = findValue('Path', SearchArray);
+
+            str = window.location.hash ? window.location.href.split('#')[0] : window.location.href;
+
+            var n = str.indexOf("?");
+            var count = $(".criterias").find(".acrps-search-criteria").length;
+            if (!enterhit) {
+                localStorage.setItem("NoOfSearch", count);
+            } else {
+                localStorage.setItem("NoOfSearch", null);
+            }
+
+            var publishfrom = $("[id*=txtpublishfrom]").val();
+            var publishto = $("[id*=txtpublishto]").val();
+
+            var url = (n > -1) ? str.substring(0, n) + "?" : str + "?";
+
+            // ---- Keyword(s) ----
+            for (var i = 0; i < count; i++) {
+                $(".criterias").find(".acrps-search-criteria").eq(i).each(function () {
+                    var key = $(this).find("[id*='keywords']");
+                    if (!key.length || key.val() === "") return;
+
+                    var $in = $(this).find("[id*=searchin] option:selected");
+                    var value = $in.length ? $in.val() : DEFAULT_SEARCHIN;
+
+                    var $ph = $(this).find("[id*=searchphrase] option:selected");
+                    var searchValue = $ph.length ? $ph.val() : DEFAULT_PHRASE;
+
+                    var at = dropdownValues[parseInt(value, 10)] || dropdownValues[0];
+
+                    localStorage.setItem(at + "Search", searchValue);
+
+                    if (searchValue == "0") { // Any word -> OR expansion
+                        var searchkey = key.val().replace(/['"?&]+/g, '');
+                        var parts = searchkey.trim().split(" ").filter(Boolean);
+                        var newtext = "";
+                        for (var j = 0; j < parts.length; j++) {
+                            newtext += (j === parts.length - 1)
+                                ? "\"" + parts[j] + "\""
+                                : "\"" + parts[j] + "\" OR " + at + ":";
+                        }
+                        newurl += at + "=" + newtext + "&";
+                    } else {              // Exact sentence -> pass as-is
+                        newurl += at + "=" + key.val() + "&";
+                    }
+                });
+            }
+
+            // ---- Author (Form 2 dropdown). Sends the author NAME as ACRPSAuthor. ----
+            var $author = $("select[id*=ddlAuthors]");
+            if ($author.length) {
+                var authorVal = $author.val();
+                var authorName = $author.find("option:selected").text().trim();
+                if (authorVal && authorVal !== "All" && authorName !== "" && authorName !== "All") {
+                    newurl += dropdownValues[4] + "=" + encodeURIComponent(authorName) + "&";
+                }
+            }
+
+            // ---- Path ----
+            if (pathUrl) {
+                pathUrl = pathUrl.split("Path:").filter(Boolean)[0].split('"').filter(Boolean)[0];
+                newurl += "Path=" + pathUrl + "&";
+            }
+
+            // ---- Dates ----
+            if (publishfrom != "" && publishto == "") {
+                newurl += "datefrom=" + publishfrom + "&";
+            } else if (publishto != "" && publishfrom == "") {
+                newurl += "dateto=" + publishto + "&";
+            } else if (publishfrom != "" && publishto != "") {
+                newurl += "from=" + publishfrom + "&to=" + publishto + "&";
+            }
+
+            // ---- Section / ContentType ----
+            if (SectionURL) {
+                SectionURL = SectionURL.split("ACRPSSection:").filter(Boolean)[0].split('"').filter(Boolean)[0];
+                newurl += "ACRPSSection=" + SectionURL + "&";
+            }
+            if (ddlSection) {
+                newurl += "ddlSection=" + ddlSection + "&";
+            }
+            if (ContentType) {
+                var contentTypes = [];
+                var ctParts = ContentType.split("OR");
+                for (var c = 0; c < ctParts.length; c++) {
+                    contentTypes[c] = ctParts[c].split(":")[1].trim();
+                }
+                var queryContentType = "";
+                for (var c = 0; c < contentTypes.length; c++) {
+                    queryContentType += "CT" + c + "=" + decodeURIComponent(contentTypes[c]) + "&";
+                }
+                newurl += queryContentType;
+            }
+
+            if (newurl != "") {
+                window.location = url + newurl;
+                $("#hdnqueryText").val(queryUrl);
+            }
+        }
+  //function btnSubmitChageUrl() {
+      
+  //    localStorage.setItem("countForBackButton", 0);
+  //    queryUrl = "";
+  //    var newurl = "";
+  //    var str = "";	  
+	  
+	 // var SearchArray = $("[id*='ddlSection']").val().split(";").filter(Boolean);
+	 // var ddlSection = $("[id*=ddlSection] option:selected").text();
+	 // var SectionURL = findValue('ACRPSSection',SearchArray);
+	    
+	 // var ContentType= findValue('ContentType',SearchArray);
+	  
+	 // pathUrl=findValue('Path',SearchArray);
+	  
+  //    str = window.location.href;
+
+  //    if (window.location.hash) {
+
+  //        str = window.location.href.split('#')[0];
+  //    }
+  //    else {
+  //        str = window.location.href;
+  //    }
+	
+  //    var n = str.indexOf("?");
+  //    var count = $(".criterias").find(".acrps-search-criteria").length;
+  //    if (!enterhit) {
+  //        localStorage.setItem("NoOfSearch", count);
+  //    } else {
+  //        localStorage.setItem("NoOfSearch", null);
+  //    }
+      
+  //    var publishfrom = $("[id*=txtpublishfrom]").val();
+  //    var publishto = $("[id*=txtpublishto]").val();
+     
+  //    if (n > -1) {
+  //        var currenturl = str.substring(0, str.indexOf('?'));
+  //        var url = currenturl + "?";
+
+  //    } else {
+  //        var url = str + "?";
+  //    }
+
+  //    for (var i = 0; i < count; i++) {
+  //        $(".criterias").find(".acrps-search-criteria").eq(i).each(function () {				
+  //            var at = "";
+  //            var key = $(this).find("[id*='keywords']");
+  //            var value = $(this).find("[id*=searchin] option:selected").val();
+  //            var searchValue = $(this).find("[id*=searchphrase] option:selected").val();
+  //            if (value) {
+  //                if (value == 0) {
+  //                    at = dropdownValues[0];
+  //                } else if (value == 1) {
+  //                    at = dropdownValues[1];
+  //                } else if (value == 2) {
+  //                    at = dropdownValues[2];
+  //                } else if (value == 3) {
+  //                    at = dropdownValues[3];
+  //                } else if (value == 4) {
+  //                    at = dropdownValues[4];
+  //                }
+  //                if (key.val() != "") {
+  //                    var KeyValue = at + "Search";
+  //                    var Searchvalue = searchValue;
+  //                    localStorage.setItem(KeyValue, Searchvalue);
+  //                    if (Searchvalue == "0") {
+  //                        var searchkey = key.val().replace(/['"?&]+/g, '');
+  //                        var stringArray = new Array();
+  //                        stringArray = searchkey.trim().split(" ");
+  //                        stringArray = stringArray.filter(Boolean);
+  //                        var newtext = "";
+  //                        for (var i = 0; i < stringArray.length; i++) {
+  //                            if (i == (stringArray.length - 1)) {
+  //                                newtext = newtext + "\"" + stringArray[i] + "\"";
+  //                            }
+  //                            else {
+  //                                newtext = newtext + "\"" + stringArray[i] + "\" OR " + at + ":";
+  //                            }
+  //                        }
+  //                        searchkey = newtext;
+  //                        newurl += at + "=" + searchkey + "&";
+  //                    }
+  //                    else
+  //                        newurl += at + "=" + key.val() + "&";
+  //                   // newurl += at + "=" + key.val() + "&";
+  //                }
+  //            }
+
+  //        })
+
+  //    }
+
+	 // if(pathUrl){		
+		//pathUrl = pathUrl.split("Path:").filter(Boolean)[0].split('"').filter(Boolean)[0];
+		//newurl += "Path=" + pathUrl + "&";
+	 // }
+  //    if (publishfrom != "" && publishto == "") {
+  //        newurl += "datefrom" + "=" + publishfrom + "&";
+
+  //    } else if (publishto != "" && publishfrom == "") {
+  //        newurl += "dateto" + "=" + publishto + "&";
+  //    } else if (publishfrom != "" && publishto != "") {
+  //        newurl += "from=" + publishfrom + "&" + "to=" + publishto + "&";
+  //    }	  
+  //    if (SectionURL) {
+		//SectionURL = SectionURL.split("ACRPSSection:").filter(Boolean)[0].split('"').filter(Boolean)[0];
+  //      newurl += "ACRPSSection=" + SectionURL + "&";
+  //    }	  
+	 // if(ddlSection){
+		//newurl += "ddlSection=" + ddlSection + "&";
+	 // }	 
+	  
+	 // if(ContentType){
+		//var contentTypes=[];
+		//var queryContentType="";          
+		//	for(var count=0;count<ContentType.split("OR").length;count++)
+		//	{
+		//		contentTypes[count] = ContentType.split("OR")[count].split(":")[1].trim();
+		//	}
+		//  if(contentTypes.length !=0)
+		//  {			
+		//	for(var count=0;count<contentTypes.length;count++)
+		//	{
+		//		queryContentType= queryContentType +"CT"+count+"="+decodeURIComponent(contentTypes[count])+"&";
+		//	}
+		//  }		
+		//  newurl = newurl + queryContentType;
+	 // }
+	 // if (newurl != "") {
+	      
+		//  window.location = url + newurl;
+		 
+  //        $("#hdnqueryText").val(queryUrl);
+  //    }
+	 
+  //}
+
+  function setSearchValues() {
+      queryUrl = window.location.href;
+      var count = $(".criterias").find(".acrps-search-criteria").length;
+      var keyValue = queryUrl.indexOf('?') > -1 ? queryUrl.split("?")[1] : '';
+      //var keyValue = queryUrl.includes('?') ? queryUrl.split("?")[1] : '';
+
+      
+  
+      if (keyValue) {
+          keyValue = keyValue.split("&");
+      }
+
+      for (i = 0; i < keyValue.length - 1; i++) {
+
+
+          var keyvaluepair = keyValue[i].split("=");
+          if (keyvaluepair[0] == "from" || keyvaluepair[0] == "datefrom") {
+              $("[id*=txtpublishfrom]").val(keyvaluepair[1]);
+
+          }
+          if (keyvaluepair[0] == "to" || keyvaluepair[0] == "dateto") {
+              $("[id*=txtpublishto]").val(keyvaluepair[1]);
+          }
+
+          // ---- Author: ACRPSAuthor -> select matching option in the author dropdown ----
+          if (keyvaluepair[0] == "ACRPSAuthor") {
+              var rawAuthor = decodeURIComponent((keyvaluepair[1] || "").replace(/\+/g, " "));
+              // Strip OR-expansion scaffolding:  "Azmi" OR ACRPSAuthor:"Bishara" -> Azmi Bishara
+              var wantedAuthor = rawAuthor
+                  .split("ACRPSAuthor:").join(" ")
+                  .replace(/"/g, " ")
+                  .replace(/\bOR\b/g, " ")
+                  .replace(/\u00a0/g, " ")
+                  .replace(/\s+/g, " ")
+                  .trim();
+
+              if (wantedAuthor && wantedAuthor !== "All") {
+                  var $author = $("#ctl00_PlaceHolderMain_ddlAuthors");
+                  $author.find("option").each(function () {
+                      var optText = $(this).text().replace(/\u00a0/g, " ").replace(/\s+/g, " ").trim();
+                      if (optText === wantedAuthor) {
+                          $author.val($(this).val());
+                          return false;   // stop at first match
+                      }
+                  });
+                  $author.trigger("change");   // repaint select2 if it's already mounted
+              }
+          }
+
+          $(".criterias").find(".acrps-search-criteria").eq(i).each(function () {
+
+              var value = keyvaluepair[0];
+              var keyword = $(this).find("[id*='keywords']");
+              if (value == dropdownValues[0]) {
+                  var index = 0;
+                  //var stringArray1 = new Array();
+                  //stringArray1 = decodeURIComponent(keyvaluepair[1]).split(" OR ");
+                  //if (stringArray1.length > 1) {
+                  //    keyword.val(stringArray1[0].trim().replace("\"", "").replace("\"", ""));
+                  //} else {
+                  //    keyword.val(stringArray1[0].trim().replace("\"", "").replace("\"", ""));
+                  //}
+                  var KeyValue = value + "Search";
+                  if (localStorage.getItem(KeyValue) == "0" || localStorage.getItem(KeyValue) == null) {
+                      var searchindex = 0;
+                      var stringArray = new Array();
+                      stringArray = decodeURIComponent(keyvaluepair[1]).split(" ");
+                      var newtext = "";
+                      for (var i = 0; i < stringArray.length; i++) {
+                          if (stringArray[i] == "OR") { }
+                          else {
+                              if (i == (stringArray.length - 1)) {
+                                  newtext = newtext + stringArray[i].replace("\"", "").replace("\"", "").replace(dropdownValues[0] + ":", "");
+                              }
+                              else {
+                                  newtext = newtext + stringArray[i].replace("\"", "").replace("\"", "").replace(dropdownValues[0] + ":", "") + " ";
+                              }
+                          }
+                      }
+                      keyword.val(newtext);
+                  }
+                  else {
+                      var searchindex = 1;
+                      keyword.val(decodeURIComponent(keyvaluepair[1]));
+                  }
+                  localStorage.removeItem(KeyValue);
+              } else if (value == dropdownValues[1]) {
+                  
+                  var index = 1;
+                  //var stringArray1 = new Array();
+                  //stringArray1 = decodeURIComponent(keyvaluepair[1]).split(" OR ");
+                  //if (stringArray1.length > 1) {
+                  //    keyword.val(stringArray1[0].trim().replace("\"", "").replace("\"", ""));
+                  //} else {
+                  //    keyword.val(stringArray1[0].trim().replace("\"", "").replace("\"", ""));
+                  //}
+                  var KeyValue = value + "Search";
+                  if (localStorage.getItem(KeyValue) == "0" || localStorage.getItem(KeyValue) == null) {
+                      var searchindex = 0;
+                      var stringArray = new Array();
+                      stringArray = decodeURIComponent(keyvaluepair[1]).split(" ");
+                      var newtext = "";
+                      for (var i = 0; i < stringArray.length; i++) {
+                          if (stringArray[i] == "OR") { }
+                          else {
+                              if (i == (stringArray.length - 1)) {
+                                  newtext = newtext + stringArray[i].replace("\"", "").replace("\"", "").replace(dropdownValues[1] + ":", "");
+                              }
+                              else {
+                                  newtext = newtext + stringArray[i].replace("\"", "").replace("\"", "").replace(dropdownValues[1] + ":", "") + " ";
+                              }
+                          }
+                      }
+                      keyword.val(newtext);
+                  }
+                  else {
+                      var searchindex = 1;
+                      keyword.val(decodeURIComponent(keyvaluepair[1]));
+                  }
+                  localStorage.removeItem(KeyValue);
+              } else if (value == dropdownValues[2]) {
+                  var index = 2;
+                  //var stringArray1 = new Array();
+                  //stringArray1 = decodeURIComponent(keyvaluepair[1]).split(" OR ");
+                  //if (stringArray1.length > 1) {
+                  //    keyword.val(stringArray1[0].trim().replace("\"", "").replace("\"", ""));
+                  //} else {
+                  //    keyword.val(stringArray1[0].trim().replace("\"", "").replace("\"", ""));
+                  //}
+                  var KeyValue = value + "Search";
+                  if (localStorage.getItem(KeyValue) == "0" || localStorage.getItem(KeyValue) == null) {
+                      var searchindex = 0;
+                      var stringArray = new Array();
+                      stringArray = decodeURIComponent(keyvaluepair[1]).split(" ");
+                      var newtext = "";
+                      for (var i = 0; i < stringArray.length; i++) {
+                          if (stringArray[i] == "OR") { }
+                          else {
+                              if (i == (stringArray.length - 1)) {
+                                  newtext = newtext + stringArray[i].replace("\"", "").replace("\"", "").replace(dropdownValues[2] + ":", "");
+                              }
+                              else {
+                                  newtext = newtext + stringArray[i].replace("\"", "").replace("\"", "").replace(dropdownValues[2] + ":", "") + " ";
+                              }
+                          }
+                      }
+                      keyword.val(newtext);
+                  }
+                  else {
+                      var searchindex = 1;
+                      keyword.val(decodeURIComponent(keyvaluepair[1]));
+                  }
+                  localStorage.removeItem(KeyValue);
+              } else if (value == dropdownValues[3]) {
+                  var index = 3;
+                  //var stringArray1 = new Array();
+                  //stringArray1 = decodeURIComponent(keyvaluepair[1]).split(" OR ");
+                  //if (stringArray1.length > 1) {
+                  //    keyword.val(stringArray1[0].trim().replace("\"", "").replace("\"", ""));
+                  //} else {
+                  //    keyword.val(stringArray1[0].trim().replace("\"", "").replace("\"", ""));
+                  //}
+                  var KeyValue = value + "Search";
+                  if (localStorage.getItem(KeyValue) == "0" || localStorage.getItem(KeyValue) == null) {
+                      var searchindex = 0;
+                      var stringArray = new Array();
+                      stringArray = decodeURIComponent(keyvaluepair[1]).split(" ");
+                      var newtext = "";
+                      for (var i = 0; i < stringArray.length; i++) {
+                          if (stringArray[i] == "OR") { }
+                          else {
+                              if (i == (stringArray.length - 1)) {
+                                  newtext = newtext + stringArray[i].replace("\"", "").replace("\"", "").replace(dropdownValues[3] + ":", "");
+                              }
+                              else {
+                                  newtext = newtext + stringArray[i].replace("\"", "").replace("\"", "").replace(dropdownValues[3] + ":", "") + " ";
+                              }
+                          }
+                      }
+                      keyword.val(newtext);
+                  }
+                  else {
+                      var searchindex = 1;
+                      keyword.val(decodeURIComponent(keyvaluepair[1]));
+                  }
+                  localStorage.removeItem(KeyValue);
+              } else if (value == dropdownValues[4]) {
+                  var index = 4;
+                  //var stringArray1 = new Array();
+                  //stringArray1 = decodeURIComponent(keyvaluepair[1]).split(" OR ");
+                  //if (stringArray1.length > 1) {
+                  //    keyword.val(stringArray1[0].trim().replace("\"", "").replace("\"", ""));
+                  //} else {
+                  //    keyword.val(stringArray1[0].trim().replace("\"", "").replace("\"", ""));
+                  //}
+                  var KeyValue = value + "Search";
+                  if (localStorage.getItem(KeyValue) == "0" || localStorage.getItem(KeyValue) == null) {
+                      var searchindex = 0;
+                      var stringArray = new Array();
+                      stringArray = decodeURIComponent(keyvaluepair[1]).split(" ");
+                      var newtext = "";
+                      for (var i = 0; i < stringArray.length; i++) {
+                          if (stringArray[i] == "OR") { }
+                          else {
+                              if (i == (stringArray.length - 1)) {
+                                  newtext = newtext + stringArray[i].replace("\"", "").replace("\"", "").replace(dropdownValues[4] + ":", "");
+                              }
+                              else {
+                                  newtext = newtext + stringArray[i].replace("\"", "").replace("\"", "").replace(dropdownValues[4] + ":", "") + " ";
+                              }
+                          }
+                      }
+                      keyword.val(newtext);
+                  }
+                  else {
+                      var searchindex = 1;
+                      keyword.val(decodeURIComponent(keyvaluepair[1]));
+                  }
+                  localStorage.removeItem(KeyValue);
+              }
+              else {
+                  var index = 0;
+                  var searchindex = 0;
+              }
+
+              
+              $(this).find("[id*=searchin]").val(index).trigger('change');
+              $(this).find("[id*=searchphrase]").val(searchindex).trigger('change');
+
+          })
+      }
+        }
+
+        function saveSelections() {
+            var values = [];
+            var sourceValues = [];
+            var sectionValues = [];
+
+            $("#<%= ddlAuthors.ClientID %> option:selected").each(function () {
+                values.push($(this).val());
+            });
+
+            $("#<%= hdnSelectedAuthors.ClientID %>").val(values.join(","));
+            
+
+            $("#<%= ddlSites.ClientID %> option:selected").each(function () {
+                sourceValues.push($(this).val());
+            });
+
+            $("#<%= hdnSelectedSources.ClientID %>").val(sourceValues.join(","));
+
+            $("#<%= ddlSection.ClientID %> option:selected").each(function () {
+                sectionValues.push($(this).val());
+            });
+
+            $("#<%= hdnSelectedSections.ClientID %>").val(sectionValues.join(","));
+            loadMore();
+        }
+    </script>
+                             
+</asp:Content>
