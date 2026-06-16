@@ -143,6 +143,7 @@ var g_SPOffSwitches={};
 
     <link rel="stylesheet" type="text/css" href="Assets/css/app-ltr.css"></link>
     
+ 
 <style>
 .acrps-page-content--advanced-search .doi-search-options--advanced-search {
     padding-top: 20px;
@@ -179,28 +180,83 @@ linear-gradient(89.77deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 99
 .acrps-search .doi-search {
     border-radius: 0 0 5px 5px;
 }
-.acrps-search-criteria {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 16px;
-    flex-wrap: wrap;
-    justify-content: space-between;
+html[dir="rtl"] .acrps-search .doi-search--advanced-search .keywords {
+    width: 81%;
+    padding-right: 70px;
 }
-.acrps-search label {
+html[dir="ltr"] .acrps-search .doi-search--advanced-search .keywords {
+    width: 81%;
+    padding-left: 60px;
+}
+@media (max-width: 1200px) {
+html[dir="ltr"] .acrps-search .doi-search--advanced-search .keywords, html[dir="rtl"] .acrps-search .doi-search--advanced-search .keywords {
+        width: 73%;
+    }
+    }
+    @media (max-width: 1200px) and (min-width: 992px){
+    .acrps-search .search-options {
+        flex-direction: column;
+    }
+}
+html[dir="rtl"] .acrps-search .doi-search--advanced-search .keywords label {
+        width: 62px;
+        text-align: right;
+    }
+    html[dir="ltr"] .acrps-search .doi-search--advanced-search .keywords label {
+        width: 52px;
+        text-align: left;
+    }
+html[dir="rtl"] .acrps-search .doi-search--advanced-search .search-in {
+    padding-right: 35px;
+}
+html[dir="ltr"] .acrps-search .doi-search--advanced-search .search-in {
+    padding-left: 35px;
+}
+.acrps-search .doi-search--advanced-search .search-in label {
+    width: 29px;
+}
+
+@media (max-width: 640px) {
+   html[dir="ltr"] .acrps-search .doi-search--advanced-search .keywords, html[dir="rtl"] .acrps-search .doi-search--advanced-search .keywords {
+        width: 100%;
+        }
+
+html[dir="rtl"] .acrps-search .doi-search--advanced-search .search-in {
+    padding-right: 70px;
+    padding-left: 0;
+}
+html[dir="ltr"] .acrps-search .doi-search--advanced-search .search-in {
+    padding-left: 60px;
+    padding-right: 0;
+}
+html[dir="rtl"] .acrps-search .doi-search--advanced-search .search-in label {
+    width: 62px;
+    text-align: right;
+}
+      html[dir="ltr"] .acrps-search .doi-search--advanced-search .search-in label {
+    width: 52px;
+    text-align: left;
+}
+        }
+.acrps-search .doi-search--advanced-search .search-criteria {
+    margin-bottom: 16px;
+}
+.acrps-search .search-options label {
     position: relative;
     margin: 0;
     white-space: nowrap;
+    flex-shrink: 0;
 }
-.acrps-search-keywords, .acrps-search-author, .acrps-search-published-date, .acrps-search-type {
+.acrps-search-keywords, .acrps-search-in, .acrps-search-published-date, .acrps-search-type {
     display: flex;
     justify-content: space-between;
 }
 .acrps-search-keywords{flex:3;gap: 7px;}
-.acrps-search-author{flex:2.4;gap: 7px;}
+.acrps-search-in{flex:2.4;gap: 7px;}
 .acrps-search-published-date{flex:3.6;gap: 7px;}
-.acrps-search-type{gap: 7px; width: 100%;}
+.acrps-search-type{gap: 7px; width: 40%;}
 
-.acrps-search-criteria .published-from, .acrps-search-criteria .published-to {
+.search-options .published-from, .search-options .published-to {
     padding: 0;
     float: none;
     width: 50%;
@@ -217,7 +273,7 @@ linear-gradient(89.77deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 99
 .acrps-search .form-control {
     height: 30px;
 }
-.acrps-search-type label, .acrps-search-keywords label, .acrps-search-source label {
+.acrps-search-published-date label, .acrps-search-keywords label, .acrps-search-source label {
     width: 62px;
     flex-shrink: 0;
     text-align: right;
@@ -323,14 +379,28 @@ linear-gradient(89.77deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 99
   .acrps-search  .doi-search--advanced-search {
         margin-bottom: 0;
     }
+    .acrps-search-type {
+    width: 55%;
+}
 }
 @media (max-width: 768px) {
-   .acrps-search-published-date, .acrps-search-type, .acrps-search-author {
+    .acrps-search .search-options {
+        flex-direction: column;
+    }
+   .acrps-search-published-date, .acrps-search-type, .acrps-search-in {
     flex: none;
     gap: 7px;
     width: 100%;
 }
-.acrps-search-published-date label, .acrps-search-author label {
+html[dir="rtl"] .acrps-search-type label {
+        width: 62px;
+        text-align: right;
+    }
+     html[dir="ltr"] .acrps-search-type label {
+        width: 52px;
+        text-align: left;
+    }
+.acrps-search-published-date label, .acrps-search-in label {
     width: 62px;
     flex-shrink: 0;
     text-align: right;
@@ -554,22 +624,30 @@ linear-gradient(89.77deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 99
     background: #8B9950;
 }
 
-html[dir="ltr"] .acrps-search-type label,
+html[dir="ltr"] .acrps-search-published-date label,
 html[dir="ltr"] .acrps-search-keywords label,
 html[dir="ltr"] .acrps-search-source label {
-    width: 84px;        /* widened to fit longer English labels (e.g. "Publication Date") */
+    width: 52px;        /* widened to fit longer English labels (e.g. "Publication Date") */
     text-align: left;
 }
 
 @media (max-width: 1200px) and (min-width: 992px) {
-    html[dir="ltr"] .acrps-search-published-date label {
-        width: 84px;
-        text-align: left;
-    }
+    .acrps-search-type {
+    gap: 7px;
+    width: 100%;
+}
+.acrps-search-type label {
+    width: 62px;
+    text-align: right;
+}
+html[dir="ltr"] .acrps-search-type label {
+    width: 52px;
+    text-align: left;
+}
 }
 @media (max-width: 768px) {
-    html[dir="ltr"] .acrps-search-published-date label, html[dir="ltr"] .acrps-search-author label {
-        width: 84px;
+    html[dir="ltr"] .acrps-search-published-date label, html[dir="ltr"] .acrps-search-in label {
+        width: 52px;
         text-align: left;
     }
 .acrps-select__panel--inner {
@@ -596,6 +674,9 @@ html[dir="ltr"] .acrps-select__chip-remove {
     border-right: 0 !important;
     border-left: 1px solid #ccc !important;
 }
+
+
+
 </style>
     </head>
     <body style="overflow-x:scroll;" onhashchange="if (typeof(_spBodyOnHashChange) != 'undefined') _spBodyOnHashChange();" class="background visitor">
@@ -1301,41 +1382,40 @@ jQuery(document).ready(function () {
     <div class="doi-search doi-search--advanced-search clearfix">
         <div class="form-horizontal">
             <div class="criterias">
-                <div class="acrps-search-criteria">
+                <div class="search-criteria clearfix">
+                                <div class="keywords">
+                                    <label for="keywords">Keyword</label>
+                                    <div class="input">
+                                        <input name="ctl00$PlaceHolderMain$keywords" type="text" id="ctl00_PlaceHolderMain_keywords" class="form-control keywordsTextInput" />
+                                    </div>
+                                    <div class="input input--phrase">
+                                        <select name="ctl00$PlaceHolderMain$searchphrase" id="ctl00_PlaceHolderMain_searchphrase" class="custom-dropdown" style="width: 100%">
+		<option value="0">Any word</option>
+		<option value="1">Exact Sentence</option>
 
-                    <div class="acrps-search-keywords">
-                        <label for="keywords">Keyword</label>
-                        <div class="input">
-                            <input name="ctl00$PlaceHolderMain$keywords" type="text" id="ctl00_PlaceHolderMain_keywords" class="form-control keywordsTextInput" />
-                        </div>
-                    </div>
+	</select>
+                                    </div>
+                                </div>
+                                <div class="search-in" >
+                                    <label for="search-in">at</label>
+                                    <div class="input">
+                                        <select name="ctl00$PlaceHolderMain$searchin" id="ctl00_PlaceHolderMain_searchin" class="custom-dropdown" style="width: 100%">
+		<option value="0">Any</option>
+		<option value="1">Title</option>
+		<option value="2">Keywords</option>
+		<option value="3">Content</option>
+		<option value="4">Author Name</option>
 
-                    <div class="acrps-search-author">
-                        <label for="author">Author</label>
-                        <div class="input">
-                            <select name="ctl00$PlaceHolderMain$ddlSection" id="ctl00_PlaceHolderMain_ddlSection" class="custom-dropdown" style="width: 100%">
-                                <option value=''>All</option>
-                                <option value=''>Ahmed Mohammed Al-Ali</option>
-                                <option value=''>Fatima Al-Zahra Hassan</option>
-                                <option value=''>Mohammed Abdullah Al-Salem</option>
-                                <option value=''>Nour Al-Din Al-Ibrahimi</option>
-                                <option value=''>Sara Khalid Al-Mansour</option>
-                                <option value=''>Omar Youssef Al-Hammadi</option>
-                                <option value=''>Layla Abdulrahman Qasim</option>
-                                <option value=''>Khalid Ibrahim Al-Fahd</option>
-                                <option value=''>Maryam Saeed Al-Kuwari</option>
-                                <option value=''>Youssef Ahmed Al-Sharif</option>
-                                <option value=''>Huda Mahmoud Al-Khatib</option>
-                                <option value=''>Abdulaziz Al-Rashed</option>
-                                <option value=''>Zainab Mohammed Al-Qasim</option>
-                                <option value=''>Tariq Ibrahim Al-Bakr</option>
-                                <option value=''>Amina Abdulqader Al-Siddiqi</option>
-                            </select>
+	</select>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+
+            <div class="search-options">
 
                     <div class="acrps-search-published-date">
-                        <label for="date-published">Publication Date</label>
+                        <label for="date-published">Date</label>
                         <div class="published-from">
                             <div class="input-group date pick-date">
                                 <input name="ctl00$PlaceHolderMain$txtpublishfrom" type="text" id="ctl00_PlaceHolderMain_txtpublishfrom" class="form-control" placeholder="From"/>
@@ -1357,13 +1437,8 @@ jQuery(document).ready(function () {
                             </div>
                         </div>
                     </div>
-
-                </div>
-            </div>
-
-            <div class="search-options">
                 <div class="acrps-search-type">
-                    <label for="type">Content Type</label>
+                    <label for="type">Type</label>
                     <div class="input">
                         <select multiple="multiple"
                                 name="ctl01$PlaceHolderMain$ddlSection"
