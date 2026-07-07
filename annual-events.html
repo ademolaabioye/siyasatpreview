@@ -131,7 +131,7 @@ var g_SPOffSwitches={};
         <!--SPM:-->
         
 
-    <link rel="stylesheet" type="text/css" href="https://www.dohainstitute.org/_catalogs/masterpage/Assets/css/app-rtl.css"></link>
+    <link rel="stylesheet" type="text/css" href="Assets/css/app-rtl2.css"></link>
     
     <style>
     /* Wrapper */
@@ -139,25 +139,6 @@ var g_SPOffSwitches={};
         font-size: 14px;
         margin-top: 20px;
         margin-bottom: 50px;
-    }
-     .event-annual-papers .papers-head {
-        margin-bottom: 20px;
-    }
-    .event-annual-papers .papers-title {
-        color: #00758c;
-        font-size: 25px;
-    }
-    .event-annual-papers .papers-subtitle {
-        color: #333;
-        font-size: 18px;
-    }
-    @media (max-width: 768px) { 
-        .event-annual-papers .papers-title {
-            font-size: 22px;
-        }
-        .event-annual-papers .papers-subtitle {
-            font-size: 16px;
-        }
     }
 .event-annual-papers .paper {
     position: relative;
@@ -451,6 +432,155 @@ html[dir="rtl"] .event-annual-papers .paper__title {
 }
 .page-content--events-conference .post-content__details {
     font-size: 16px;
+}
+
+
+
+   .event-annual-papers .papers-list {
+    margin-bottom: 16px;
+    padding: 20px;
+    border-radius: 5px;
+    -o-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.35);
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.35);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.35);
+    background-color: #fff;
+    flex-direction: column;
+    }
+
+    
+.event-annual-papers .paper {
+    box-shadow: none;
+}
+.event-annual-papers .paper:first-child {
+    margin-top: 20px;
+}
+.event-annual-papers .paper:last-child {
+    margin-bottom: 0;
+}
+.event-annual-papers .paper__details {
+    margin-bottom: 7px;
+}
+.event-annual-papers .paper__title {
+    display: inline-block;
+    margin-bottom: 0;
+}
+.event-annual-papers .paper__details a.paper__version {
+    color: #CA9A00;
+    margin-inline-start: 4px;
+    }
+    .event-annual-papers .paper__details a.paper__version:hover {
+        color: #00758c;
+    }
+
+
+
+
+
+
+
+
+    /* Title becomes a clickable row with the toggle box first (RTL-safe) */
+ .event-annual-papers .papers-list .papers-list__title {
+        color: #00758c;
+        font-size: 1.3em;
+        margin-top: 0;
+        margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Plus / minus box */
+.papers-list__toggle {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #00758c;   /* change to your brand color */
+  border-radius: 2px;
+  position: relative;
+  background-color: #00758c;
+  transition: background-color .25s ease;
+}
+.papers-list.is-open .papers-list__toggle {
+    background: #fff; 
+}
+/* Horizontal bar: always visible (the "minus") */
+.papers-list__toggle::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 2px;
+  background: #fff;         /* match border */
+}
+
+/* Vertical bar: visible only when closed, turning minus into plus */
+.papers-list__toggle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px;
+  height: 8px;
+  background: #fff;         /* match border */
+  transition: transform .25s ease, opacity .25s ease;
+}
+.papers-list.is-open .papers-list__toggle::before {
+  background: #00758c;
+}
+/* Open state: hide the vertical bar so the box reads as a minus */
+.papers-list.is-open .papers-list__toggle::after {
+  transform: translate(-50%, -50%) scaleY(0);
+  opacity: 0;
+  background: #00758c;
+}
+
+/* Collapsible body wrapper (injected by JS) */
+.papers-list__body {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height .3s ease;
+}
+
+/* Suppress the open/close animation during initial page setup */
+.papers-list--init .papers-list__body {
+  transition: none;
+}
+
+
+    @media (max-width: 768px) {
+        .event-annual-papers .papers-list {
+    padding: 15px;
+        }
+        .event-annual-papers .paper:first-child {
+    margin-top: 15px;
+}
+  /* Title row: keep the toggle box aligned to the top when the title wraps to two lines */
+  .event-annual-papers .papers-list .papers-list__title {
+    font-size: 1.1em;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  /* Slightly smaller box, nudged down so it lines up with the first line of text */
+  .papers-list__toggle {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* Shorten the bars to match the smaller box */
+  .papers-list__toggle::before {
+    width: 6px;
+  }
+
+  .papers-list__toggle::after {
+    height: 6px;
+  }
 }
     </style>
     </head>
@@ -1486,12 +1616,9 @@ catch(err)
                 </div>
 
    <div class="event-annual-papers">
-    <div class="papers-head">
-        <h2 class="papers-title">الجلسة الأولى</h2>
-        <div class="papers-subtitle">المسار الأول: عنوان المسار</div>
-    </div>
     <div class="papers-list">
-
+    <h2 class="papers-list__title">المسار الأول: عنوان المسار</h2>
+    <div class="papers-list__body">
         <article class="paper">
             <div class="paper__content">
             <span class="paper__language-badge" style="background-color: #00758c;">الورقه باللغة الإنكليزية</span>
@@ -1499,15 +1626,16 @@ catch(err)
                  <div style="
     display: flex;
     justify-content: space-between;
-">  
-                <h2 class="paper__title">
-                    <a href="#">لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟</a>
-                </h2>
+">  <div class="paper__details">
+                <h3 class="paper__title">
+                    لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟
+                </h3><a href="#" class="paper__version">(نسخة منشورة)</a>
+                </div>
                  <div class="links desktop-links">
             <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
 </div>
 </div>
-                <h3 class="paper__subtitle">عنوان فرعي</h3>
+                <h4 class="paper__subtitle">عنوان فرعي</h4>
                 <div class="paper__excerpt">
                     <p>على الرغم من توافر عوامل كثيرة لنجاح الانقلاب، مثل عنصر المباغتة، لناحية التوقيت على الأقل، وردود الأفعال الدولية الضعيفة، وامتلاك المتمردين قوة نارية كبيرة مثل الطيران والدبابات التي نزلت إلى الشوارع في إسطنبول وأنقرة في ضوء مشاركة مختلف صنوف الأسلحة وضباط كبار في الجيش التركي. فشلت المحاولة الانقلابية. وكان أبرز أسباب الفشل هو إجماع الطبقة السياسية والنخب الفكرية ووسائل الإعلام وقطاعات عريضة من الشعب التركي على رفض الانقلاب.</p>
                 </div>
@@ -1549,14 +1677,14 @@ catch(err)
             <span class="paper__language-badge" style="background-color: #CA9A00;">الورقه باللغة الإنكليزية</span>
               <div style="
     display: flex;
-    justify-content: space-between;">  <h2 class="paper__title">
+    justify-content: space-between;">  <h3 class="paper__title">
                     لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟
-                </h2>
+                </h3>
                  <div class="links desktop-links">
             <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
 </div>
 </div>
-                <h3 class="paper__subtitle">عنوان فرعي</h3>
+                <h4 class="paper__subtitle">عنوان فرعي</h4>
                 <div class="paper__excerpt">
                     <p>على الرغم من توافر عوامل كثيرة لنجاح الانقلاب، مثل عنصر المباغتة، لناحية التوقيت على الأقل، وردود الأفعال الدولية الضعيفة، وامتلاك المتمردين قوة نارية كبيرة مثل الطيران والدبابات التي نزلت إلى الشوارع في إسطنبول وأنقرة في ضوء مشاركة مختلف صنوف الأسلحة وضباط كبار في الجيش التركي. فشلت المحاولة الانقلابية. وكان أبرز أسباب الفشل هو إجماع الطبقة السياسية والنخب الفكرية ووسائل الإعلام وقطاعات عريضة من الشعب التركي على رفض الانقلاب.</p>
                 </div>
@@ -1586,14 +1714,14 @@ catch(err)
             <span class="paper__language-badge" style="background-color: #CA9A00;">الورقه باللغة الإنكليزية</span>
               <div style="
     display: flex;
-    justify-content: space-between;">  <h2 class="paper__title">
+    justify-content: space-between;">  <h3 class="paper__title">
                     لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟
-                </h2>
+                </h3>
                  <div class="links desktop-links">
             <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
 </div>
 </div>
-                <h3 class="paper__subtitle">عنوان فرعي</h3>
+                <h4 class="paper__subtitle">عنوان فرعي</h4>
                 <div class="paper__excerpt">
                     <p>على الرغم من توافر عوامل كثيرة لنجاح الانقلاب، مثل عنصر المباغتة، لناحية التوقيت على الأقل، وردود الأفعال الدولية الضعيفة، وامتلاك المتمردين قوة نارية كبيرة مثل الطيران والدبابات التي نزلت إلى الشوارع في إسطنبول وأنقرة في ضوء مشاركة مختلف صنوف الأسلحة وضباط كبار في الجيش التركي. فشلت المحاولة الانقلابية. وكان أبرز أسباب الفشل هو إجماع الطبقة السياسية والنخب الفكرية ووسائل الإعلام وقطاعات عريضة من الشعب التركي على رفض الانقلاب.</p>
                 </div>
@@ -1645,9 +1773,787 @@ catch(err)
 
         </article>
 
-    </div>
-    <div class="pagination clearfix"><div class="more"><a href="#" id="ctl00_ctl51_g_fade5e38_30e7_4ef0_892a_458228fd5435_csr52_Results_showmore"><i class="fa fa-plus"></i></a></div><div class="pages"> 104 / 4</div></div>
+          <article class="paper">
+            <div class="paper__content">
+            <span class="paper__language-badge" style="background-color: #00758c;">الورقه باللغة الإنكليزية</span>
+                <span class="paper__prev-title">عنوان قبلي</span>
+                 <div style="
+    display: flex;
+    justify-content: space-between;
+">  <div class="paper__details">
+                <h3 class="paper__title">
+                    لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟
+                </h3><a href="#" class="paper__version">(نسخة منشورة)</a>
+                </div>
+                 <div class="links desktop-links">
+            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
+</div>
+</div>
+                <h4 class="paper__subtitle">عنوان فرعي</h4>
+                <div class="paper__excerpt">
+                    <p>على الرغم من توافر عوامل كثيرة لنجاح الانقلاب، مثل عنصر المباغتة، لناحية التوقيت على الأقل، وردود الأفعال الدولية الضعيفة، وامتلاك المتمردين قوة نارية كبيرة مثل الطيران والدبابات التي نزلت إلى الشوارع في إسطنبول وأنقرة في ضوء مشاركة مختلف صنوف الأسلحة وضباط كبار في الجيش التركي. فشلت المحاولة الانقلابية. وكان أبرز أسباب الفشل هو إجماع الطبقة السياسية والنخب الفكرية ووسائل الإعلام وقطاعات عريضة من الشعب التركي على رفض الانقلاب.</p>
+                </div>
+            </div>
 
+            <aside class="paper__author">
+                <div class="paper__author-list">
+                <div class="paper__author-card">
+                <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                </div>
+                </div>
+</div>
+<div class="paper__author-card">
+                <img class="paper__author-photo"
+                     src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female"
+                     alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                <span>ممكن سطر إضافي.</span>
+                </div>
+                </div>
+</div>
+</div>
+                 <div class="links mobile-links">
+            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
+</div>
+            </aside>
+
+        </article>
+
+        <article class="paper">
+            <div class="paper__content">
+            <span class="paper__language-badge" style="background-color: #CA9A00;">الورقه باللغة الإنكليزية</span>
+              <div style="
+    display: flex;
+    justify-content: space-between;">  <h3 class="paper__title">
+                    لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟
+                </h3>
+                 <div class="links desktop-links">
+            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
+</div>
+</div>
+                <h4 class="paper__subtitle">عنوان فرعي</h4>
+                <div class="paper__excerpt">
+                    <p>على الرغم من توافر عوامل كثيرة لنجاح الانقلاب، مثل عنصر المباغتة، لناحية التوقيت على الأقل، وردود الأفعال الدولية الضعيفة، وامتلاك المتمردين قوة نارية كبيرة مثل الطيران والدبابات التي نزلت إلى الشوارع في إسطنبول وأنقرة في ضوء مشاركة مختلف صنوف الأسلحة وضباط كبار في الجيش التركي. فشلت المحاولة الانقلابية. وكان أبرز أسباب الفشل هو إجماع الطبقة السياسية والنخب الفكرية ووسائل الإعلام وقطاعات عريضة من الشعب التركي على رفض الانقلاب.</p>
+                </div>
+            </div>
+
+            <aside class="paper__author">
+                <div class="paper__author-list">
+                <div class="paper__author-card">
+                <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                </div>
+                </div>
+</div>
+</div>
+                 <div class="links mobile-links">
+            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
+</div>
+            </aside>
+
+        </article>
+
+         <article class="paper">
+            <div class="paper__content">
+            <span class="paper__language-badge" style="background-color: #CA9A00;">الورقه باللغة الإنكليزية</span>
+              <div style="
+    display: flex;
+    justify-content: space-between;">  <h3 class="paper__title">
+                    لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟
+                </h3>
+                 <div class="links desktop-links">
+            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
+</div>
+</div>
+                <h4 class="paper__subtitle">عنوان فرعي</h4>
+                <div class="paper__excerpt">
+                    <p>على الرغم من توافر عوامل كثيرة لنجاح الانقلاب، مثل عنصر المباغتة، لناحية التوقيت على الأقل، وردود الأفعال الدولية الضعيفة، وامتلاك المتمردين قوة نارية كبيرة مثل الطيران والدبابات التي نزلت إلى الشوارع في إسطنبول وأنقرة في ضوء مشاركة مختلف صنوف الأسلحة وضباط كبار في الجيش التركي. فشلت المحاولة الانقلابية. وكان أبرز أسباب الفشل هو إجماع الطبقة السياسية والنخب الفكرية ووسائل الإعلام وقطاعات عريضة من الشعب التركي على رفض الانقلاب.</p>
+                </div>
+            </div>
+
+            <aside class="paper__author">
+                <div class="paper__author-list">
+                <div class="paper__author-card">
+                <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                </div>
+                </div>
+</div>
+<div class="paper__author-card">
+                <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                </div>
+                </div>
+</div>
+<div class="paper__author-card">
+                <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                </div>
+                </div>
+</div>
+<div class="paper__author-card">
+                <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                </div>
+                </div>
+</div>
+</div>
+                 <div class="links mobile-links">
+            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
+</div>
+            </aside>
+
+        </article>
+    </div>
+    </div>
+
+    <div class="papers-list">
+<h2 class="papers-list__title">المسار الثاني: عنوان المسار</h2>
+<div class="papers-list__body">
+        <article class="paper">
+            <div class="paper__content">
+            <span class="paper__language-badge" style="background-color: #00758c;">الورقه باللغة الإنكليزية</span>
+                <span class="paper__prev-title">عنوان قبلي</span>
+                 <div style="
+    display: flex;
+    justify-content: space-between;
+">  <div class="paper__details">
+                <h3 class="paper__title">
+                    لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟
+                </h3> <a href="#" class="paper__version">(نسخة منشورة)</a>
+                </div>
+                 <div class="links desktop-links">
+            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
+</div>
+</div>
+                <h4 class="paper__subtitle">عنوان فرعي</h4>
+                <div class="paper__excerpt">
+                    <p>على الرغم من توافر عوامل كثيرة لنجاح الانقلاب، مثل عنصر المباغتة، لناحية التوقيت على الأقل، وردود الأفعال الدولية الضعيفة، وامتلاك المتمردين قوة نارية كبيرة مثل الطيران والدبابات التي نزلت إلى الشوارع في إسطنبول وأنقرة في ضوء مشاركة مختلف صنوف الأسلحة وضباط كبار في الجيش التركي. فشلت المحاولة الانقلابية. وكان أبرز أسباب الفشل هو إجماع الطبقة السياسية والنخب الفكرية ووسائل الإعلام وقطاعات عريضة من الشعب التركي على رفض الانقلاب.</p>
+                </div>
+            </div>
+
+            <aside class="paper__author">
+                <div class="paper__author-list">
+                <div class="paper__author-card">
+                <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                </div>
+                </div>
+</div>
+<div class="paper__author-card">
+                <img class="paper__author-photo"
+                     src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female"
+                     alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                <span>ممكن سطر إضافي.</span>
+                </div>
+                </div>
+</div>
+</div>
+                 <div class="links mobile-links">
+            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
+</div>
+            </aside>
+
+        </article>
+
+        <article class="paper">
+            <div class="paper__content">
+            <span class="paper__language-badge" style="background-color: #CA9A00;">الورقه باللغة الإنكليزية</span>
+              <div style="
+    display: flex;
+    justify-content: space-between;">  <h3 class="paper__title">
+                    لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟
+                </h3>
+                 <div class="links desktop-links">
+            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
+</div>
+</div>
+                <h4 class="paper__subtitle">عنوان فرعي</h4>
+                <div class="paper__excerpt">
+                    <p>على الرغم من توافر عوامل كثيرة لنجاح الانقلاب، مثل عنصر المباغتة، لناحية التوقيت على الأقل، وردود الأفعال الدولية الضعيفة، وامتلاك المتمردين قوة نارية كبيرة مثل الطيران والدبابات التي نزلت إلى الشوارع في إسطنبول وأنقرة في ضوء مشاركة مختلف صنوف الأسلحة وضباط كبار في الجيش التركي. فشلت المحاولة الانقلابية. وكان أبرز أسباب الفشل هو إجماع الطبقة السياسية والنخب الفكرية ووسائل الإعلام وقطاعات عريضة من الشعب التركي على رفض الانقلاب.</p>
+                </div>
+            </div>
+
+            <aside class="paper__author">
+                <div class="paper__author-list">
+                <div class="paper__author-card">
+                <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                </div>
+                </div>
+</div>
+</div>
+                 <div class="links mobile-links">
+            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
+</div>
+            </aside>
+
+        </article>
+
+         <article class="paper">
+            <div class="paper__content">
+            <span class="paper__language-badge" style="background-color: #CA9A00;">الورقه باللغة الإنكليزية</span>
+              <div style="
+    display: flex;
+    justify-content: space-between;">  <h3 class="paper__title">
+                    لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟
+                </h3>
+                 <div class="links desktop-links">
+            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
+</div>
+</div>
+                <h4 class="paper__subtitle">عنوان فرعي</h4>
+                <div class="paper__excerpt">
+                    <p>على الرغم من توافر عوامل كثيرة لنجاح الانقلاب، مثل عنصر المباغتة، لناحية التوقيت على الأقل، وردود الأفعال الدولية الضعيفة، وامتلاك المتمردين قوة نارية كبيرة مثل الطيران والدبابات التي نزلت إلى الشوارع في إسطنبول وأنقرة في ضوء مشاركة مختلف صنوف الأسلحة وضباط كبار في الجيش التركي. فشلت المحاولة الانقلابية. وكان أبرز أسباب الفشل هو إجماع الطبقة السياسية والنخب الفكرية ووسائل الإعلام وقطاعات عريضة من الشعب التركي على رفض الانقلاب.</p>
+                </div>
+            </div>
+
+            <aside class="paper__author">
+                <div class="paper__author-list">
+                <div class="paper__author-card">
+                <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                </div>
+                </div>
+</div>
+<div class="paper__author-card">
+                <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                </div>
+                </div>
+</div>
+<div class="paper__author-card">
+                <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                </div>
+                </div>
+</div>
+<div class="paper__author-card">
+                <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                </div>
+                </div>
+</div>
+</div>
+                 <div class="links mobile-links">
+            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
+</div>
+            </aside>
+
+        </article>
+
+          <article class="paper">
+            <div class="paper__content">
+            <span class="paper__language-badge" style="background-color: #00758c;">الورقه باللغة الإنكليزية</span>
+                <span class="paper__prev-title">عنوان قبلي</span>
+                 <div style="
+    display: flex;
+    justify-content: space-between;
+">  <div class="paper__details">
+                <h3 class="paper__title">
+                    لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟
+                </h3><a href="#" class="paper__version">(نسخة منشورة)</a>
+                </div>
+                 <div class="links desktop-links">
+            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
+</div>
+</div>
+                <h4 class="paper__subtitle">عنوان فرعي</h4>
+                <div class="paper__excerpt">
+                    <p>على الرغم من توافر عوامل كثيرة لنجاح الانقلاب، مثل عنصر المباغتة، لناحية التوقيت على الأقل، وردود الأفعال الدولية الضعيفة، وامتلاك المتمردين قوة نارية كبيرة مثل الطيران والدبابات التي نزلت إلى الشوارع في إسطنبول وأنقرة في ضوء مشاركة مختلف صنوف الأسلحة وضباط كبار في الجيش التركي. فشلت المحاولة الانقلابية. وكان أبرز أسباب الفشل هو إجماع الطبقة السياسية والنخب الفكرية ووسائل الإعلام وقطاعات عريضة من الشعب التركي على رفض الانقلاب.</p>
+                </div>
+            </div>
+
+            <aside class="paper__author">
+                <div class="paper__author-list">
+                <div class="paper__author-card">
+                <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                </div>
+                </div>
+</div>
+<div class="paper__author-card">
+                <img class="paper__author-photo"
+                     src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female"
+                     alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                <span>ممكن سطر إضافي.</span>
+                </div>
+                </div>
+</div>
+</div>
+                 <div class="links mobile-links">
+            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
+</div>
+            </aside>
+
+        </article>
+
+        <article class="paper">
+            <div class="paper__content">
+            <span class="paper__language-badge" style="background-color: #CA9A00;">الورقه باللغة الإنكليزية</span>
+              <div style="
+    display: flex;
+    justify-content: space-between;">  <h3 class="paper__title">
+                    لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟
+                </h3>
+                 <div class="links desktop-links">
+            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
+</div>
+</div>
+                <h4 class="paper__subtitle">عنوان فرعي</h4>
+                <div class="paper__excerpt">
+                    <p>على الرغم من توافر عوامل كثيرة لنجاح الانقلاب، مثل عنصر المباغتة، لناحية التوقيت على الأقل، وردود الأفعال الدولية الضعيفة، وامتلاك المتمردين قوة نارية كبيرة مثل الطيران والدبابات التي نزلت إلى الشوارع في إسطنبول وأنقرة في ضوء مشاركة مختلف صنوف الأسلحة وضباط كبار في الجيش التركي. فشلت المحاولة الانقلابية. وكان أبرز أسباب الفشل هو إجماع الطبقة السياسية والنخب الفكرية ووسائل الإعلام وقطاعات عريضة من الشعب التركي على رفض الانقلاب.</p>
+                </div>
+            </div>
+
+            <aside class="paper__author">
+                <div class="paper__author-list">
+                <div class="paper__author-card">
+                <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                </div>
+                </div>
+</div>
+</div>
+                 <div class="links mobile-links">
+            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
+</div>
+            </aside>
+
+        </article>
+
+         <article class="paper">
+            <div class="paper__content">
+            <span class="paper__language-badge" style="background-color: #CA9A00;">الورقه باللغة الإنكليزية</span>
+              <div style="
+    display: flex;
+    justify-content: space-between;">  <h3 class="paper__title">
+                    لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟
+                </h3>
+                 <div class="links desktop-links">
+            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
+</div>
+</div>
+                <h4 class="paper__subtitle">عنوان فرعي</h4>
+                <div class="paper__excerpt">
+                    <p>على الرغم من توافر عوامل كثيرة لنجاح الانقلاب، مثل عنصر المباغتة، لناحية التوقيت على الأقل، وردود الأفعال الدولية الضعيفة، وامتلاك المتمردين قوة نارية كبيرة مثل الطيران والدبابات التي نزلت إلى الشوارع في إسطنبول وأنقرة في ضوء مشاركة مختلف صنوف الأسلحة وضباط كبار في الجيش التركي. فشلت المحاولة الانقلابية. وكان أبرز أسباب الفشل هو إجماع الطبقة السياسية والنخب الفكرية ووسائل الإعلام وقطاعات عريضة من الشعب التركي على رفض الانقلاب.</p>
+                </div>
+            </div>
+
+            <aside class="paper__author">
+                <div class="paper__author-list">
+                <div class="paper__author-card">
+                <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                </div>
+                </div>
+</div>
+<div class="paper__author-card">
+                <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                </div>
+                </div>
+</div>
+<div class="paper__author-card">
+                <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                </div>
+                </div>
+</div>
+<div class="paper__author-card">
+                <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                </div>
+                </div>
+</div>
+</div>
+                 <div class="links mobile-links">
+            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
+</div>
+            </aside>
+
+        </article>
+
+          <article class="paper">
+            <div class="paper__content">
+            <span class="paper__language-badge" style="background-color: #00758c;">الورقه باللغة الإنكليزية</span>
+                <span class="paper__prev-title">عنوان قبلي</span>
+                 <div style="
+    display: flex;
+    justify-content: space-between;
+">  <div class="paper__details">
+                <h3 class="paper__title">
+                    لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟
+                </h3><a href="#" class="paper__version">(نسخة منشورة)</a>
+                </div>
+                 <div class="links desktop-links">
+            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
+</div>
+</div>
+                <h4 class="paper__subtitle">عنوان فرعي</h4>
+                <div class="paper__excerpt">
+                    <p>على الرغم من توافر عوامل كثيرة لنجاح الانقلاب، مثل عنصر المباغتة، لناحية التوقيت على الأقل، وردود الأفعال الدولية الضعيفة، وامتلاك المتمردين قوة نارية كبيرة مثل الطيران والدبابات التي نزلت إلى الشوارع في إسطنبول وأنقرة في ضوء مشاركة مختلف صنوف الأسلحة وضباط كبار في الجيش التركي. فشلت المحاولة الانقلابية. وكان أبرز أسباب الفشل هو إجماع الطبقة السياسية والنخب الفكرية ووسائل الإعلام وقطاعات عريضة من الشعب التركي على رفض الانقلاب.</p>
+                </div>
+            </div>
+
+            <aside class="paper__author">
+                <div class="paper__author-list">
+                <div class="paper__author-card">
+                <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                </div>
+                </div>
+</div>
+<div class="paper__author-card">
+                <img class="paper__author-photo"
+                     src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female"
+                     alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                <span>ممكن سطر إضافي.</span>
+                </div>
+                </div>
+</div>
+</div>
+                 <div class="links mobile-links">
+            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
+</div>
+            </aside>
+
+        </article>
+
+        <article class="paper">
+            <div class="paper__content">
+            <span class="paper__language-badge" style="background-color: #CA9A00;">الورقه باللغة الإنكليزية</span>
+              <div style="
+    display: flex;
+    justify-content: space-between;">  <h3 class="paper__title">
+                    لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟
+                </h3>
+                 <div class="links desktop-links">
+            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
+</div>
+</div>
+                <h4 class="paper__subtitle">عنوان فرعي</h4>
+                <div class="paper__excerpt">
+                    <p>على الرغم من توافر عوامل كثيرة لنجاح الانقلاب، مثل عنصر المباغتة، لناحية التوقيت على الأقل، وردود الأفعال الدولية الضعيفة، وامتلاك المتمردين قوة نارية كبيرة مثل الطيران والدبابات التي نزلت إلى الشوارع في إسطنبول وأنقرة في ضوء مشاركة مختلف صنوف الأسلحة وضباط كبار في الجيش التركي. فشلت المحاولة الانقلابية. وكان أبرز أسباب الفشل هو إجماع الطبقة السياسية والنخب الفكرية ووسائل الإعلام وقطاعات عريضة من الشعب التركي على رفض الانقلاب.</p>
+                </div>
+            </div>
+
+            <aside class="paper__author">
+                <div class="paper__author-list">
+                <div class="paper__author-card">
+                <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                </div>
+                </div>
+</div>
+</div>
+                 <div class="links mobile-links">
+            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
+</div>
+            </aside>
+
+        </article>
+
+         <article class="paper">
+            <div class="paper__content">
+            <span class="paper__language-badge" style="background-color: #CA9A00;">الورقه باللغة الإنكليزية</span>
+              <div style="
+    display: flex;
+    justify-content: space-between;">  <h3 class="paper__title">
+                    لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟
+                </h3>
+                 <div class="links desktop-links">
+            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
+</div>
+</div>
+                <h4 class="paper__subtitle">عنوان فرعي</h4>
+                <div class="paper__excerpt">
+                    <p>على الرغم من توافر عوامل كثيرة لنجاح الانقلاب، مثل عنصر المباغتة، لناحية التوقيت على الأقل، وردود الأفعال الدولية الضعيفة، وامتلاك المتمردين قوة نارية كبيرة مثل الطيران والدبابات التي نزلت إلى الشوارع في إسطنبول وأنقرة في ضوء مشاركة مختلف صنوف الأسلحة وضباط كبار في الجيش التركي. فشلت المحاولة الانقلابية. وكان أبرز أسباب الفشل هو إجماع الطبقة السياسية والنخب الفكرية ووسائل الإعلام وقطاعات عريضة من الشعب التركي على رفض الانقلاب.</p>
+                </div>
+            </div>
+
+            <aside class="paper__author">
+                <div class="paper__author-list">
+                <div class="paper__author-card">
+                <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                </div>
+                </div>
+</div>
+<div class="paper__author-card">
+                <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                </div>
+                </div>
+</div>
+<div class="paper__author-card">
+                <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                </div>
+                </div>
+</div>
+<div class="paper__author-card">
+                <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                </div>
+                </div>
+</div>
+</div>
+                 <div class="links mobile-links">
+            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
+</div>
+            </aside>
+
+        </article>
+</div>
+    </div>
+
+    <div class="papers-list">
+<h2 class="papers-list__title">المسار الثالث: عنوان المسار</h2>
+<div class="papers-list__body">
+        <article class="paper">
+            <div class="paper__content">
+            <span class="paper__language-badge" style="background-color: #00758c;">الورقه باللغة الإنكليزية</span>
+                <span class="paper__prev-title">عنوان قبلي</span>
+                 <div style="
+    display: flex;
+    justify-content: space-between;
+">  <div class="paper__details">
+                <h3 class="paper__title">
+                    لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟
+                </h3> <a href="#" class="paper__version">(نسخة منشورة)</a>
+                </div>
+                 <div class="links desktop-links">
+            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
+</div>
+</div>
+                <h4 class="paper__subtitle">عنوان فرعي</h4>
+                <div class="paper__excerpt">
+                    <p>على الرغم من توافر عوامل كثيرة لنجاح الانقلاب، مثل عنصر المباغتة، لناحية التوقيت على الأقل، وردود الأفعال الدولية الضعيفة، وامتلاك المتمردين قوة نارية كبيرة مثل الطيران والدبابات التي نزلت إلى الشوارع في إسطنبول وأنقرة في ضوء مشاركة مختلف صنوف الأسلحة وضباط كبار في الجيش التركي. فشلت المحاولة الانقلابية. وكان أبرز أسباب الفشل هو إجماع الطبقة السياسية والنخب الفكرية ووسائل الإعلام وقطاعات عريضة من الشعب التركي على رفض الانقلاب.</p>
+                </div>
+            </div>
+
+            <aside class="paper__author">
+                <div class="paper__author-list">
+                <div class="paper__author-card">
+                <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                </div>
+                </div>
+</div>
+<div class="paper__author-card">
+                <img class="paper__author-photo"
+                     src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female"
+                     alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                <span>ممكن سطر إضافي.</span>
+                </div>
+                </div>
+</div>
+</div>
+                 <div class="links mobile-links">
+            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
+</div>
+            </aside>
+
+        </article>
+
+        <article class="paper">
+            <div class="paper__content">
+            <span class="paper__language-badge" style="background-color: #CA9A00;">الورقه باللغة الإنكليزية</span>
+              <div style="
+    display: flex;
+    justify-content: space-between;">  <h3 class="paper__title">
+                    لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟
+                </h3>
+                 <div class="links desktop-links">
+            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
+</div>
+</div>
+                <h4 class="paper__subtitle">عنوان فرعي</h4>
+                <div class="paper__excerpt">
+                    <p>على الرغم من توافر عوامل كثيرة لنجاح الانقلاب، مثل عنصر المباغتة، لناحية التوقيت على الأقل، وردود الأفعال الدولية الضعيفة، وامتلاك المتمردين قوة نارية كبيرة مثل الطيران والدبابات التي نزلت إلى الشوارع في إسطنبول وأنقرة في ضوء مشاركة مختلف صنوف الأسلحة وضباط كبار في الجيش التركي. فشلت المحاولة الانقلابية. وكان أبرز أسباب الفشل هو إجماع الطبقة السياسية والنخب الفكرية ووسائل الإعلام وقطاعات عريضة من الشعب التركي على رفض الانقلاب.</p>
+                </div>
+            </div>
+
+            <aside class="paper__author">
+                <div class="paper__author-list">
+                <div class="paper__author-card">
+                <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                </div>
+                </div>
+</div>
+</div>
+                 <div class="links mobile-links">
+            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
+</div>
+            </aside>
+
+        </article>
+
+         <article class="paper">
+            <div class="paper__content">
+            <span class="paper__language-badge" style="background-color: #CA9A00;">الورقه باللغة الإنكليزية</span>
+              <div style="
+    display: flex;
+    justify-content: space-between;">  <h3 class="paper__title">
+                    لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟
+                </h3>
+                 <div class="links desktop-links">
+            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
+</div>
+</div>
+                <h4 class="paper__subtitle">عنوان فرعي</h4>
+                <div class="paper__excerpt">
+                    <p>على الرغم من توافر عوامل كثيرة لنجاح الانقلاب، مثل عنصر المباغتة، لناحية التوقيت على الأقل، وردود الأفعال الدولية الضعيفة، وامتلاك المتمردين قوة نارية كبيرة مثل الطيران والدبابات التي نزلت إلى الشوارع في إسطنبول وأنقرة في ضوء مشاركة مختلف صنوف الأسلحة وضباط كبار في الجيش التركي. فشلت المحاولة الانقلابية. وكان أبرز أسباب الفشل هو إجماع الطبقة السياسية والنخب الفكرية ووسائل الإعلام وقطاعات عريضة من الشعب التركي على رفض الانقلاب.</p>
+                </div>
+            </div>
+
+            <aside class="paper__author">
+                <div class="paper__author-list">
+                <div class="paper__author-card">
+                <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                </div>
+                </div>
+</div>
+<div class="paper__author-card">
+                <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                </div>
+                </div>
+</div>
+<div class="paper__author-card">
+                <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                </div>
+                </div>
+</div>
+<div class="paper__author-card">
+                <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="حمزة إبراهيم محيسن">
+                     <div class="paper__author-info">
+                <a class="paper__author-name" href="#" title="حمزة إبراهيم محيسن">حمزة إبراهيم محيسن</a>
+                <div class="paper__author-role">
+                    <span>باحث في الصراع الإسرائيلي - الفلسطيني.</span>
+                </div>
+                </div>
+</div>
+</div>
+                 <div class="links mobile-links">
+            <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="تحميل الورقة" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">تحميل الورقة</a>
+</div>
+            </aside>
+
+        </article>
+</div>
+    </div>
 </div>
                        
                 <div id="back2top">
@@ -2455,7 +3361,105 @@ g_QuickLaunchControlIds.push("zz1_SecondLevelMenu");_spBodyOnLoadFunctionNames.p
             
             
             
-            
+            <script>
+                
+   jQuery(function ($) {
+  var $container = $('.event-annual-papers');
+  if (!$container.length) return;
+
+  var $lists = $container.find('.papers-list');
+
+  $lists.each(function (index) {
+    var $list = $(this);
+    var $title = $list.find('.papers-list__title').first();
+    var $body = $list.find('.papers-list__body').first();
+    if (!$title.length || !$body.length) return;
+
+    // Inject the plus/minus box at the start of the title
+    $('<span class="papers-list__toggle" aria-hidden="true"></span>').prependTo($title);
+
+    // Accessibility
+    $title.attr({ role: 'button', tabindex: '0' });
+
+    // No animation on first paint
+    $list.addClass('papers-list--init');
+
+    if (index === 0) {
+      $list.addClass('is-open');
+      $title.attr('aria-expanded', 'true');
+      $body.css('maxHeight', 'none');
+    } else {
+      $title.attr('aria-expanded', 'false');
+      $body.css('maxHeight', '0px');
+    }
+
+    $title.on('click', function () { togglePanel($list); });
+    $title.on('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        togglePanel($list);
+      }
+    });
+  });
+
+  // Re-enable animations after the initial layout settles
+  requestAnimationFrame(function () {
+    $lists.removeClass('papers-list--init');
+  });
+
+  function togglePanel($list) {
+    if ($list.hasClass('is-open')) {
+      closeList($list); // clicking the open one collapses it
+    } else {
+      $lists.each(function () {
+        var $l = $(this);
+        if (!$l.is($list)) closeList($l);
+      });
+      openList($list);
+    }
+  }
+
+  function openList($list) {
+    var $body = $list.find('.papers-list__body').first();
+    var $title = $list.find('.papers-list__title').first();
+    $list.addClass('is-open');
+    $title.attr('aria-expanded', 'true');
+    if (!$body.length) return;
+
+    $body.css('maxHeight', $body[0].scrollHeight + 'px');
+    $body.on('transitionend.papers', function (e) {
+      if (e.originalEvent.propertyName !== 'max-height') return;
+      $body.off('transitionend.papers');
+      // Release the cap so late-loading images do not get clipped
+      if ($list.hasClass('is-open')) $body.css('maxHeight', 'none');
+    });
+  }
+
+  function closeList($list) {
+    var $body = $list.find('.papers-list__body').first();
+    var $title = $list.find('.papers-list__title').first();
+    if (!$list.hasClass('is-open')) return;
+    $title.attr('aria-expanded', 'false');
+    if (!$body.length) return;
+
+    // Convert 'none' back to a concrete height, then collapse on next frame
+    $body.css('maxHeight', $body[0].scrollHeight + 'px');
+    $body[0].offsetHeight; // force reflow
+    requestAnimationFrame(function () {
+      $list.removeClass('is-open');
+      $body.css('maxHeight', '0px');
+    });
+  }
+
+  // Keep open panel sized correctly on viewport changes
+  $(window).on('resize', function () {
+    var $open = $container.find('.papers-list.is-open .papers-list__body').first();
+    if ($open.length && $open[0].style.maxHeight !== 'none') {
+      $open.css('maxHeight', $open[0].scrollHeight + 'px');
+    }
+  });
+});
+        </script>
             
             
             
