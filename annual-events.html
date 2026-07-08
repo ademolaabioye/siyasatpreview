@@ -134,459 +134,489 @@ var g_SPOffSwitches={};
     <link rel="stylesheet" type="text/css" href="Assets/css/app-rtl2.css"></link>
     
     <style>
-    /* Wrapper */
-    .event-annual-papers {
-        font-size: 14px;
-        margin-top: 20px;
-        margin-bottom: 50px;
-    }
+ /* Wrapper */
+.event-annual-papers {
+	font-size: 14px;
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+
 .event-annual-papers .paper {
-    position: relative;
-    display: flex;
-    gap: 15px;
-    align-items: stretch;
-    margin-bottom: 16px;
-    padding: 15px;
-    border-radius: 5px;
-    background-color: #F6F6F6;
-        flex-direction: column;
+	position: relative;
+	display: flex;
+	gap: 15px;
+	align-items: stretch;
+	margin-bottom: 16px;
+	padding: 15px;
+	border-radius: 5px;
+	background-color: #F6F6F6;
+	flex-direction: column;
 }
 
 /* Language badge — top-start corner */
 .event-annual-papers .paper__language-badge {
-    display: inline-block;
-    padding: 2px 8px;
-    color: #fff;
-    font-size: .875em;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    white-space: nowrap;
+	display: inline-block;
+	padding: 2px 8px;
+	color: #fff;
+	font-size: .875em;
+	border-radius: 4px;
+	margin-bottom: 10px;
+	white-space: nowrap;
 }
 
 /* Author column */
 .event-annual-papers .paper__author-card {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	padding: 10px;
 }
+
 .event-annual-papers .paper__author-card .paper__author-info {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    text-align: left;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	text-align: left;
 }
+
 html[dir="rtl"] .event-annual-papers .paper__author-card .paper__author-info {
-    text-align: right;
+	text-align: right;
 }
+
 .event-annual-papers .paper__author-card .paper__author-info * {
-    display: block;
+	display: block;
 }
+
 .paper__author-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 10px;
 }
 
 /* default card */
 .paper__author-card {
-  display: flex;
-  gap: 12px;
-  align-items: center;
+	display: flex;
+	gap: 12px;
+	align-items: center;
 }
 
 /* 1 item → full width */
 .paper__author-list:has(> .paper__author-card:only-child) {
-  grid-template-columns: 1fr;
+	grid-template-columns: 1fr;
 }
 
-.paper__author-list > .paper__author-card:only-child {
-  grid-column: 1 / -1;
+.paper__author-list>.paper__author-card:only-child {
+	grid-column: 1 / -1;
 }
 
 /* 2 items → 50:50 */
 .paper__author-list:has(> .paper__author-card:nth-child(2):last-child) {
-  grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: repeat(2, 1fr);
 }
 
 /* 4 items → 3 on first row, 1 full-width on second row */
-.paper__author-list > .paper__author-card:nth-child(4):last-child {
-  grid-column: 1 / -1;
+.paper__author-list>.paper__author-card:nth-child(4):last-child {
+	grid-column: 1 / -1;
 }
 
 /* 5 items → 3 on first row, 2 on second row (50:50) */
 .paper__author-list:has(> .paper__author-card:nth-child(5):last-child) {
-  grid-template-columns: repeat(6, 1fr);
+	grid-template-columns: repeat(6, 1fr);
 }
 
-.paper__author-list:has(> .paper__author-card:nth-child(5):last-child)
-  > .paper__author-card:nth-child(-n + 3) {
-  grid-column: span 2;
+.paper__author-list:has(> .paper__author-card:nth-child(5):last-child)>.paper__author-card:nth-child(-n + 3) {
+	grid-column: span 2;
 }
 
-.paper__author-list:has(> .paper__author-card:nth-child(5):last-child)
-  > .paper__author-card:nth-child(n + 4) {
-  grid-column: span 3;
+.paper__author-list:has(> .paper__author-card:nth-child(5):last-child)>.paper__author-card:nth-child(n + 4) {
+	grid-column: span 3;
 }
+
 .event-annual-papers .paper__author-photo {
-    width: 55px;
-    height: 55px;
-    min-width: 55px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 1px solid #ddd;
+	width: 55px;
+	height: 55px;
+	min-width: 55px;
+	border-radius: 50%;
+	object-fit: cover;
+	border: 1px solid #ddd;
 }
 
 .event-annual-papers .paper__author-name {
-    color: #00758c;
-    font-size: .875em;
+	color: #00758c;
+	font-size: .875em;
 }
+
 .event-annual-papers a.paper__author-name {
-    text-decoration: underline !important;
+	text-decoration: underline !important;
 }
 
 .event-annual-papers a.paper__author-name:hover {
-    color: #CA9A00;
+	color: #CA9A00;
 }
 
 .event-annual-papers .paper__author-role {
-    color: #777;
-    font-size: .8125em;
-    line-height: 1.3;
-    margin: 0;
+	color: #777;
+	font-size: .8125em;
+	line-height: 1.3;
+	margin: 0;
 }
 
 /* Download button */
 .event-annual-papers .paper__author .links {
-    width: 100%;
+	width: 100%;
 }
+
 .event-annual-papers .links .btn-download {
-    color: #666;
-    }
+	color: #666;
+}
+
 .event-annual-papers .paper__author .links .btn-download {
-    display: block;
-    height: 30px;
-    background-position: 0 30px;
-    line-height: 30px;
-    font-size: 12px;
+	display: block;
+	height: 30px;
+	background-position: 0 30px;
+	line-height: 30px;
+	font-size: 12px;
 }
+
 .event-annual-papers .paper__author .links .btn-download::after {
-    height: 30px;
-    width: 36px;
-    background-repeat: round;
+	height: 30px;
+	width: 36px;
+	background-repeat: round;
 }
+
 .event-annual-papers .links .btn-download:hover {
-    color: #CA9A00;
+	color: #CA9A00;
 }
 
 /* Content column */
 .event-annual-papers .paper__content {
-    flex: 1;
-    min-width: 0;
+	flex: 1;
+	min-width: 0;
 }
 
 .event-annual-papers .paper__title {
-    margin: 0 0 7px;
-    font-size: 1em;
-    font-family: "BahijTheSansArabic-Bold";
-    font-weight: normal;
-    line-height: 150%;
-    text-align: left;
-    color: #333333;
+	margin: 0 0 7px;
+	font-size: 1em;
+	font-family: "BahijTheSansArabic-Bold";
+	font-weight: normal;
+	line-height: 150%;
+	text-align: left;
+	color: #333333;
 }
 
 html[dir="rtl"] .event-annual-papers .paper__title {
-    text-align: right;
+	text-align: right;
 }
 
 .event-annual-papers .paper__title a {
-    color: #333333;
-    text-decoration: underline !important;
+	color: #333333;
+	text-decoration: underline !important;
 }
 
 .event-annual-papers .paper__title a:hover {
-    color: #CA9A00;
+	color: #CA9A00;
 }
 
 .event-annual-papers .paper__prev-title {
-    margin: 0 0 5px;
-    font-size: 0.9em;;
-    font-weight: 500;
-    color: #666;
-    display: block;
-    line-height: 1.1;
+	margin: 0 0 5px;
+	font-size: 0.9em;
+	;
+	font-weight: 500;
+	color: #666;
+	display: block;
+	line-height: 1.1;
 }
- 
+
 .event-annual-papers .paper__subtitle {
-    margin: 0 0 10px;
-    font-size: 0.9em;
-    font-weight: 500;
-    color: #666;
-    display: block;
-    line-height: 1.1;
+	margin: 0 0 10px;
+	font-size: 0.9em;
+	font-weight: 500;
+	color: #666;
+	display: block;
+	line-height: 1.1;
 }
- 
+
 .event-annual-papers .paper__excerpt {
-    font-size: 1em;
-    color: #333;
-    text-align: justify;
-    line-height: 1.8;
+	font-size: 1em;
+	color: #333;
+	text-align: justify;
+	line-height: 1.8;
 }
 
 .event-annual-papers .paper__excerpt p {
-    margin: 0;
+	margin: 0;
 }
 
 .links.mobile-links {
-    display: none;
+	display: none;
 }
+
 /* Responsive */
 @media (min-width: 992px) and (max-width: 1199px) {
-  .paper__author-list {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
+	.paper__author-list {
+		grid-template-columns: repeat(2, 1fr) !important;
+	}
 
-   .paper__author-list > .paper__author-card {
-    grid-column: auto !important;
-  }
-  /* 1 item */
-  .paper__author-list > .paper__author-card:only-child {
-    grid-column: 1 / -1 !important;
-  }
+	.paper__author-list>.paper__author-card {
+		grid-column: auto !important;
+	}
 
-  /* 3, 5, 7, 9... items → last item full width */
-  .paper__author-list > .paper__author-card:last-child:nth-child(odd) {
-    grid-column: 1 / -1 !important;
-  }
+	/* 1 item */
+	.paper__author-list>.paper__author-card:only-child {
+		grid-column: 1 / -1 !important;
+	}
+
+	/* 3, 5, 7, 9... items → last item full width */
+	.paper__author-list>.paper__author-card:last-child:nth-child(odd) {
+		grid-column: 1 / -1 !important;
+	}
 }
+
 @media (max-width: 640px) {
-    .links.desktop-links {
-    display: none;
+	.links.desktop-links {
+		display: none;
+	}
+
+	.links.mobile-links {
+		display: block;
+		margin-top: 8px;
+	}
+
+	.paper__author-list {
+		grid-template-columns: 1fr !important;
+		gap: 8px;
+	}
+
+	.paper__author-card {
+		grid-column: 1 / -1 !important;
+	}
+
+	.event-annual-papers {
+		margin-bottom: 0;
+	}
+
+	.event-annual-papers .paper__author .links .btn-download {
+		height: 34px;
+		background-position: 0 34px;
+		line-height: 34px;
+		font-size: 13px;
+	}
+
+	.event-annual-papers .paper__author .links .btn-download::after {
+		height: 34px;
+		width: 40px;
+	}
+
+	.event-annual-papers .paper {
+		padding: 12px;
+		gap: 12px;
+	}
+
+	.event-annual-papers .paper__content {
+		order: 1;
+	}
+
+	.event-annual-papers .paper__author {
+		order: 2;
+		flex: 0 0 auto;
+		width: 100%;
+		gap: 8px;
+	}
+
+
+	.event-annual-papers .paper__author-photo {
+		width: 48px;
+		height: 48px;
+		min-width: 48px;
+	}
+
+	/* Tighten excerpt line-height for mobile */
+	.event-annual-papers .paper__excerpt {
+		line-height: 1.7;
+	}
+
+	/* Title stays underlined but wraps cleanly */
+	.event-annual-papers .paper__title {
+		line-height: 1.45;
+	}
 }
-.links.mobile-links {
-    display: block;
-    margin-top: 8px;
-}
-  .paper__author-list {
-    grid-template-columns: 1fr !important;
-    gap: 8px;
-  }
 
-  .paper__author-card {
-    grid-column: 1 / -1 !important;
-  }
-    .event-annual-papers {
-        margin-bottom: 0;
-        }
-
-.event-annual-papers .paper__author .links .btn-download {
-    height: 34px;
-    background-position: 0 34px;
-    line-height: 34px;
-    font-size: 13px;
-}
-.event-annual-papers .paper__author .links .btn-download::after {
-    height: 34px;
-    width: 40px;
-}
-    .event-annual-papers .paper {
-        padding: 12px;
-        gap: 12px;
-    }
-
-    .event-annual-papers .paper__content {
-        order: 1;
-    }
-
-    .event-annual-papers .paper__author {
-        order: 2;
-        flex: 0 0 auto;
-        width: 100%;
-        gap: 8px;
-    }
-
-
-    .event-annual-papers .paper__author-photo {
-        width: 48px;
-        height: 48px;
-        min-width: 48px;
-    }
-
-    /* Tighten excerpt line-height for mobile */
-    .event-annual-papers .paper__excerpt {
-        line-height: 1.7;
-    }
-
-    /* Title stays underlined but wraps cleanly */
-    .event-annual-papers .paper__title {
-        line-height: 1.45;
-    }
-}
 @media (min-width: 768px) {
-    .page-content--events-conference .meta {
-        margin-bottom: 25px;
-    }
+	.page-content--events-conference .meta {
+		margin-bottom: 25px;
+	}
 }
+
 @media (max-width: 768px) {
-    .page-content--events-conference .post-content {
-        margin-top: 25px;
-    }
+	.page-content--events-conference .post-content {
+		margin-top: 25px;
+	}
 }
+
 .page-content--events-conference .post-content__details {
-    font-size: 16px;
+	font-size: 16px;
 }
 
 
-
-   .event-annual-papers .papers-list {
-    margin-bottom: 16px;
-    border-radius: 5px;
-    -o-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.35);
-    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.35);
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.35);
-    background-color: #fff;
-    flex-direction: column;
-    }
+.event-annual-papers .papers-list {
+	margin-bottom: 16px;
+	border-radius: 5px;
+	-o-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.35);
+	-webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.35);
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.35);
+	background-color: #fff;
+	flex-direction: column;
+}
 
 .event-annual-papers .paper:last-child {
-    margin-bottom: 20px;
+	margin-bottom: 20px;
 }
+
 .event-annual-papers .paper__details {
-    margin-bottom: 7px;
+	margin-bottom: 7px;
 }
+
 .event-annual-papers .paper__title {
-    display: inline-block;
-    margin-bottom: 0;
-    margin-inline-end: 4px;
+	display: inline-block;
+	margin-bottom: 0;
+	margin-inline-end: 4px;
 }
+
 .event-annual-papers .paper__details a.paper__version {
-    color: #CA9A00;
-    white-space: nowrap;
-    }
-    .event-annual-papers .paper__details a.paper__version:hover {
-        color: #00758c;
-    }
+	color: #CA9A00;
+	white-space: nowrap;
+}
+
+.event-annual-papers .paper__details a.paper__version:hover {
+	color: #00758c;
+}
 
 
-
-
-
-
-
-
-    /* Title becomes a clickable row with the toggle box first (RTL-safe) */
- .event-annual-papers .papers-list .papers-list__title {
-    padding: 20px;
-        color: #00758c;
-        font-size: 1.3em;
-        margin-top: 0;
-        margin-bottom: 0;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  cursor: pointer;
-  user-select: none;
-  transition: background .25s ease-in-out;
+/* Title becomes a clickable row with the toggle box first (RTL-safe) */
+.event-annual-papers .papers-list .papers-list__title {
+	padding: 20px;
+	color: #00758c;
+	font-size: 1.3em;
+	margin-top: 0;
+	margin-bottom: 0;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	cursor: pointer;
+	user-select: none;
+	transition: background .25s ease-in-out;
 }
 
 .event-annual-papers .papers-list .papers-list__title:hover {
-  background: linear-gradient(#f4f4f4 0%, #f4f4f4 47%, #ddd 100%);
+	background: linear-gradient(#f4f4f4 0%, #f4f4f4 47%, #ddd 100%);
 }
+
 .event-annual-papers .papers-list.papers-list.is-open .papers-list__title:hover {
-    background: none;
+	background: none;
 }
 
 /* Plus / minus box */
 .papers-list__toggle {
-  flex: 0 0 auto;
-  width: 18px;
-  height: 18px;
-  border: 2px solid #00758c;   /* change to your brand color */
-  border-radius: 2px;
-  position: relative;
-  background-color: #00758c;
-  transition: background-color .25s ease;
+	flex: 0 0 auto;
+	width: 18px;
+	height: 18px;
+	border: 2px solid #00758c;
+	/* change to your brand color */
+	border-radius: 2px;
+	position: relative;
+	background-color: #00758c;
+	transition: background-color .25s ease;
 }
+
 .papers-list.is-open .papers-list__toggle {
-    background: #fff; 
+	background: #fff;
 }
+
 /* Horizontal bar: always visible (the "minus") */
 .papers-list__toggle::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 8px;
-  height: 2px;
-  background: #fff;         /* match border */
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 8px;
+	height: 2px;
+	background: #fff;
+	/* match border */
 }
 
 /* Vertical bar: visible only when closed, turning minus into plus */
 .papers-list__toggle::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 2px;
-  height: 8px;
-  background: #fff;         /* match border */
-  transition: transform .25s ease, opacity .25s ease;
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 2px;
+	height: 8px;
+	background: #fff;
+	/* match border */
+	transition: transform .25s ease, opacity .25s ease;
 }
+
 .papers-list.is-open .papers-list__toggle::before {
-  background: #00758c;
+	background: #00758c;
 }
+
 /* Open state: hide the vertical bar so the box reads as a minus */
 .papers-list.is-open .papers-list__toggle::after {
-  transform: translate(-50%, -50%) scaleY(0);
-  opacity: 0;
-  background: #00758c;
+	transform: translate(-50%, -50%) scaleY(0);
+	opacity: 0;
+	background: #00758c;
 }
 
 /* Collapsible body wrapper (injected by JS) */
 .papers-list__body {
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height .3s ease;
-    margin: 0 20px 16px 20px;
+	overflow: hidden;
+	max-height: 0;
+	transition: max-height .3s ease;
+	margin: 0 20px 16px 20px;
 }
+
 /* Suppress the open/close animation during initial page setup */
 .papers-list--init .papers-list__body {
-  transition: none;
+	transition: none;
 }
 
-    @media (max-width: 768px) {
-        .event-annual-papers .paper:last-child {
-    margin-bottom: 15px;
-}
-  /* Title row: keep the toggle box aligned to the top when the title wraps to two lines */
-  .event-annual-papers .papers-list .papers-list__title {
-    font-size: 1.15em;
-    gap: 8px;
-    align-items: flex-start;
-    padding: 15px;
-  }
-.papers-list__body {
-    margin: 0 15px 16px 15px;
-}
-  /* Slightly smaller box, nudged down so it lines up with the first line of text */
-  .papers-list__toggle {
-    width: 14px;
-    height: 14px;
-  }
+@media (max-width: 768px) {
+	.event-annual-papers .paper:last-child {
+		margin-bottom: 15px;
+	}
 
-  /* Shorten the bars to match the smaller box */
-  .papers-list__toggle::before {
-    width: 6px;
-  }
+	/* Title row: keep the toggle box aligned to the top when the title wraps to two lines */
+	.event-annual-papers .papers-list .papers-list__title {
+		font-size: 1.15em;
+		gap: 8px;
+		align-items: flex-start;
+		padding: 15px;
+	}
 
-  .papers-list__toggle::after {
-    height: 6px;
-  }
-}
+	.papers-list__body {
+		margin: 0 15px 16px 15px;
+	}
+
+	/* Slightly smaller box, nudged down so it lines up with the first line of text */
+	.papers-list__toggle {
+		width: 14px;
+		height: 14px;
+	}
+
+	/* Shorten the bars to match the smaller box */
+	.papers-list__toggle::before {
+		width: 6px;
+	}
+
+	.papers-list__toggle::after {
+		height: 6px;
+	}
+}  
     </style>
     </head>
     <body style="overflow-x:scroll;" onhashchange="if (typeof(_spBodyOnHashChange) != 'undefined') _spBodyOnHashChange();" class="background visitor">
