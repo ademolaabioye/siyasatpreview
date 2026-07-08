@@ -179,6 +179,10 @@ var g_SPOffSwitches={};
     display: flex;
     flex-direction: column;
     gap: 5px;
+    text-align: left;
+}
+html[dir="rtl"] .event-annual-papers .paper__author-card .paper__author-info {
+    text-align: right;
 }
 .event-annual-papers .paper__author-card .paper__author-info * {
     display: block;
@@ -440,7 +444,6 @@ html[dir="rtl"] .event-annual-papers .paper__title {
 
    .event-annual-papers .papers-list {
     margin-bottom: 16px;
-    padding: 20px;
     border-radius: 5px;
     -o-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.35);
     -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.35);
@@ -453,11 +456,8 @@ html[dir="rtl"] .event-annual-papers .paper__title {
 .event-annual-papers .paper {
     box-shadow: none;
 }
-.event-annual-papers .paper:first-child {
-    margin-top: 20px;
-}
 .event-annual-papers .paper:last-child {
-    margin-bottom: 0;
+    margin-bottom: 20px;
 }
 .event-annual-papers .paper__details {
     margin-bottom: 7px;
@@ -484,6 +484,7 @@ html[dir="rtl"] .event-annual-papers .paper__title {
 
     /* Title becomes a clickable row with the toggle box first (RTL-safe) */
  .event-annual-papers .papers-list .papers-list__title {
+    padding: 20px;
         color: #00758c;
         font-size: 1.3em;
         margin-top: 0;
@@ -493,6 +494,14 @@ html[dir="rtl"] .event-annual-papers .paper__title {
   gap: 12px;
   cursor: pointer;
   user-select: none;
+  transition: background .25s ease-in-out;
+}
+
+.event-annual-papers .papers-list .papers-list__title:hover {
+  background: linear-gradient(#f4f4f4 0%, #f4f4f4 47%, #ddd 100%);
+}
+.event-annual-papers .papers-list.papers-list.is-open .papers-list__title:hover {
+    background: none;
 }
 
 /* Plus / minus box */
@@ -548,28 +557,27 @@ html[dir="rtl"] .event-annual-papers .paper__title {
   overflow: hidden;
   max-height: 0;
   transition: max-height .3s ease;
+    margin: 0 20px 16px 20px;
 }
-
 /* Suppress the open/close animation during initial page setup */
 .papers-list--init .papers-list__body {
   transition: none;
 }
 
-
     @media (max-width: 768px) {
-        .event-annual-papers .papers-list {
-    padding: 15px;
-        }
-        .event-annual-papers .paper:first-child {
-    margin-top: 15px;
+        .event-annual-papers .paper:last-child {
+    margin-bottom: 15px;
 }
   /* Title row: keep the toggle box aligned to the top when the title wraps to two lines */
   .event-annual-papers .papers-list .papers-list__title {
     font-size: 1.15em;
     gap: 8px;
     align-items: flex-start;
+    padding: 15px;
   }
-
+.papers-list__body {
+    margin: 0 15px 16px 15px;
+}
   /* Slightly smaller box, nudged down so it lines up with the first line of text */
   .papers-list__toggle {
     width: 14px;
@@ -1618,165 +1626,643 @@ catch(err)
                         </p>
                     
                     
-   <div class="event-annual-papers">
-    <div class="papers-list">
-
-    <article class="paper">
+  
+<div class="event-annual-papers">
+ 
+  <!-- ================= TRACK ONE ================= -->
+  <div class="papers-list">
+    <h2 class="papers-list__title">Track One: Track Title</h2>
+    <div class="papers-list__body">
+ 
+      <article class="paper">
         <div class="paper__content">
-        <span class="paper__language-badge" style="background-color: #00758c;">Paper in English</span>
-            <span class="paper__prev-title">Previous title</span>
-             <div style="
-display: flex;
-justify-content: space-between;
-">  
-            <h2 class="paper__title">
-                <a href="#">Why was Turkey's bloodiest coup also its most failed?</a>
-            </h2>
-             <div class="links desktop-links">
-        <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
-</div>
-</div>
-            <h3 class="paper__subtitle">Subtitle</h3>
-            <div class="paper__excerpt">
-                <p>Despite the presence of many factors favoring the coup's success — such as the element of surprise, at least in terms of timing, the weak international reactions, and the rebels' possession of significant firepower including the aircraft and tanks that rolled into the streets of Istanbul and Ankara, given the involvement of various branches of the armed forces and senior officers in the Turkish military — the coup attempt failed. The most prominent reason for its failure was the consensus among the political class, intellectual elites, the media, and broad segments of the Turkish people in rejecting the coup.</p>
+          <span class="paper__language-badge" style="background-color: #00758c;">Paper in English</span>
+          <span class="paper__prev-title">Previous Title</span>
+          <div style="display: flex; justify-content: space-between;">
+            <div class="paper__details">
+              <h3 class="paper__title">Why was Turkey's bloodiest coup the most failed of all coups?</h3>
+              <a href="#" class="paper__version">(Published version)</a>
             </div>
+            <div class="links desktop-links">
+              <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+            </div>
+          </div>
+          <h4 class="paper__subtitle">Subtitle</h4>
+          <div class="paper__excerpt">
+            <p>Despite the availability of many factors for the coup's success, such as the element of surprise (at least in terms of timing), weak international reactions, and the rebels' possession of significant firepower such as the aircraft and tanks that took to the streets of Istanbul and Ankara amid the participation of various branches of the armed forces and senior officers in the Turkish army, the coup attempt failed. The most prominent reason for its failure was the consensus of the political class, intellectual elites, the media, and broad segments of the Turkish people in rejecting the coup.</p>
+          </div>
         </div>
-
         <aside class="paper__author">
-            <div class="paper__author-list">
+          <div class="paper__author-list">
             <div class="paper__author-card">
-            <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
-                 <div class="paper__author-info">
-            <a class="paper__author-name" href="#" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</a>
-            <div class="paper__author-role">
-                <span>Researcher in the Israeli-Palestinian conflict.</span>
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span></div>
+              </div>
             </div>
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span><span>An optional extra line.</span></div>
+              </div>
             </div>
-</div>
-<div class="paper__author-card">
-            <img class="paper__author-photo"
-                 src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female"
-                 alt="Hamza Ibrahim Muhaisen">
-                 <div class="paper__author-info">
-            <a class="paper__author-name" href="#" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</a>
-            <div class="paper__author-role">
-                <span>Researcher in the Israeli-Palestinian conflict.</span>
-            <span>An optional extra line.</span>
-            </div>
-            </div>
-</div>
-</div>
-             <div class="links mobile-links">
-        <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
-</div>
+          </div>
+          <div class="links mobile-links">
+            <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+          </div>
         </aside>
-
-    </article>
-
-    <article class="paper">
+      </article>
+ 
+      <article class="paper">
         <div class="paper__content">
-        <span class="paper__language-badge" style="background-color: #CA9A00;">Paper in English</span>
-          <div style="
-display: flex;
-justify-content: space-between;">  <h2 class="paper__title">
-                Why was Turkey's bloodiest coup also its most failed?
-            </h2>
-             <div class="links desktop-links">
-        <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
-</div>
-</div>
-            <h3 class="paper__subtitle">Subtitle</h3>
-            <div class="paper__excerpt">
-                <p>Despite the presence of many factors favoring the coup's success — such as the element of surprise, at least in terms of timing, the weak international reactions, and the rebels' possession of significant firepower including the aircraft and tanks that rolled into the streets of Istanbul and Ankara, given the involvement of various branches of the armed forces and senior officers in the Turkish military — the coup attempt failed. The most prominent reason for its failure was the consensus among the political class, intellectual elites, the media, and broad segments of the Turkish people in rejecting the coup.</p>
+          <span class="paper__language-badge" style="background-color: #CA9A00;">Paper in English</span>
+          <div style="display: flex; justify-content: space-between;">
+            <h3 class="paper__title">Why was Turkey's bloodiest coup the most failed of all coups?</h3>
+            <div class="links desktop-links">
+              <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
             </div>
+          </div>
+          <h4 class="paper__subtitle">Subtitle</h4>
+          <div class="paper__excerpt">
+            <p>Despite the availability of many factors for the coup's success, such as the element of surprise (at least in terms of timing), weak international reactions, and the rebels' possession of significant firepower such as the aircraft and tanks that took to the streets of Istanbul and Ankara amid the participation of various branches of the armed forces and senior officers in the Turkish army, the coup attempt failed. The most prominent reason for its failure was the consensus of the political class, intellectual elites, the media, and broad segments of the Turkish people in rejecting the coup.</p>
+          </div>
         </div>
-
         <aside class="paper__author">
-            <div class="paper__author-list">
+          <div class="paper__author-list">
             <div class="paper__author-card">
-            <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
-                 <div class="paper__author-info">
-            <a class="paper__author-name" href="#" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</a>
-            <div class="paper__author-role">
-                <span>Researcher in the Israeli-Palestinian conflict.</span>
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span></div>
+              </div>
             </div>
-            </div>
-</div>
-</div>
-             <div class="links mobile-links">
-        <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
-</div>
+          </div>
+          <div class="links mobile-links">
+            <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+          </div>
         </aside>
-
-    </article>
-
-     <article class="paper">
+      </article>
+ 
+      <article class="paper">
         <div class="paper__content">
-        <span class="paper__language-badge" style="background-color: #CA9A00;">Paper in English</span>
-          <div style="
-display: flex;
-justify-content: space-between;">  <h2 class="paper__title">
-                Why was Turkey's bloodiest coup also its most failed?
-            </h2>
-             <div class="links desktop-links">
-        <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
-</div>
-</div>
-            <h3 class="paper__subtitle">Subtitle</h3>
-            <div class="paper__excerpt">
-                <p>Despite the presence of many factors favoring the coup's success — such as the element of surprise, at least in terms of timing, the weak international reactions, and the rebels' possession of significant firepower including the aircraft and tanks that rolled into the streets of Istanbul and Ankara, given the involvement of various branches of the armed forces and senior officers in the Turkish military — the coup attempt failed. The most prominent reason for its failure was the consensus among the political class, intellectual elites, the media, and broad segments of the Turkish people in rejecting the coup.</p>
+          <span class="paper__language-badge" style="background-color: #CA9A00;">Paper in English</span>
+          <div style="display: flex; justify-content: space-between;">
+            <h3 class="paper__title">Why was Turkey's bloodiest coup the most failed of all coups?</h3>
+            <div class="links desktop-links">
+              <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
             </div>
+          </div>
+          <h4 class="paper__subtitle">Subtitle</h4>
+          <div class="paper__excerpt">
+            <p>Despite the availability of many factors for the coup's success, such as the element of surprise (at least in terms of timing), weak international reactions, and the rebels' possession of significant firepower such as the aircraft and tanks that took to the streets of Istanbul and Ankara amid the participation of various branches of the armed forces and senior officers in the Turkish army, the coup attempt failed. The most prominent reason for its failure was the consensus of the political class, intellectual elites, the media, and broad segments of the Turkish people in rejecting the coup.</p>
+          </div>
         </div>
-
         <aside class="paper__author">
-            <div class="paper__author-list">
+          <div class="paper__author-list">
             <div class="paper__author-card">
-            <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
-                 <div class="paper__author-info">
-            <a class="paper__author-name" href="#" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</a>
-            <div class="paper__author-role">
-                <span>Researcher in the Israeli-Palestinian conflict.</span>
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span></div>
+              </div>
             </div>
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span></div>
+              </div>
             </div>
-</div>
-<div class="paper__author-card">
-            <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
-                 <div class="paper__author-info">
-            <a class="paper__author-name" href="#" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</a>
-            <div class="paper__author-role">
-                <span>Researcher in the Israeli-Palestinian conflict.</span>
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span></div>
+              </div>
             </div>
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span></div>
+              </div>
             </div>
-</div>
-<div class="paper__author-card">
-            <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
-                 <div class="paper__author-info">
-            <a class="paper__author-name" href="#" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</a>
-            <div class="paper__author-role">
-                <span>Researcher in the Israeli-Palestinian conflict.</span>
-            </div>
-            </div>
-</div>
-<div class="paper__author-card">
-            <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
-                 <div class="paper__author-info">
-            <a class="paper__author-name" href="#" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</a>
-            <div class="paper__author-role">
-                <span>Researcher in the Israeli-Palestinian conflict.</span>
-            </div>
-            </div>
-</div>
-</div>
-             <div class="links mobile-links">
-        <a id="ctl00_PlaceHolderMain_EventPdf_rpEventPdf_ctl00_HyperLink1" class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
-</div>
+          </div>
+          <div class="links mobile-links">
+            <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+          </div>
         </aside>
-
-    </article>
-
-</div>
-    <div class="pagination clearfix"><div class="more"><a href="#" id="ctl00_ctl51_g_fade5e38_30e7_4ef0_892a_458228fd5435_csr52_Results_showmore"><i class="fa fa-plus"></i></a></div><div class="pages"> 104 / 4</div></div>
-
+      </article>
+ 
+      <article class="paper">
+        <div class="paper__content">
+          <span class="paper__language-badge" style="background-color: #00758c;">Paper in English</span>
+          <span class="paper__prev-title">Previous Title</span>
+          <div style="display: flex; justify-content: space-between;">
+            <div class="paper__details">
+              <h3 class="paper__title">Why was Turkey's bloodiest coup the most failed of all coups?</h3>
+              <a href="#" class="paper__version">(Published version)</a>
+            </div>
+            <div class="links desktop-links">
+              <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+            </div>
+          </div>
+          <h4 class="paper__subtitle">Subtitle</h4>
+          <div class="paper__excerpt">
+            <p>Despite the availability of many factors for the coup's success, such as the element of surprise (at least in terms of timing), weak international reactions, and the rebels' possession of significant firepower such as the aircraft and tanks that took to the streets of Istanbul and Ankara amid the participation of various branches of the armed forces and senior officers in the Turkish army, the coup attempt failed. The most prominent reason for its failure was the consensus of the political class, intellectual elites, the media, and broad segments of the Turkish people in rejecting the coup.</p>
+          </div>
+        </div>
+        <aside class="paper__author">
+          <div class="paper__author-list">
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span></div>
+              </div>
+            </div>
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span><span>An optional extra line.</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="links mobile-links">
+            <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+          </div>
+        </aside>
+      </article>
+ 
+      <article class="paper">
+        <div class="paper__content">
+          <span class="paper__language-badge" style="background-color: #CA9A00;">Paper in English</span>
+          <div style="display: flex; justify-content: space-between;">
+            <h3 class="paper__title">Why was Turkey's bloodiest coup the most failed of all coups?</h3>
+            <div class="links desktop-links">
+              <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+            </div>
+          </div>
+          <h4 class="paper__subtitle">Subtitle</h4>
+          <div class="paper__excerpt">
+            <p>Despite the availability of many factors for the coup's success, such as the element of surprise (at least in terms of timing), weak international reactions, and the rebels' possession of significant firepower such as the aircraft and tanks that took to the streets of Istanbul and Ankara amid the participation of various branches of the armed forces and senior officers in the Turkish army, the coup attempt failed. The most prominent reason for its failure was the consensus of the political class, intellectual elites, the media, and broad segments of the Turkish people in rejecting the coup.</p>
+          </div>
+        </div>
+        <aside class="paper__author">
+          <div class="paper__author-list">
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="links mobile-links">
+            <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+          </div>
+        </aside>
+      </article>
+ 
+      <article class="paper">
+        <div class="paper__content">
+          <span class="paper__language-badge" style="background-color: #CA9A00;">Paper in English</span>
+          <div style="display: flex; justify-content: space-between;">
+            <h3 class="paper__title">Why was Turkey's bloodiest coup the most failed of all coups?</h3>
+            <div class="links desktop-links">
+              <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+            </div>
+          </div>
+          <h4 class="paper__subtitle">Subtitle</h4>
+          <div class="paper__excerpt">
+            <p>Despite the availability of many factors for the coup's success, such as the element of surprise (at least in terms of timing), weak international reactions, and the rebels' possession of significant firepower such as the aircraft and tanks that took to the streets of Istanbul and Ankara amid the participation of various branches of the armed forces and senior officers in the Turkish army, the coup attempt failed. The most prominent reason for its failure was the consensus of the political class, intellectual elites, the media, and broad segments of the Turkish people in rejecting the coup.</p>
+          </div>
+        </div>
+        <aside class="paper__author">
+          <div class="paper__author-list">
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span></div>
+              </div>
+            </div>
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span></div>
+              </div>
+            </div>
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span></div>
+              </div>
+            </div>
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="links mobile-links">
+            <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+          </div>
+        </aside>
+      </article>
+ 
+    </div>
+  </div>
+ 
+  <!-- ================= TRACK TWO ================= -->
+  <div class="papers-list">
+    <h2 class="papers-list__title">Track Two: Track Title</h2>
+    <div class="papers-list__body">
+ 
+      <article class="paper">
+        <div class="paper__content">
+          <span class="paper__language-badge" style="background-color: #00758c;">Paper in English</span>
+          <span class="paper__prev-title">Previous Title</span>
+          <div style="display: flex; justify-content: space-between;">
+            <div class="paper__details">
+              <h3 class="paper__title">Why was Turkey's bloodiest coup the most failed of all coups?</h3>
+              <a href="#" class="paper__version">(Published version)</a>
+            </div>
+            <div class="links desktop-links">
+              <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+            </div>
+          </div>
+          <h4 class="paper__subtitle">Subtitle</h4>
+          <div class="paper__excerpt">
+            <p>Despite the availability of many factors for the coup's success, such as the element of surprise (at least in terms of timing), weak international reactions, and the rebels' possession of significant firepower such as the aircraft and tanks that took to the streets of Istanbul and Ankara amid the participation of various branches of the armed forces and senior officers in the Turkish army, the coup attempt failed. The most prominent reason for its failure was the consensus of the political class, intellectual elites, the media, and broad segments of the Turkish people in rejecting the coup.</p>
+          </div>
+        </div>
+        <aside class="paper__author">
+          <div class="paper__author-list">
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span></div>
+              </div>
+            </div>
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span><span>An optional extra line.</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="links mobile-links">
+            <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+          </div>
+        </aside>
+      </article>
+ 
+      <article class="paper">
+        <div class="paper__content">
+          <span class="paper__language-badge" style="background-color: #CA9A00;">Paper in English</span>
+          <div style="display: flex; justify-content: space-between;">
+            <h3 class="paper__title">Why was Turkey's bloodiest coup the most failed of all coups?</h3>
+            <div class="links desktop-links">
+              <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+            </div>
+          </div>
+          <h4 class="paper__subtitle">Subtitle</h4>
+          <div class="paper__excerpt">
+            <p>Despite the availability of many factors for the coup's success, such as the element of surprise (at least in terms of timing), weak international reactions, and the rebels' possession of significant firepower such as the aircraft and tanks that took to the streets of Istanbul and Ankara amid the participation of various branches of the armed forces and senior officers in the Turkish army, the coup attempt failed. The most prominent reason for its failure was the consensus of the political class, intellectual elites, the media, and broad segments of the Turkish people in rejecting the coup.</p>
+          </div>
+        </div>
+        <aside class="paper__author">
+          <div class="paper__author-list">
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="links mobile-links">
+            <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+          </div>
+        </aside>
+      </article>
+ 
+      <article class="paper">
+        <div class="paper__content">
+          <span class="paper__language-badge" style="background-color: #CA9A00;">Paper in English</span>
+          <div style="display: flex; justify-content: space-between;">
+            <h3 class="paper__title">Why was Turkey's bloodiest coup the most failed of all coups?</h3>
+            <div class="links desktop-links">
+              <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+            </div>
+          </div>
+          <h4 class="paper__subtitle">Subtitle</h4>
+          <div class="paper__excerpt">
+            <p>Despite the availability of many factors for the coup's success, such as the element of surprise (at least in terms of timing), weak international reactions, and the rebels' possession of significant firepower such as the aircraft and tanks that took to the streets of Istanbul and Ankara amid the participation of various branches of the armed forces and senior officers in the Turkish army, the coup attempt failed. The most prominent reason for its failure was the consensus of the political class, intellectual elites, the media, and broad segments of the Turkish people in rejecting the coup.</p>
+          </div>
+        </div>
+        <aside class="paper__author">
+          <div class="paper__author-list">
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span></div>
+              </div>
+            </div>
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span></div>
+              </div>
+            </div>
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span></div>
+              </div>
+            </div>
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="links mobile-links">
+            <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+          </div>
+        </aside>
+      </article>
+ 
+      <article class="paper">
+        <div class="paper__content">
+          <span class="paper__language-badge" style="background-color: #00758c;">Paper in English</span>
+          <span class="paper__prev-title">Previous Title</span>
+          <div style="display: flex; justify-content: space-between;">
+            <div class="paper__details">
+              <h3 class="paper__title">Why was Turkey's bloodiest coup the most failed of all coups?</h3>
+              <a href="#" class="paper__version">(Published version)</a>
+            </div>
+            <div class="links desktop-links">
+              <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+            </div>
+          </div>
+          <h4 class="paper__subtitle">Subtitle</h4>
+          <div class="paper__excerpt">
+            <p>Despite the availability of many factors for the coup's success, such as the element of surprise (at least in terms of timing), weak international reactions, and the rebels' possession of significant firepower such as the aircraft and tanks that took to the streets of Istanbul and Ankara amid the participation of various branches of the armed forces and senior officers in the Turkish army, the coup attempt failed. The most prominent reason for its failure was the consensus of the political class, intellectual elites, the media, and broad segments of the Turkish people in rejecting the coup.</p>
+          </div>
+        </div>
+        <aside class="paper__author">
+          <div class="paper__author-list">
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span></div>
+              </div>
+            </div>
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span><span>An optional extra line.</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="links mobile-links">
+            <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+          </div>
+        </aside>
+      </article>
+ 
+      <article class="paper">
+        <div class="paper__content">
+          <span class="paper__language-badge" style="background-color: #CA9A00;">Paper in English</span>
+          <div style="display: flex; justify-content: space-between;">
+            <h3 class="paper__title">Why was Turkey's bloodiest coup the most failed of all coups?</h3>
+            <div class="links desktop-links">
+              <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+            </div>
+          </div>
+          <h4 class="paper__subtitle">Subtitle</h4>
+          <div class="paper__excerpt">
+            <p>Despite the availability of many factors for the coup's success, such as the element of surprise (at least in terms of timing), weak international reactions, and the rebels' possession of significant firepower such as the aircraft and tanks that took to the streets of Istanbul and Ankara amid the participation of various branches of the armed forces and senior officers in the Turkish army, the coup attempt failed. The most prominent reason for its failure was the consensus of the political class, intellectual elites, the media, and broad segments of the Turkish people in rejecting the coup.</p>
+          </div>
+        </div>
+        <aside class="paper__author">
+          <div class="paper__author-list">
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="links mobile-links">
+            <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+          </div>
+        </aside>
+      </article>
+ 
+      <article class="paper">
+        <div class="paper__content">
+          <span class="paper__language-badge" style="background-color: #CA9A00;">Paper in English</span>
+          <div style="display: flex; justify-content: space-between;">
+            <h3 class="paper__title">Why was Turkey's bloodiest coup the most failed of all coups?</h3>
+            <div class="links desktop-links">
+              <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+            </div>
+          </div>
+          <h4 class="paper__subtitle">Subtitle</h4>
+          <div class="paper__excerpt">
+            <p>Despite the availability of many factors for the coup's success, such as the element of surprise (at least in terms of timing), weak international reactions, and the rebels' possession of significant firepower such as the aircraft and tanks that took to the streets of Istanbul and Ankara amid the participation of various branches of the armed forces and senior officers in the Turkish army, the coup attempt failed. The most prominent reason for its failure was the consensus of the political class, intellectual elites, the media, and broad segments of the Turkish people in rejecting the coup.</p>
+          </div>
+        </div>
+        <aside class="paper__author">
+          <div class="paper__author-list">
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span></div>
+              </div>
+            </div>
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span></div>
+              </div>
+            </div>
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span></div>
+              </div>
+            </div>
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="links mobile-links">
+            <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+          </div>
+        </aside>
+      </article>
+ 
+    </div>
+  </div>
+ 
+  <!-- ================= TRACK THREE ================= -->
+  <div class="papers-list">
+    <h2 class="papers-list__title">Track Three: Track Title</h2>
+    <div class="papers-list__body">
+ 
+      <article class="paper">
+        <div class="paper__content">
+          <span class="paper__language-badge" style="background-color: #00758c;">Paper in English</span>
+          <span class="paper__prev-title">Previous Title</span>
+          <div style="display: flex; justify-content: space-between;">
+            <div class="paper__details">
+              <h3 class="paper__title">Why was Turkey's bloodiest coup the most failed of all coups?</h3>
+              <a href="#" class="paper__version">(Published version)</a>
+            </div>
+            <div class="links desktop-links">
+              <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+            </div>
+          </div>
+          <h4 class="paper__subtitle">Subtitle</h4>
+          <div class="paper__excerpt">
+            <p>Despite the availability of many factors for the coup's success, such as the element of surprise (at least in terms of timing), weak international reactions, and the rebels' possession of significant firepower such as the aircraft and tanks that took to the streets of Istanbul and Ankara amid the participation of various branches of the armed forces and senior officers in the Turkish army, the coup attempt failed. The most prominent reason for its failure was the consensus of the political class, intellectual elites, the media, and broad segments of the Turkish people in rejecting the coup.</p>
+          </div>
+        </div>
+        <aside class="paper__author">
+          <div class="paper__author-list">
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span></div>
+              </div>
+            </div>
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span><span>An optional extra line.</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="links mobile-links">
+            <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+          </div>
+        </aside>
+      </article>
+ 
+      <article class="paper">
+        <div class="paper__content">
+          <span class="paper__language-badge" style="background-color: #CA9A00;">Paper in English</span>
+          <div style="display: flex; justify-content: space-between;">
+            <h3 class="paper__title">Why was Turkey's bloodiest coup the most failed of all coups?</h3>
+            <div class="links desktop-links">
+              <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+            </div>
+          </div>
+          <h4 class="paper__subtitle">Subtitle</h4>
+          <div class="paper__excerpt">
+            <p>Despite the availability of many factors for the coup's success, such as the element of surprise (at least in terms of timing), weak international reactions, and the rebels' possession of significant firepower such as the aircraft and tanks that took to the streets of Istanbul and Ankara amid the participation of various branches of the armed forces and senior officers in the Turkish army, the coup attempt failed. The most prominent reason for its failure was the consensus of the political class, intellectual elites, the media, and broad segments of the Turkish people in rejecting the coup.</p>
+          </div>
+        </div>
+        <aside class="paper__author">
+          <div class="paper__author-list">
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="links mobile-links">
+            <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+          </div>
+        </aside>
+      </article>
+ 
+      <article class="paper">
+        <div class="paper__content">
+          <span class="paper__language-badge" style="background-color: #CA9A00;">Paper in English</span>
+          <div style="display: flex; justify-content: space-between;">
+            <h3 class="paper__title">Why was Turkey's bloodiest coup the most failed of all coups?</h3>
+            <div class="links desktop-links">
+              <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+            </div>
+          </div>
+          <h4 class="paper__subtitle">Subtitle</h4>
+          <div class="paper__excerpt">
+            <p>Despite the availability of many factors for the coup's success, such as the element of surprise (at least in terms of timing), weak international reactions, and the rebels' possession of significant firepower such as the aircraft and tanks that took to the streets of Istanbul and Ankara amid the participation of various branches of the armed forces and senior officers in the Turkish army, the coup attempt failed. The most prominent reason for its failure was the consensus of the political class, intellectual elites, the media, and broad segments of the Turkish people in rejecting the coup.</p>
+          </div>
+        </div>
+        <aside class="paper__author">
+          <div class="paper__author-list">
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span></div>
+              </div>
+            </div>
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span></div>
+              </div>
+            </div>
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span></div>
+              </div>
+            </div>
+            <div class="paper__author-card">
+              <img class="paper__author-photo" src="https://images.squarespace-cdn.com/content/v1/66a4f1fc404ca05cac7d8ec8/5ec3a2e8-0eae-466f-abe8-1019f3cd2182/Author+Headshots+Female" alt="Hamza Ibrahim Muhaisen">
+              <div class="paper__author-info">
+                <span class="paper__author-name" title="Hamza Ibrahim Muhaisen">Hamza Ibrahim Muhaisen</span>
+                <div class="paper__author-role"><span>Researcher in the Israeli-Palestinian conflict.</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="links mobile-links">
+            <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
+          </div>
+        </aside>
+      </article>
+ 
+    </div>
+  </div>
+ 
 </div>
                     
                         </div>
@@ -2608,7 +3094,123 @@ g_QuickLaunchControlIds.push("zz1_SecondLevelMenu");_spBodyOnLoadFunctionNames.p
             
             
             
-            
+                     <script>
+    jQuery(function ($) {
+  var $container = $('.event-annual-papers');
+  if (!$container.length) return;
+
+  var $lists = $container.find('.papers-list');
+
+  $lists.each(function (index) {
+    var $list = $(this);
+    var $title = $list.find('.papers-list__title').first();
+    var $body = $list.find('.papers-list__body').first();
+    if (!$title.length || !$body.length) return;
+
+    // Inject the plus/minus box at the start of the title
+    $('<span class="papers-list__toggle" aria-hidden="true"></span>').prependTo($title);
+
+    // Accessibility
+    $title.attr({ role: 'button', tabindex: '0' });
+
+    // No animation on first paint
+    $list.addClass('papers-list--init');
+
+    if (index === 0) {
+      $list.addClass('is-open');
+      $title.attr('aria-expanded', 'true');
+      $body.css('maxHeight', 'none');
+    } else {
+      $title.attr('aria-expanded', 'false');
+      $body.css('maxHeight', '0px');
+    }
+
+    $title.on('click', function () { togglePanel($list); });
+    $title.on('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        togglePanel($list);
+      }
+    });
+  });
+
+  // Re-enable animations after the initial layout settles
+  requestAnimationFrame(function () {
+    $lists.removeClass('papers-list--init');
+  });
+
+  function togglePanel($list) {
+    if ($list.hasClass('is-open')) {
+      closeList($list); // clicking the open one collapses it
+    } else {
+      // Close any other open panel instantly so layout settles at once
+      $lists.each(function () {
+        var $l = $(this);
+        if (!$l.is($list)) closeList($l, true);
+      });
+      openList($list);
+      scrollTitleToTop($list); // land on the new panel's first paper
+    }
+  }
+
+  function openList($list) {
+    var $body = $list.find('.papers-list__body').first();
+    var $title = $list.find('.papers-list__title').first();
+    $list.addClass('is-open');
+    $title.attr('aria-expanded', 'true');
+    if (!$body.length) return;
+
+    $body.css('maxHeight', $body[0].scrollHeight + 'px');
+    $body.on('transitionend.papers', function (e) {
+      if (e.originalEvent.propertyName !== 'max-height') return;
+      $body.off('transitionend.papers');
+      // Release the cap so late-loading images do not get clipped
+      if ($list.hasClass('is-open')) $body.css('maxHeight', 'none');
+    });
+  }
+
+  function closeList($list, instant) {
+    var $body = $list.find('.papers-list__body').first();
+    var $title = $list.find('.papers-list__title').first();
+    if (!$list.hasClass('is-open')) return;
+    $title.attr('aria-expanded', 'false');
+    if (!$body.length) return;
+
+    if (instant) {
+      // Collapse immediately (used when switching to another panel)
+      $list.removeClass('is-open');
+      $body.css('maxHeight', '0px');
+      return;
+    }
+
+    // Animated close (used when clicking an open panel to collapse it)
+    $body.css('maxHeight', $body[0].scrollHeight + 'px');
+    $body[0].offsetHeight; // force reflow
+    requestAnimationFrame(function () {
+      $list.removeClass('is-open');
+      $body.css('maxHeight', '0px');
+    });
+  }
+
+  function scrollTitleToTop($list) {
+    var $title = $list.find('.papers-list__title').first();
+    if (!$title.length) return;
+    // Next frame: the instant close above has settled, so offset is final
+    requestAnimationFrame(function () {
+      var offset = 20; // px gap above the title; raise if you have a sticky header
+      var top = $title.offset().top - offset;
+      $('html, body').animate({ scrollTop: top }, 300);
+    });
+  }
+
+  // Keep open panel sized correctly on viewport changes
+  $(window).on('resize', function () {
+    var $open = $container.find('.papers-list.is-open .papers-list__body').first();
+    if ($open.length && $open[0].style.maxHeight !== 'none') {
+      $open.css('maxHeight', $open[0].scrollHeight + 'px');
+    }
+  });
+});   </script>
             
             
             
