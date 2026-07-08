@@ -133,7 +133,7 @@ var g_SPOffSwitches={};
 
     <link rel="stylesheet" type="text/css" href="https://www.dohainstitute.org/_catalogs/masterpage/Assets/css/app-ltr.css"></link>
     
-    <style>
+  <style>
  /* Wrapper */
 .event-annual-papers {
 	font-size: 14px;
@@ -297,13 +297,14 @@ html[dir="rtl"] .event-annual-papers .paper__author-card .paper__author-info {
 }
 
 .event-annual-papers .paper__title {
-	margin: 0 0 7px;
+    margin: 0;
 	font-size: 1em;
 	font-family: "BahijTheSansArabic-Bold";
 	font-weight: normal;
 	line-height: 150%;
 	text-align: left;
 	color: #333333;
+	display: inline;
 }
 
 html[dir="rtl"] .event-annual-papers .paper__title {
@@ -476,12 +477,10 @@ html[dir="rtl"] .event-annual-papers .paper__title {
 
 .event-annual-papers .paper__details {
 	margin-bottom: 7px;
+    text-align: left;
 }
-
-.event-annual-papers .paper__title {
-	display: inline-block;
-	margin-bottom: 0;
-	margin-inline-end: 4px;
+html[dir="rtl"] .event-annual-papers .paper__details {
+    text-align: right;
 }
 
 .event-annual-papers .paper__details a.paper__version {
@@ -616,7 +615,11 @@ html[dir="rtl"] .event-annual-papers .paper__title {
 	.papers-list__toggle::after {
 		height: 6px;
 	}
-} 
+}  
+.paper__details-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
     </style>
     </head>
     <body style="overflow-x:scroll;" onhashchange="if (typeof(_spBodyOnHashChange) != 'undefined') _spBodyOnHashChange();" class="background visitor">
@@ -1662,7 +1665,7 @@ catch(err)
         <div class="paper__content">
           <span class="paper__language-badge" style="background-color: #00758c;">Paper in English</span>
           <span class="paper__prev-title">Previous Title</span>
-          <div style="display: flex; justify-content: space-between;">
+          <div class="paper__details-wrapper">
             <div class="paper__details">
               <h3 class="paper__title">Why was Turkey's bloodiest coup the most failed of all coups?</h3>
               <a href="#" class="paper__version">(Published version)</a>
@@ -1702,7 +1705,7 @@ catch(err)
       <article class="paper">
         <div class="paper__content">
           <span class="paper__language-badge" style="background-color: #CA9A00;">Paper in English</span>
-          <div style="display: flex; justify-content: space-between;">
+          <div class="paper__details-wrapper">
             <h3 class="paper__title">Why was Turkey's bloodiest coup the most failed of all coups?</h3>
             <div class="links desktop-links">
               <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
@@ -1732,7 +1735,7 @@ catch(err)
       <article class="paper">
         <div class="paper__content">
           <span class="paper__language-badge" style="background-color: #CA9A00;">Paper in English</span>
-          <div style="display: flex; justify-content: space-between;">
+          <div class="paper__details-wrapper">
             <h3 class="paper__title">Why was Turkey's bloodiest coup the most failed of all coups?</h3>
             <div class="links desktop-links">
               <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
@@ -1784,7 +1787,7 @@ catch(err)
         <div class="paper__content">
           <span class="paper__language-badge" style="background-color: #00758c;">Paper in English</span>
           <span class="paper__prev-title">Previous Title</span>
-          <div style="display: flex; justify-content: space-between;">
+          <div class="paper__details-wrapper">
             <div class="paper__details">
               <h3 class="paper__title">Why was Turkey's bloodiest coup the most failed of all coups?</h3>
               <a href="#" class="paper__version">(Published version)</a>
@@ -1824,7 +1827,7 @@ catch(err)
       <article class="paper">
         <div class="paper__content">
           <span class="paper__language-badge" style="background-color: #CA9A00;">Paper in English</span>
-          <div style="display: flex; justify-content: space-between;">
+          <div class="paper__details-wrapper">
             <h3 class="paper__title">Why was Turkey's bloodiest coup the most failed of all coups?</h3>
             <div class="links desktop-links">
               <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
@@ -1854,7 +1857,7 @@ catch(err)
       <article class="paper">
         <div class="paper__content">
           <span class="paper__language-badge" style="background-color: #CA9A00;">Paper in English</span>
-          <div style="display: flex; justify-content: space-between;">
+          <div class="paper__details-wrapper">
             <h3 class="paper__title">Why was Turkey's bloodiest coup the most failed of all coups?</h3>
             <div class="links desktop-links">
               <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
@@ -1914,7 +1917,7 @@ catch(err)
         <div class="paper__content">
           <span class="paper__language-badge" style="background-color: #00758c;">Paper in English</span>
           <span class="paper__prev-title">Previous Title</span>
-          <div style="display: flex; justify-content: space-between;">
+          <div class="paper__details-wrapper">
             <div class="paper__details">
               <h3 class="paper__title">Why was Turkey's bloodiest coup the most failed of all coups?</h3>
               <a href="#" class="paper__version">(Published version)</a>
@@ -1954,7 +1957,7 @@ catch(err)
       <article class="paper">
         <div class="paper__content">
           <span class="paper__language-badge" style="background-color: #CA9A00;">Paper in English</span>
-          <div style="display: flex; justify-content: space-between;">
+          <div class="paper__details-wrapper">
             <h3 class="paper__title">Why was Turkey's bloodiest coup the most failed of all coups?</h3>
             <div class="links desktop-links">
               <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
@@ -1984,7 +1987,7 @@ catch(err)
       <article class="paper">
         <div class="paper__content">
           <span class="paper__language-badge" style="background-color: #CA9A00;">Paper in English</span>
-          <div style="display: flex; justify-content: space-between;">
+          <div class="paper__details-wrapper">
             <h3 class="paper__title">Why was Turkey's bloodiest coup the most failed of all coups?</h3>
             <div class="links desktop-links">
               <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
@@ -2036,7 +2039,7 @@ catch(err)
         <div class="paper__content">
           <span class="paper__language-badge" style="background-color: #00758c;">Paper in English</span>
           <span class="paper__prev-title">Previous Title</span>
-          <div style="display: flex; justify-content: space-between;">
+          <div class="paper__details-wrapper">
             <div class="paper__details">
               <h3 class="paper__title">Why was Turkey's bloodiest coup the most failed of all coups?</h3>
               <a href="#" class="paper__version">(Published version)</a>
@@ -2076,7 +2079,7 @@ catch(err)
       <article class="paper">
         <div class="paper__content">
           <span class="paper__language-badge" style="background-color: #CA9A00;">Paper in English</span>
-          <div style="display: flex; justify-content: space-between;">
+          <div class="paper__details-wrapper">
             <h3 class="paper__title">Why was Turkey's bloodiest coup the most failed of all coups?</h3>
             <div class="links desktop-links">
               <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
@@ -2106,7 +2109,7 @@ catch(err)
       <article class="paper">
         <div class="paper__content">
           <span class="paper__language-badge" style="background-color: #CA9A00;">Paper in English</span>
-          <div style="display: flex; justify-content: space-between;">
+          <div class="paper__details-wrapper">
             <h3 class="paper__title">Why was Turkey's bloodiest coup the most failed of all coups?</h3>
             <div class="links desktop-links">
               <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
@@ -2166,7 +2169,7 @@ catch(err)
         <div class="paper__content">
           <span class="paper__language-badge" style="background-color: #00758c;">Paper in English</span>
           <span class="paper__prev-title">Previous Title</span>
-          <div style="display: flex; justify-content: space-between;">
+          <div class="paper__details-wrapper">
             <div class="paper__details">
               <h3 class="paper__title">Why was Turkey's bloodiest coup the most failed of all coups?</h3>
               <a href="#" class="paper__version">(Published version)</a>
@@ -2206,7 +2209,7 @@ catch(err)
       <article class="paper">
         <div class="paper__content">
           <span class="paper__language-badge" style="background-color: #CA9A00;">Paper in English</span>
-          <div style="display: flex; justify-content: space-between;">
+          <div class="paper__details-wrapper">
             <h3 class="paper__title">Why was Turkey's bloodiest coup the most failed of all coups?</h3>
             <div class="links desktop-links">
               <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>
@@ -2236,7 +2239,7 @@ catch(err)
       <article class="paper">
         <div class="paper__content">
           <span class="paper__language-badge" style="background-color: #CA9A00;">Paper in English</span>
-          <div style="display: flex; justify-content: space-between;">
+          <div class="paper__details-wrapper">
             <h3 class="paper__title">Why was Turkey's bloodiest coup the most failed of all coups?</h3>
             <div class="links desktop-links">
               <a class="btn-download" title="Download paper" href="https://www.dohainstitute.org/en/Lists/ACRPS-PDFDocumentLibrary/palestine-forum-2023-booklet-en.pdf" target="_blank">Download paper</a>

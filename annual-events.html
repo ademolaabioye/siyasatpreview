@@ -297,13 +297,14 @@ html[dir="rtl"] .event-annual-papers .paper__author-card .paper__author-info {
 }
 
 .event-annual-papers .paper__title {
-	margin: 0 0 7px;
+    margin: 0;
 	font-size: 1em;
 	font-family: "BahijTheSansArabic-Bold";
 	font-weight: normal;
 	line-height: 150%;
 	text-align: left;
 	color: #333333;
+	display: inline;
 }
 
 html[dir="rtl"] .event-annual-papers .paper__title {
@@ -476,12 +477,10 @@ html[dir="rtl"] .event-annual-papers .paper__title {
 
 .event-annual-papers .paper__details {
 	margin-bottom: 7px;
+    text-align: left;
 }
-
-.event-annual-papers .paper__title {
-	display: inline-block;
-	margin-bottom: 0;
-	margin-inline-end: 4px;
+html[dir="rtl"] .event-annual-papers .paper__details {
+    text-align: right;
 }
 
 .event-annual-papers .paper__details a.paper__version {
@@ -617,6 +616,10 @@ html[dir="rtl"] .event-annual-papers .paper__title {
 		height: 6px;
 	}
 }  
+.paper__details-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
     </style>
     </head>
     <body style="overflow-x:scroll;" onhashchange="if (typeof(_spBodyOnHashChange) != 'undefined') _spBodyOnHashChange();" class="background visitor">
@@ -1655,10 +1658,7 @@ catch(err)
             <div class="paper__content">
             <span class="paper__language-badge" style="background-color: #00758c;">الورقه باللغة الإنكليزية</span>
                 <span class="paper__prev-title">عنوان قبلي</span>
-                 <div style="
-    display: flex;
-    justify-content: space-between;
-">  <div class="paper__details">
+                 <div class="paper__details-wrapper">  <div class="paper__details">
                 <h3 class="paper__title">
                     لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟
                 </h3><a href="#" class="paper__version">(نسخة منشورة)</a>
@@ -1707,9 +1707,7 @@ catch(err)
         <article class="paper">
             <div class="paper__content">
             <span class="paper__language-badge" style="background-color: #CA9A00;">الورقه باللغة الإنكليزية</span>
-              <div style="
-    display: flex;
-    justify-content: space-between;">  <h3 class="paper__title">
+              <div class="paper__details-wrapper">  <h3 class="paper__title">
                     لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟
                 </h3>
                  <div class="links desktop-links">
@@ -1744,9 +1742,7 @@ catch(err)
          <article class="paper">
             <div class="paper__content">
             <span class="paper__language-badge" style="background-color: #CA9A00;">الورقه باللغة الإنكليزية</span>
-              <div style="
-    display: flex;
-    justify-content: space-between;">  <h3 class="paper__title">
+              <div class="paper__details-wrapper">  <h3 class="paper__title">
                     لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟
                 </h3>
                  <div class="links desktop-links">
@@ -1861,9 +1857,7 @@ catch(err)
         <article class="paper">
             <div class="paper__content">
             <span class="paper__language-badge" style="background-color: #CA9A00;">الورقه باللغة الإنكليزية</span>
-              <div style="
-    display: flex;
-    justify-content: space-between;">  <h3 class="paper__title">
+              <div class="paper__details-wrapper">  <h3 class="paper__title">
                     لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟
                 </h3>
                  <div class="links desktop-links">
@@ -1898,9 +1892,7 @@ catch(err)
          <article class="paper">
             <div class="paper__content">
             <span class="paper__language-badge" style="background-color: #CA9A00;">الورقه باللغة الإنكليزية</span>
-              <div style="
-    display: flex;
-    justify-content: space-between;">  <h3 class="paper__title">
+              <div class="paper__details-wrapper">  <h3 class="paper__title">
                     لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟
                 </h3>
                  <div class="links desktop-links">
@@ -2020,9 +2012,7 @@ catch(err)
         <article class="paper">
             <div class="paper__content">
             <span class="paper__language-badge" style="background-color: #CA9A00;">الورقه باللغة الإنكليزية</span>
-              <div style="
-    display: flex;
-    justify-content: space-between;">  <h3 class="paper__title">
+              <div class="paper__details-wrapper">  <h3 class="paper__title">
                     لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟
                 </h3>
                  <div class="links desktop-links">
@@ -2057,9 +2047,7 @@ catch(err)
          <article class="paper">
             <div class="paper__content">
             <span class="paper__language-badge" style="background-color: #CA9A00;">الورقه باللغة الإنكليزية</span>
-              <div style="
-    display: flex;
-    justify-content: space-between;">  <h3 class="paper__title">
+              <div class="paper__details-wrapper">  <h3 class="paper__title">
                     لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟
                 </h3>
                  <div class="links desktop-links">
@@ -2174,9 +2162,7 @@ catch(err)
         <article class="paper">
             <div class="paper__content">
             <span class="paper__language-badge" style="background-color: #CA9A00;">الورقه باللغة الإنكليزية</span>
-              <div style="
-    display: flex;
-    justify-content: space-between;">  <h3 class="paper__title">
+              <div class="paper__details-wrapper">  <h3 class="paper__title">
                     لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟
                 </h3>
                  <div class="links desktop-links">
@@ -2211,9 +2197,7 @@ catch(err)
          <article class="paper">
             <div class="paper__content">
             <span class="paper__language-badge" style="background-color: #CA9A00;">الورقه باللغة الإنكليزية</span>
-              <div style="
-    display: flex;
-    justify-content: space-between;">  <h3 class="paper__title">
+              <div class="paper__details-wrapper">  <h3 class="paper__title">
                     لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟
                 </h3>
                  <div class="links desktop-links">
@@ -2328,9 +2312,7 @@ catch(err)
         <article class="paper">
             <div class="paper__content">
             <span class="paper__language-badge" style="background-color: #CA9A00;">الورقه باللغة الإنكليزية</span>
-              <div style="
-    display: flex;
-    justify-content: space-between;">  <h3 class="paper__title">
+              <div class="paper__details-wrapper">  <h3 class="paper__title">
                     لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟
                 </h3>
                  <div class="links desktop-links">
@@ -2365,9 +2347,7 @@ catch(err)
          <article class="paper">
             <div class="paper__content">
             <span class="paper__language-badge" style="background-color: #CA9A00;">الورقه باللغة الإنكليزية</span>
-              <div style="
-    display: flex;
-    justify-content: space-between;">  <h3 class="paper__title">
+              <div class="paper__details-wrapper">  <h3 class="paper__title">
                     لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟
                 </h3>
                  <div class="links desktop-links">
@@ -2487,9 +2467,7 @@ catch(err)
         <article class="paper">
             <div class="paper__content">
             <span class="paper__language-badge" style="background-color: #CA9A00;">الورقه باللغة الإنكليزية</span>
-              <div style="
-    display: flex;
-    justify-content: space-between;">  <h3 class="paper__title">
+              <div class="paper__details-wrapper">  <h3 class="paper__title">
                     لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟
                 </h3>
                  <div class="links desktop-links">
@@ -2524,9 +2502,7 @@ catch(err)
          <article class="paper">
             <div class="paper__content">
             <span class="paper__language-badge" style="background-color: #CA9A00;">الورقه باللغة الإنكليزية</span>
-              <div style="
-    display: flex;
-    justify-content: space-between;">  <h3 class="paper__title">
+              <div class="paper__details-wrapper">  <h3 class="paper__title">
                     لماذا كان انقلاب تركيا الأشدّ دموية أكثر الانقلابات فشلًا؟
                 </h3>
                  <div class="links desktop-links">
