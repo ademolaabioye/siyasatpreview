@@ -240,11 +240,13 @@ var g_SPOffSwitches={};
 
 .event-annual-papers .paper__author-name {
     font-size: .875em;
+}
+.event-annual-papers a.paper__author-name {
     color: #00758c;
     text-decoration: underline !important;
 }
 
-.event-annual-papers .paper__author-name:hover {
+.event-annual-papers a.paper__author-name:hover {
     color: #CA9A00;
 }
 
@@ -256,18 +258,6 @@ var g_SPOffSwitches={};
 }
 
 /* Download button */
-.event-annual-papers .links .btn-download {
-    color: #666;
-}
-.event-annual-papers .links .btn-download:hover {
-    color: #CA9A00;
-}
-.event-annual-papers .paper__author-card {
-    text-align: left;
-}
-html[dir="rtl"] .event-annual-papers .paper__author-card {
-    text-align: right;
-}
 .event-annual-papers .paper__author .links {
     width: 100%;
 }
@@ -444,6 +434,156 @@ html[dir="rtl"] .event-annual-papers .paper__title {
 }
 .page-content--events-conference .post-content__details {
     font-size: 16px;
+}
+
+
+
+   .event-annual-papers .papers-list {
+    margin-bottom: 16px;
+    padding: 20px;
+    border-radius: 5px;
+    -o-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.35);
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.35);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.35);
+    background-color: #fff;
+    flex-direction: column;
+    }
+
+    
+.event-annual-papers .paper {
+    box-shadow: none;
+}
+.event-annual-papers .paper:first-child {
+    margin-top: 20px;
+}
+.event-annual-papers .paper:last-child {
+    margin-bottom: 0;
+}
+.event-annual-papers .paper__details {
+    margin-bottom: 7px;
+}
+.event-annual-papers .paper__title {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-inline-end: 4px;
+}
+.event-annual-papers .paper__details a.paper__version {
+    color: #CA9A00;
+    white-space: nowrap;
+    }
+    .event-annual-papers .paper__details a.paper__version:hover {
+        color: #00758c;
+    }
+
+
+
+
+
+
+
+
+    /* Title becomes a clickable row with the toggle box first (RTL-safe) */
+ .event-annual-papers .papers-list .papers-list__title {
+        color: #00758c;
+        font-size: 1.3em;
+        margin-top: 0;
+        margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Plus / minus box */
+.papers-list__toggle {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #00758c;   /* change to your brand color */
+  border-radius: 2px;
+  position: relative;
+  background-color: #00758c;
+  transition: background-color .25s ease;
+}
+.papers-list.is-open .papers-list__toggle {
+    background: #fff; 
+}
+/* Horizontal bar: always visible (the "minus") */
+.papers-list__toggle::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 2px;
+  background: #fff;         /* match border */
+}
+
+/* Vertical bar: visible only when closed, turning minus into plus */
+.papers-list__toggle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px;
+  height: 8px;
+  background: #fff;         /* match border */
+  transition: transform .25s ease, opacity .25s ease;
+}
+.papers-list.is-open .papers-list__toggle::before {
+  background: #00758c;
+}
+/* Open state: hide the vertical bar so the box reads as a minus */
+.papers-list.is-open .papers-list__toggle::after {
+  transform: translate(-50%, -50%) scaleY(0);
+  opacity: 0;
+  background: #00758c;
+}
+
+/* Collapsible body wrapper (injected by JS) */
+.papers-list__body {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height .3s ease;
+}
+
+/* Suppress the open/close animation during initial page setup */
+.papers-list--init .papers-list__body {
+  transition: none;
+}
+
+
+    @media (max-width: 768px) {
+        .event-annual-papers .papers-list {
+    padding: 15px;
+        }
+        .event-annual-papers .paper:first-child {
+    margin-top: 15px;
+}
+  /* Title row: keep the toggle box aligned to the top when the title wraps to two lines */
+  .event-annual-papers .papers-list .papers-list__title {
+    font-size: 1.15em;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  /* Slightly smaller box, nudged down so it lines up with the first line of text */
+  .papers-list__toggle {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* Shorten the bars to match the smaller box */
+  .papers-list__toggle::before {
+    width: 6px;
+  }
+
+  .papers-list__toggle::after {
+    height: 6px;
+  }
 }
     </style>
     </head>

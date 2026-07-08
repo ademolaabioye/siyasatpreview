@@ -440,7 +440,6 @@ html[dir="rtl"] .event-annual-papers .paper__title {
 
    .event-annual-papers .papers-list {
     margin-bottom: 16px;
-    padding: 20px;
     border-radius: 5px;
     -o-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.35);
     -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.35);
@@ -453,11 +452,8 @@ html[dir="rtl"] .event-annual-papers .paper__title {
 .event-annual-papers .paper {
     box-shadow: none;
 }
-.event-annual-papers .paper:first-child {
-    margin-top: 20px;
-}
 .event-annual-papers .paper:last-child {
-    margin-bottom: 0;
+    margin-bottom: 20px;
 }
 .event-annual-papers .paper__details {
     margin-bottom: 7px;
@@ -484,6 +480,7 @@ html[dir="rtl"] .event-annual-papers .paper__title {
 
     /* Title becomes a clickable row with the toggle box first (RTL-safe) */
  .event-annual-papers .papers-list .papers-list__title {
+    padding: 20px;
         color: #00758c;
         font-size: 1.3em;
         margin-top: 0;
@@ -493,6 +490,14 @@ html[dir="rtl"] .event-annual-papers .paper__title {
   gap: 12px;
   cursor: pointer;
   user-select: none;
+  transition: background .25s ease-in-out;
+}
+
+.event-annual-papers .papers-list .papers-list__title:hover {
+  background: linear-gradient(#f4f4f4 0%, #f4f4f4 47%, #ddd 100%);
+}
+.event-annual-papers .papers-list.papers-list.is-open .papers-list__title:hover {
+    background: none;
 }
 
 /* Plus / minus box */
@@ -548,28 +553,27 @@ html[dir="rtl"] .event-annual-papers .paper__title {
   overflow: hidden;
   max-height: 0;
   transition: max-height .3s ease;
+    margin: 0 20px 16px 20px;
 }
-
 /* Suppress the open/close animation during initial page setup */
 .papers-list--init .papers-list__body {
   transition: none;
 }
 
-
     @media (max-width: 768px) {
-        .event-annual-papers .papers-list {
-    padding: 15px;
-        }
-        .event-annual-papers .paper:first-child {
-    margin-top: 15px;
+        .event-annual-papers .paper:last-child {
+    margin-bottom: 15px;
 }
   /* Title row: keep the toggle box aligned to the top when the title wraps to two lines */
   .event-annual-papers .papers-list .papers-list__title {
     font-size: 1.15em;
     gap: 8px;
     align-items: flex-start;
+    padding: 15px;
   }
-
+.papers-list__body {
+    margin: 0 15px 16px 15px;
+}
   /* Slightly smaller box, nudged down so it lines up with the first line of text */
   .papers-list__toggle {
     width: 14px;
