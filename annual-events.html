@@ -148,9 +148,6 @@ var g_SPOffSwitches={};
     margin-bottom: 16px;
     padding: 15px;
     border-radius: 5px;
-    -o-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.35);
-    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.35);
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.35);
     background-color: #F6F6F6;
         flex-direction: column;
 }
@@ -265,10 +262,11 @@ html[dir="rtl"] .event-annual-papers .paper__author-card .paper__author-info {
 .event-annual-papers .paper__author .links {
     width: 100%;
 }
-
+.event-annual-papers .links .btn-download {
+    color: #666;
+    }
 .event-annual-papers .paper__author .links .btn-download {
     display: block;
-    color: #666;
     height: 30px;
     background-position: 0 30px;
     line-height: 30px;
@@ -279,7 +277,7 @@ html[dir="rtl"] .event-annual-papers .paper__author-card .paper__author-info {
     width: 36px;
     background-repeat: round;
 }
-.event-annual-papers .paper__author .links .btn-download:hover {
+.event-annual-papers .links .btn-download:hover {
     color: #CA9A00;
 }
 
@@ -320,7 +318,7 @@ html[dir="rtl"] .event-annual-papers .paper__title {
     display: block;
     line-height: 1.1;
 }
-
+ 
 .event-annual-papers .paper__subtitle {
     margin: 0 0 10px;
     font-size: 0.9em;
@@ -329,7 +327,7 @@ html[dir="rtl"] .event-annual-papers .paper__title {
     display: block;
     line-height: 1.1;
 }
-
+ 
 .event-annual-papers .paper__excerpt {
     font-size: 1em;
     color: #333;
@@ -452,10 +450,6 @@ html[dir="rtl"] .event-annual-papers .paper__title {
     flex-direction: column;
     }
 
-    
-.event-annual-papers .paper {
-    box-shadow: none;
-}
 .event-annual-papers .paper:last-child {
     margin-bottom: 20px;
 }
@@ -1623,10 +1617,7 @@ catch(err)
                               <p>نص تقديمي عن الأوراق وربما يذكر أن الؤراق غير محررة أو معلومات أخرى عن طبيعة الأوراق والمشاركة. نص تقديمي عن الأوراق وربما يذكر أن الؤراق غير محررة أو معلومات خرى عن طبيعة الأوراق والمشاركة. نص تقديمي عن الأوراق وربما يذكر أن الؤراق غير محررة أو معلومات أخرى عن طبيعة الأوراق والمشاركة. نص تقديمي عن الأوراق وربما يذكر أن الؤراق غير محررة أو معلومات أخرى عن طبيعة الأوراق والمشاركة. نص تقديمي عن الأوراق وربما يذكر أن الؤراق غير محررة أو معلومات أخرى عن طبيعة الأوراق والمشاركة. نص تقديمي عن الأوراق وربما يذكر أن الؤراق غير محررة أو معلومات أخرى عن طبيعة الأوراق والمشاركة. أو معلومات أخرى عن طبيعة الأوراق والمشاركة.</p>
    
    </div> </p>
-                    </div>
-                </div>
-
-   <div class="event-annual-papers">
+    <div class="event-annual-papers">
     <div class="papers-list">
     <h2 class="papers-list__title">المسار الأول: عنوان المسار</h2>
     <div class="papers-list__body">
@@ -2566,6 +2557,8 @@ catch(err)
 </div>
     </div>
 </div>
+                    </div>
+                </div>
                        
                 <div id="back2top">
                     <a href="#"><i class="fa fa-chevron-up"></i></a>
